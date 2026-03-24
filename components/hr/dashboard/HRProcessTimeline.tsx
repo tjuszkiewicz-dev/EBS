@@ -66,8 +66,8 @@ export const HRProcessTimeline: React.FC<Props> = ({ currentStep, onNavigate }) 
                 let textClass = 'text-slate-400 opacity-60';
 
                 if (status === 'DONE') {
-                    circleClass = 'bg-emerald-50 text-emerald-600 border-emerald-100';
-                    textClass = 'text-emerald-700 font-medium';
+                    circleClass = 'bg-teal-50 text-teal-600 border-teal-100';
+                    textClass = 'text-teal-700 font-medium';
                 } else if (status === 'ACTIVE') {
                     circleClass = 'bg-indigo-600 text-white border-indigo-600 shadow-md shadow-indigo-200';
                     textClass = 'text-indigo-700 font-bold';
@@ -102,8 +102,8 @@ export const HRProcessTimeline: React.FC<Props> = ({ currentStep, onNavigate }) 
                 let textClass = 'text-slate-400';
                 
                 if (status === 'DONE') {
-                    circleClass = 'bg-emerald-100 text-emerald-600 border-emerald-200';
-                    textClass = 'text-emerald-700';
+                    circleClass = 'bg-teal-100 text-teal-600 border-teal-200';
+                    textClass = 'text-teal-700';
                 } else if (status === 'ACTIVE') {
                     circleClass = 'bg-indigo-600 text-white border-indigo-600 shadow-md shadow-indigo-200 scale-110';
                     textClass = 'text-indigo-700 font-bold';
@@ -128,7 +128,7 @@ export const HRProcessTimeline: React.FC<Props> = ({ currentStep, onNavigate }) 
             })}
             
             {currentStep === 'COMPLETE' && (
-                <div className="flex items-center justify-center bg-emerald-500 text-white text-xs font-bold px-3 py-1 rounded-full absolute -right-2 -top-2 shadow-sm animate-in fade-in zoom-in">
+                <div className="flex items-center justify-center bg-teal-500 text-white text-xs font-bold px-3 py-1 rounded-full absolute -right-2 -top-2 shadow-sm animate-in fade-in zoom-in">
                     Cykl Zamknięty
                 </div>
             )}

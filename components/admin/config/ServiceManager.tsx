@@ -87,8 +87,8 @@ export const ServiceManager: React.FC<ServiceManagerProps> = ({ services, onMana
                                 ? <Badge variant="indigo">Subskrypcja</Badge> 
                                 : <Badge variant="neutral">Jednorazowe</Badge>
                             }
-                            <button onClick={(e) => toggleActive(s, e)} className="text-slate-300 hover:text-emerald-500 transition" title={s.isActive ? "Ukryj" : "Aktywuj"}>
-                                {s.isActive ? <ToggleRight size={28} className="text-emerald-500"/> : <ToggleLeft size={28}/>}
+                            <button onClick={(e) => toggleActive(s, e)} className="text-slate-300 hover:text-teal-500 transition" title={s.isActive ? "Ukryj" : "Aktywuj"}>
+                                {s.isActive ? <ToggleRight size={28} className="text-teal-500"/> : <ToggleLeft size={28}/>}
                             </button>
                         </div>
                     </div>
@@ -189,7 +189,7 @@ export const ServiceManager: React.FC<ServiceManagerProps> = ({ services, onMana
                         
                         <div className="p-3 bg-slate-50 rounded-lg flex items-center justify-between border border-slate-200 cursor-pointer" onClick={() => setEditingItem({...editingItem, isActive: !editingItem.isActive})}>
                             <span className="text-sm font-bold text-slate-700">Widoczność w katalogu</span>
-                            {editingItem.isActive ? <ToggleRight size={32} className="text-emerald-500"/> : <ToggleLeft size={32} className="text-slate-300"/>}
+                            {editingItem.isActive ? <ToggleRight size={32} className="text-teal-500"/> : <ToggleLeft size={32} className="text-slate-300"/>}
                         </div>
                     </div>
                     <div className="p-5 border-t border-slate-200 flex justify-end gap-3 bg-slate-50">

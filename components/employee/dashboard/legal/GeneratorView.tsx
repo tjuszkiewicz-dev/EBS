@@ -33,7 +33,7 @@ export const GeneratorView: React.FC<GeneratorViewProps> = ({
                 <div className="space-y-8 max-w-6xl mx-auto">
                     <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-4">
                         <div className="flex items-center gap-4">
-                            <div className="p-3 bg-emerald-100 rounded-2xl text-emerald-600 shadow-md shadow-emerald-100">
+                            <div className="p-3 bg-teal-100 rounded-2xl text-teal-600 shadow-md shadow-teal-100">
                                 <FilePlus size={28} />
                             </div>
                             <div>
@@ -56,17 +56,17 @@ export const GeneratorView: React.FC<GeneratorViewProps> = ({
                             <button 
                                 key={tpl.id}
                                 onClick={() => setSelectedTemplate(tpl)}
-                                className="group relative flex flex-col p-8 text-left rounded-3xl border border-slate-200 bg-white hover:border-emerald-300 hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300"
+                                className="group relative flex flex-col p-8 text-left rounded-3xl border border-slate-200 bg-white hover:border-teal-300 hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300"
                             >
-                                <div className="absolute top-6 right-6 p-2 bg-slate-50 text-slate-300 group-hover:bg-emerald-50 group-hover:text-emerald-500 rounded-xl transition-all">
+                                <div className="absolute top-6 right-6 p-2 bg-slate-50 text-slate-300 group-hover:bg-teal-50 group-hover:text-teal-500 rounded-xl transition-all">
                                     <ChevronRight size={18} />
                                 </div>
-                                <div className="p-3 bg-emerald-50 text-emerald-600 rounded-2xl w-fit mb-6 shadow-inner tracking-widest uppercase font-bold text-[10px]">
+                                <div className="p-3 bg-teal-50 text-teal-600 rounded-2xl w-fit mb-6 shadow-inner tracking-widest uppercase font-bold text-[10px]">
                                     {tpl.category}
                                 </div>
-                                <h4 className="text-xl font-bold text-slate-900 group-hover:text-emerald-700 mb-2 transition-colors">{tpl.name}</h4>
+                                <h4 className="text-xl font-bold text-slate-900 group-hover:text-teal-700 mb-2 transition-colors">{tpl.name}</h4>
                                 <p className="text-sm text-slate-500 leading-relaxed font-medium mb-6 group-hover:text-slate-600 transition-colors">{tpl.description}</p>
-                                <div className="mt-auto flex items-center gap-2 text-emerald-600 text-xs font-bold uppercase tracking-wider group-hover:gap-3 transition-all pt-4 border-t border-slate-50">
+                                <div className="mt-auto flex items-center gap-2 text-teal-600 text-xs font-bold uppercase tracking-wider group-hover:gap-3 transition-all pt-4 border-t border-slate-50">
                                     Wypełnij Formularz
                                     <Wand2 size={14} />
                                 </div>
@@ -105,7 +105,7 @@ export const GeneratorView: React.FC<GeneratorViewProps> = ({
                             <div>
                                 <h3 className="text-xl font-bold text-slate-900 tracking-tight">{selectedTemplate.name}</h3>
                                 <div className="flex items-center gap-2 mt-0.5">
-                                    <span className="text-[10px] bg-emerald-100 text-emerald-700 font-bold px-2 py-0.5 rounded-full uppercase">{selectedTemplate.category}</span>
+                                    <span className="text-[10px] bg-teal-100 text-teal-700 font-bold px-2 py-0.5 rounded-full uppercase">{selectedTemplate.category}</span>
                                     <span className="text-xs text-slate-400 font-medium">Uzupełnij wymagane pola</span>
                                 </div>
                             </div>
@@ -169,7 +169,7 @@ export const GeneratorView: React.FC<GeneratorViewProps> = ({
                             {generatedDoc && (
                                 <button 
                                     onClick={handleDownloadPDF}
-                                    className="flex items-center gap-2 px-4 py-2 bg-emerald-600 text-white rounded-xl text-xs font-bold shadow-lg shadow-emerald-100 hover:bg-emerald-700 transition-all active:scale-95"
+                                    className="flex items-center gap-2 px-4 py-2 bg-teal-600 text-white rounded-xl text-xs font-bold shadow-lg shadow-teal-100 hover:bg-teal-700 transition-all active:scale-95"
                                 >
                                     <Download size={14} />
                                     Pobierz PDF
@@ -187,7 +187,7 @@ export const GeneratorView: React.FC<GeneratorViewProps> = ({
                                     <div className="flex gap-1.5">
                                         <div className="w-3 h-3 rounded-full bg-red-400/20"></div>
                                         <div className="w-3 h-3 rounded-full bg-amber-400/20"></div>
-                                        <div className="w-3 h-3 rounded-full bg-emerald-400/20"></div>
+                                        <div className="w-3 h-3 rounded-full bg-teal-400/20"></div>
                                     </div>
                                 </div>
                                 <div className="flex-1 overflow-y-auto bg-slate-50 p-4">

@@ -39,12 +39,12 @@ export const SecureMessengerWidget: React.FC<Props> = ({ hasAccess = true, onPur
             <div className="relative p-6 h-full flex flex-col justify-between z-10">
               <div>
                 <div className="flex items-center gap-2 mb-3">
-                  <span className="px-2 py-0.5 rounded text-[10px] font-bold tracking-wider bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 uppercase animate-pulse">
+                  <span className="px-2 py-0.5 rounded text-[10px] font-bold tracking-wider bg-teal-500/20 text-teal-400 border border-teal-500/30 uppercase animate-pulse">
                     Enterprise Security
                   </span>
                 </div>
                 
-                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-emerald-400 transition-colors flex items-center gap-2">
+                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-teal-400 transition-colors flex items-center gap-2">
                   <Lock className="w-5 h-5" />
                   Secure Messenger
                 </h3>
@@ -58,12 +58,12 @@ export const SecureMessengerWidget: React.FC<Props> = ({ hasAccess = true, onPur
                    <div className="w-8 h-8 rounded-full bg-slate-700 border-2 border-slate-800 flex items-center justify-center text-xs text-white shadow-sm z-20">
                       <Shield size={14} />
                    </div>
-                   <div className="w-8 h-8 rounded-full bg-emerald-900/50 border-2 border-slate-800 flex items-center justify-center text-xs text-emerald-400 shadow-sm z-10">
+                   <div className="w-8 h-8 rounded-full bg-teal-900/50 border-2 border-slate-800 flex items-center justify-center text-xs text-teal-400 shadow-sm z-10">
                       <Lock size={14} />
                    </div>
                 </div>
                 
-                <div className="w-10 h-10 rounded-full bg-white/5 group-hover:bg-emerald-500 group-hover:text-white flex items-center justify-center transition-all duration-300 shadow-lg border border-white/10 group-hover:border-emerald-400 transform group-hover:translate-x-1">
+                <div className="w-10 h-10 rounded-full bg-white/5 group-hover:bg-teal-500 group-hover:text-white flex items-center justify-center transition-all duration-300 shadow-lg border border-white/10 group-hover:border-teal-400 transform group-hover:translate-x-1">
                   <ArrowRight className="w-5 h-5" />
                 </div>
               </div>

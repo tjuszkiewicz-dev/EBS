@@ -109,9 +109,9 @@ export function DataTable<T extends { id: string | number }>({
                 placeholder={searchPlaceholder}
                 value={searchTerm}
                 onChange={(e) => { setSearchTerm(e.target.value); setCurrentPage(1); }}
-                className="pl-9 pr-4 py-2 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 w-full sm:w-64 text-slate-700 placeholder:text-slate-400 transition-all bg-white"
+                className="pl-9 pr-4 py-2 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 w-full sm:w-64 text-slate-700 placeholder:text-slate-400 transition-all bg-white"
               />
-              <Search size={16} className="absolute left-3 top-2.5 text-slate-400 group-focus-within:text-emerald-500 transition-colors" />
+              <Search size={16} className="absolute left-3 top-2.5 text-slate-400 group-focus-within:text-teal-500 transition-colors" />
            </div>
            
            {/* Custom Actions (e.g. Export Button) */}

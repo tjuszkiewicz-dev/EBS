@@ -151,7 +151,7 @@ export const AnalyzerView: React.FC<AnalyzerViewProps> = ({
                         <div className="bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden flex-1 flex flex-col">
                             <div className="px-6 py-5 bg-slate-50 border-b border-slate-200 flex items-center justify-between">
                                 <div className="flex items-center gap-3">
-                                    <div className="w-10 h-10 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center shadow-inner">
+                                    <div className="w-10 h-10 bg-teal-100 text-teal-600 rounded-xl flex items-center justify-center shadow-inner">
                                         <CheckCircle2 size={24} />
                                     </div>
                                     <div>
@@ -165,7 +165,7 @@ export const AnalyzerView: React.FC<AnalyzerViewProps> = ({
                                 <div className="flex gap-2">
                                     <button 
                                         onClick={saveAnalysisToCases}
-                                        className="p-2.5 bg-white text-emerald-600 hover:bg-emerald-50 rounded-xl transition-all border border-slate-200 shadow-sm flex items-center gap-2 font-bold text-xs"
+                                        className="p-2.5 bg-white text-teal-600 hover:bg-teal-50 rounded-xl transition-all border border-slate-200 shadow-sm flex items-center gap-2 font-bold text-xs"
                                         title="Zapisz w moich sprawach"
                                     >
                                         <Save size={18} />
@@ -192,9 +192,9 @@ export const AnalyzerView: React.FC<AnalyzerViewProps> = ({
                             </button>
                             <button 
                                 onClick={() => setView('CASE_LIST')}
-                                className="group p-5 bg-white border border-slate-200 rounded-2xl hover:border-emerald-400 transition-all text-left shadow-sm"
+                                className="group p-5 bg-white border border-slate-200 rounded-2xl hover:border-teal-400 transition-all text-left shadow-sm"
                             >
-                                <div className="w-10 h-10 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                                <div className="w-10 h-10 bg-teal-50 text-teal-600 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
                                     <History size={20} />
                                 </div>
                                 <h5 className="font-bold text-slate-800 text-sm mb-1">Moje Sprawy</h5>

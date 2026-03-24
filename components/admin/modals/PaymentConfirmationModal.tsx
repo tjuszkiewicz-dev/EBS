@@ -39,7 +39,7 @@ export const PaymentConfirmationModal: React.FC<PaymentConfirmationModalProps> =
         isOpen={isOpen}
         onClose={onClose}
         title="Księgowanie Wypłaty"
-        icon={<CreditCard size={20} className="text-emerald-600"/>}
+        icon={<CreditCard size={20} className="text-teal-600"/>}
         maxWidth="max-w-md"
         footer={
             <>
@@ -57,9 +57,9 @@ export const PaymentConfirmationModal: React.FC<PaymentConfirmationModalProps> =
     >
         <div className="space-y-6">
             {/* Summary Card */}
-            <div className="bg-emerald-50 border border-emerald-100 rounded-xl p-4 text-center">
-                <p className="label-text text-emerald-600">Kwota Przelewu</p>
-                <p className="text-3xl font-bold text-emerald-700">{buyback.totalValue.toFixed(2)} PLN</p>
+            <div className="bg-teal-50 border border-teal-100 rounded-xl p-4 text-center">
+                <p className="label-text text-teal-600">Kwota Przelewu</p>
+                <p className="text-3xl font-bold text-teal-700">{buyback.totalValue.toFixed(2)} PLN</p>
             </div>
 
             {/* Recipient Details */}
@@ -88,7 +88,7 @@ export const PaymentConfirmationModal: React.FC<PaymentConfirmationModalProps> =
                         type="date" 
                         value={date}
                         onChange={(e) => setDate(e.target.value)}
-                        className="input-field bg-white focus:ring-emerald-500"
+                        className="input-field bg-white focus:ring-teal-500"
                     />
                 </div>
                 <div>
@@ -100,7 +100,7 @@ export const PaymentConfirmationModal: React.FC<PaymentConfirmationModalProps> =
                         value={reference}
                         onChange={(e) => setReference(e.target.value)}
                         placeholder="np. ELIXIR-12345678"
-                        className="input-field font-mono focus:ring-emerald-500"
+                        className="input-field font-mono focus:ring-teal-500"
                     />
                 </div>
             </div>

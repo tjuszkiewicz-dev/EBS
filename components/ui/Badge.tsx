@@ -13,7 +13,7 @@ export const Badge: React.FC<BadgeProps> = ({ children, variant = 'neutral', cla
   const getStyles = () => {
     switch (variant) {
       case 'success':
-        return 'bg-emerald-100 text-emerald-700 border-emerald-200';
+        return 'bg-teal-100 text-teal-700 border-teal-200';
       case 'warning':
         return 'bg-amber-100 text-amber-700 border-amber-200';
       case 'error':

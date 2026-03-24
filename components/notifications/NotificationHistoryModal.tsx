@@ -30,7 +30,7 @@ export const NotificationHistoryModal: React.FC<NotificationHistoryModalProps> =
         className: 'w-24 align-top pt-3',
         cell: (n) => {
             switch(n.type) {
-                case 'SUCCESS': return <div className="flex items-center gap-2"><CheckCircle size={16} className="text-emerald-500"/> <span className="text-xs font-medium text-emerald-700 hidden sm:inline">Sukces</span></div>;
+                case 'SUCCESS': return <div className="flex items-center gap-2"><CheckCircle size={16} className="text-teal-500"/> <span className="text-xs font-medium text-teal-700 hidden sm:inline">Sukces</span></div>;
                 case 'WARNING': return <div className="flex items-center gap-2"><AlertTriangle size={16} className="text-amber-500"/> <span className="text-xs font-medium text-amber-700 hidden sm:inline">Ostrzeżenie</span></div>;
                 case 'ERROR': return <div className="flex items-center gap-2"><AlertCircle size={16} className="text-red-500"/> <span className="text-xs font-medium text-red-700 hidden sm:inline">Błąd</span></div>;
                 default: return <div className="flex items-center gap-2"><Info size={16} className="text-blue-500"/> <span className="text-xs font-medium text-blue-700 hidden sm:inline">Info</span></div>;

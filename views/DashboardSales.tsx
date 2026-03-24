@@ -43,14 +43,14 @@ export const DashboardSales: React.FC<DashboardSalesProps> = ({
   
   const chartData = [
       { name: 'Pozyskanie (New Biz)', value: acquisition, color: '#4f46e5' }, // Indigo
-      { name: 'Utrzymanie (Recurring)', value: recurring, color: '#10b981' }  // Emerald
+      { name: 'Utrzymanie (Recurring)', value: recurring, color: '#10b981' }  // teal
   ];
 
   return (
     <div className="space-y-6">
         <PageHeader 
             title="Panel Sprzedaży" 
-            description={`Witaj, ${currentUser.name} (${currentUser.role}). Zarządzaj swoim portfelem i prowizjami.`}
+            description={`Witaj, ${currentUser.name} (${currentUser.role}). Prowizja za pozyskanie kontraktu: 45% | Prowizja odnawialna za utrzymanie firmy: 5% miesięcznie.`}
         >
             <Tabs 
                 activeTab={activeTab}
@@ -95,7 +95,7 @@ export const DashboardSales: React.FC<DashboardSalesProps> = ({
                                             </div>
                                             <div className="text-right">
                                                 <p className="text-xs font-bold text-slate-500 uppercase">Saldo Aktywne</p>
-                                                <p className="font-mono text-emerald-600 font-bold">{c.balanceActive} pkt</p>
+                                                <p className="font-mono text-teal-600 font-bold">{c.balanceActive} pkt</p>
                                             </div>
                                         </div>
                                     ))}

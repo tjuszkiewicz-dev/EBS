@@ -130,7 +130,7 @@ Zespół Administratorów EBS`
             
             <div className="flex justify-between items-start relative z-10">
                 <div className="flex items-center gap-4">
-                    <div className="w-16 h-16 rounded-full bg-emerald-500 flex items-center justify-center text-2xl font-bold border-4 border-slate-800 shadow-lg">
+                    <div className="w-16 h-16 rounded-full bg-teal-500 flex items-center justify-center text-2xl font-bold border-4 border-slate-800 shadow-lg">
                         {user.name.charAt(0)}
                     </div>
                     <div>
@@ -179,9 +179,9 @@ Zespół Administratorów EBS`
                             <p className="label-text">Obecny IBAN</p>
                             <p className="font-mono text-sm text-slate-600 truncate">{formatDisplayIban(user.finance?.payoutAccount?.iban || '')}</p>
                         </div>
-                        <div className="bg-white p-3 rounded border border-emerald-300 ring-2 ring-emerald-100">
-                            <p className="label-text text-emerald-600">Nowy IBAN (Wniosek)</p>
-                            <p className="font-mono text-sm text-emerald-800 font-bold truncate">
+                        <div className="bg-white p-3 rounded border border-teal-300 ring-2 ring-teal-100">
+                            <p className="label-text text-teal-600">Nowy IBAN (Wniosek)</p>
+                            <p className="font-mono text-sm text-teal-800 font-bold truncate">
                                 {formatDisplayIban(pendingChange?.newIban || '')}
                             </p>
                         </div>
@@ -222,7 +222,7 @@ Zespół Administratorów EBS`
                         <div className="flex gap-3">
                             <button 
                                 onClick={() => handleResolveChangeRequest(true)}
-                                className="flex-1 bg-emerald-600 text-white py-2 rounded-lg text-sm font-bold hover:bg-emerald-700 transition flex items-center justify-center gap-2 shadow-sm"
+                                className="flex-1 bg-teal-600 text-white py-2 rounded-lg text-sm font-bold hover:bg-teal-700 transition flex items-center justify-center gap-2 shadow-sm"
                             >
                                 <CheckCircle size={16}/> Zatwierdź Zmianę
                             </button>
@@ -271,7 +271,7 @@ Zespół Administratorów EBS`
                 <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm relative">
                     <div className="flex justify-between items-start mb-4">
                         <h3 className="label-text text-slate-400 mb-4 flex items-center gap-2">
-                            <CreditCard size={16} className="text-emerald-600"/> Dane do Przelewu
+                            <CreditCard size={16} className="text-teal-600"/> Dane do Przelewu
                         </h3>
                         {!isEditingIban && !hasPendingIbanChange && (
                             <button 
@@ -288,7 +288,7 @@ Zespół Administratorów EBS`
                             <div className="flex justify-between items-center mb-1">
                                 <span className="text-xs text-slate-500">Numer IBAN</span>
                                 {user.finance?.payoutAccount?.isVerified && !isEditingIban ? (
-                                    <span className="text-[10px] bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-full font-bold flex items-center gap-1">
+                                    <span className="text-[10px] bg-teal-100 text-teal-700 px-2 py-0.5 rounded-full font-bold flex items-center gap-1">
                                         <ShieldCheck size={10} /> Zweryfikowany
                                     </span>
                                 ) : !isEditingIban && (
@@ -305,11 +305,11 @@ Zespół Administratorów EBS`
                                         value={newIban}
                                         onChange={(e) => { setNewIban(e.target.value); setIbanError(null); }}
                                         placeholder="PL 00 0000..."
-                                        className={`input-field font-mono ${ibanError ? 'border-red-300 focus:ring-red-500' : 'focus:ring-emerald-500'}`}
+                                        className={`input-field font-mono ${ibanError ? 'border-red-300 focus:ring-red-500' : 'focus:ring-teal-500'}`}
                                     />
                                     {ibanError && <p className="text-xs text-red-500 mt-1">{ibanError}</p>}
                                     <div className="flex gap-2 mt-2">
-                                        <button onClick={handleSaveIban} className="bg-emerald-600 text-white px-3 py-1 rounded text-xs font-bold hover:bg-emerald-700 flex items-center gap-1">
+                                        <button onClick={handleSaveIban} className="bg-teal-600 text-white px-3 py-1 rounded text-xs font-bold hover:bg-teal-700 flex items-center gap-1">
                                             <Save size={12}/> Zapisz
                                         </button>
                                         <button onClick={() => setIsEditingIban(false)} className="bg-slate-100 text-slate-600 px-3 py-1 rounded text-xs font-bold hover:bg-slate-200">
@@ -349,7 +349,7 @@ Zespół Administratorów EBS`
                             <span className="text-[10px] text-slate-500 uppercase">Wniosków</span>
                         </div>
                         <div className="bg-slate-50 p-3 rounded-lg text-center">
-                            <span className="block text-2xl font-bold text-emerald-600">{totalBuybackValue.toFixed(0)}</span>
+                            <span className="block text-2xl font-bold text-teal-600">{totalBuybackValue.toFixed(0)}</span>
                             <span className="text-[10px] text-slate-500 uppercase">Wypłacono PLN</span>
                         </div>
                     </div>

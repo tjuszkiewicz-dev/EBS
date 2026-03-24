@@ -143,7 +143,7 @@ export const BulkTransferModal: React.FC<BulkTransferModalProps> = ({ isOpen, on
             {/* Header */}
             <div className="bg-slate-50 p-5 border-b border-slate-200 flex justify-between items-center shrink-0">
                 <h3 className="font-bold text-slate-800 text-lg flex items-center gap-2">
-                    <FileSpreadsheet size={20} className="text-emerald-600"/>
+                    <FileSpreadsheet size={20} className="text-teal-600"/>
                     Masowa Dystrybucja (Excel)
                 </h3>
                 <button onClick={onClose}><X size={24} className="text-slate-400 hover:text-slate-600"/></button>
@@ -154,9 +154,9 @@ export const BulkTransferModal: React.FC<BulkTransferModalProps> = ({ isOpen, on
                 {items.length === 0 ? (
                     <div className="space-y-8">
                         {/* Step 1: Download */}
-                        <div className="bg-white border border-slate-200 rounded-xl p-5 hover:border-emerald-300 transition-colors shadow-sm">
+                        <div className="bg-white border border-slate-200 rounded-xl p-5 hover:border-teal-300 transition-colors shadow-sm">
                             <div className="flex items-start gap-4">
-                                <div className="bg-emerald-50 text-emerald-600 p-3 rounded-lg shrink-0">
+                                <div className="bg-teal-50 text-teal-600 p-3 rounded-lg shrink-0">
                                     <Download size={24}/>
                                 </div>
                                 <div>
@@ -168,7 +168,7 @@ export const BulkTransferModal: React.FC<BulkTransferModalProps> = ({ isOpen, on
                                         onClick={handleDownloadSmartTemplate}
                                         variant="success"
                                         size="sm"
-                                        className="bg-emerald-50 text-emerald-700 hover:bg-emerald-100 border-none shadow-none"
+                                        className="bg-teal-50 text-teal-700 hover:bg-teal-100 border-none shadow-none"
                                         icon={<FileText size={14}/>}
                                     >
                                         Pobierz Szablon z Bazą
@@ -212,10 +212,10 @@ export const BulkTransferModal: React.FC<BulkTransferModalProps> = ({ isOpen, on
                 ) : (
                     // PREVIEW MODE
                     <div className="space-y-4">
-                        <div className="flex justify-between items-center bg-emerald-50 border border-emerald-100 p-4 rounded-xl animate-in slide-in-from-top-2">
+                        <div className="flex justify-between items-center bg-teal-50 border border-teal-100 p-4 rounded-xl animate-in slide-in-from-top-2">
                             <div>
-                                <span className="text-xs font-bold text-emerald-800 uppercase block">Suma do Rozdania</span>
-                                <span className="text-2xl font-bold text-emerald-700">{totalAmount.toLocaleString()} PLN</span>
+                                <span className="text-xs font-bold text-teal-800 uppercase block">Suma do Rozdania</span>
+                                <span className="text-2xl font-bold text-teal-700">{totalAmount.toLocaleString()} PLN</span>
                             </div>
                             <div className="text-right">
                                 <span className="text-xs font-bold text-slate-500 uppercase block">Odbiorcy</span>
@@ -238,7 +238,7 @@ export const BulkTransferModal: React.FC<BulkTransferModalProps> = ({ isOpen, on
                                                 {item.name}
                                                 <span className="block text-[9px] text-slate-400 font-mono">{item.id}</span>
                                             </td>
-                                            <td className="p-3 text-right font-bold text-emerald-600">+{item.amount}</td>
+                                            <td className="p-3 text-right font-bold text-teal-600">+{item.amount}</td>
                                         </tr>
                                     ))}
                                 </tbody>

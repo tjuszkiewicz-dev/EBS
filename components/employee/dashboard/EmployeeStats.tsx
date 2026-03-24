@@ -14,7 +14,7 @@ export const EmployeeStats: React.FC<EmployeeStatsProps> = ({
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Wallet Card */}
-        <div className="bg-gradient-to-br from-emerald-600 to-emerald-800 rounded-2xl p-6 text-white shadow-lg transform transition hover:scale-[1.02]">
+        <div className="bg-gradient-to-br from-teal-600 to-teal-800 rounded-2xl p-6 text-white shadow-lg transform transition hover:scale-[1.02]">
           <div className="flex justify-between items-start mb-8">
             <Wallet className="opacity-80" size={32} />
             <span className="bg-white/20 px-3 py-1 rounded-full text-xs font-medium backdrop-blur-sm">Aktywne</span>

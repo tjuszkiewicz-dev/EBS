@@ -127,14 +127,14 @@ export const CalculatorsView: React.FC<CalculatorsViewProps> = ({
 
                         <div className="flex flex-col">
                             <h4 className="text-sm font-bold text-slate-400 uppercase tracking-widest ml-1 mb-8">Wynik obliczeń</h4>
-                            <div className={`flex-1 flex flex-col items-center justify-center p-8 rounded-[40px] border-2 border-dashed transition-all duration-700 ${calcResult ? 'bg-emerald-50 border-emerald-200 text-emerald-900' : 'bg-slate-50 border-slate-100 text-slate-300'}`}>
+                            <div className={`flex-1 flex flex-col items-center justify-center p-8 rounded-[40px] border-2 border-dashed transition-all duration-700 ${calcResult ? 'bg-teal-50 border-teal-200 text-teal-900' : 'bg-slate-50 border-slate-100 text-slate-300'}`}>
                                 {calcResult ? (
                                     <div className="text-center animate-in zoom-in-95 duration-500">
-                                        <div className="w-20 h-20 bg-emerald-500 text-white rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-2xl shadow-emerald-200">
+                                        <div className="w-20 h-20 bg-teal-500 text-white rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-2xl shadow-teal-200">
                                             <Coins size={36} />
                                         </div>
                                         <h5 className="text-4xl font-extrabold mb-4">{calcResult.split(': ')[1]}</h5>
-                                        <p className="text-emerald-700 font-bold uppercase tracking-widest text-[10px]">{calcResult.split(': ')[0]}</p>
+                                        <p className="text-teal-700 font-bold uppercase tracking-widest text-[10px]">{calcResult.split(': ')[0]}</p>
                                     </div>
                                 ) : (
                                     <div className="text-center">

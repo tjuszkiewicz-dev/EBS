@@ -109,7 +109,7 @@ export const VoucherManager: React.FC<Props> = ({ vouchers }) => {
                       </div>
                       <div className="flex h-2.5 w-full rounded-full overflow-hidden bg-slate-100 border border-slate-200">
                           <div style={{ width: `${usedPct}%` }} className="bg-blue-500" title="Zużyte (Skonsumowane)"></div>
-                          <div style={{ width: `${activePct}%` }} className="bg-emerald-500" title="W obiegu (Aktywne/Rozdane)"></div>
+                          <div style={{ width: `${activePct}%` }} className="bg-teal-500" title="W obiegu (Aktywne/Rozdane)"></div>
                           <div style={{ width: `${expiredPct}%` }} className="bg-amber-400" title="Wygasłe/Odkup"></div>
                       </div>
                   </div>
@@ -179,7 +179,7 @@ export const VoucherManager: React.FC<Props> = ({ vouchers }) => {
           {/* Progress Bar Mini */}
           <div className="flex h-1.5 w-full rounded-full overflow-hidden bg-slate-100 mt-1">
                 <div style={{ width: `${(e.usedCount/e.totalCount)*100}%` }} className="bg-blue-500"></div>
-                <div style={{ width: `${(e.activeCount/e.totalCount)*100}%` }} className="bg-emerald-500"></div>
+                <div style={{ width: `${(e.activeCount/e.totalCount)*100}%` }} className="bg-teal-500"></div>
                 <div style={{ width: `${(e.expiredCount/e.totalCount)*100}%` }} className="bg-amber-400"></div>
           </div>
       </div>
@@ -209,7 +209,7 @@ export const VoucherManager: React.FC<Props> = ({ vouchers }) => {
             />
             
             <div className="hidden md:flex items-center gap-4 text-[10px] font-bold text-slate-400 uppercase tracking-wider px-2">
-                <span className="flex items-center gap-1"><div className="w-2 h-2 rounded-full bg-emerald-500"></div> W Obiegu</span>
+                <span className="flex items-center gap-1"><div className="w-2 h-2 rounded-full bg-teal-500"></div> W Obiegu</span>
                 <span className="flex items-center gap-1"><div className="w-2 h-2 rounded-full bg-blue-500"></div> Zużyte</span>
                 <span className="flex items-center gap-1"><div className="w-2 h-2 rounded-full bg-amber-400"></div> Wygasłe</span>
             </div>

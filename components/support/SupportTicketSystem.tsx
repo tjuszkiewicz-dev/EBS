@@ -168,7 +168,7 @@ export const SupportTicketSystem: React.FC<SupportTicketSystemProps> = ({
                       {isAdmin && !isResolved && (
                           <button 
                               onClick={() => onUpdateStatus(selectedTicket.id, 'RESOLVED')}
-                              className="px-3 py-1.5 bg-emerald-600 text-white rounded text-xs font-bold hover:bg-emerald-700 transition"
+                              className="px-3 py-1.5 bg-teal-600 text-white rounded text-xs font-bold hover:bg-teal-700 transition"
                           >
                               Rozwiąż
                           </button>
@@ -185,7 +185,7 @@ export const SupportTicketSystem: React.FC<SupportTicketSystemProps> = ({
                       
                       return (
                           <div key={msg.id} className={`flex ${isMe ? 'justify-end' : 'justify-start'}`}>
-                              <div className={`max-w-[80%] ${isMe ? 'bg-indigo-600 text-white' : isSystem ? 'bg-white border-l-4 border-emerald-500' : 'bg-white border border-slate-200'} p-3 rounded-xl shadow-sm relative group`}>
+                              <div className={`max-w-[80%] ${isMe ? 'bg-indigo-600 text-white' : isSystem ? 'bg-white border-l-4 border-teal-500' : 'bg-white border border-slate-200'} p-3 rounded-xl shadow-sm relative group`}>
                                   {!isMe && (
                                       <p className="text-[10px] font-bold mb-1 opacity-70 flex items-center gap-1">
                                           {isSystem && <ShieldCheck size={10}/>} {msg.senderName}

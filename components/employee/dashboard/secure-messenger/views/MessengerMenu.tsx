@@ -12,13 +12,13 @@ export const MessengerMenu: React.FC<Props> = ({ onSelectChat, onSelectNote, onC
     <div className="flex flex-col h-full bg-slate-900 text-white relative">
       {/* Background decoration */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-[-10%] right-[-10%] w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-[-10%] right-[-10%] w-64 h-64 bg-teal-500/10 rounded-full blur-3xl"></div>
         <div className="absolute bottom-[-10%] left-[-10%] w-64 h-64 bg-blue-500/10 rounded-full blur-3xl"></div>
       </div>
 
       <header className="px-6 py-6 flex justify-between items-center z-10 border-b border-white/5">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-emerald-700 flex items-center justify-center shadow-lg shadow-emerald-900/50">
+          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-teal-500 to-teal-700 flex items-center justify-center shadow-lg shadow-teal-900/50">
             <Lock className="w-5 h-5 text-white" />
           </div>
           <div>
@@ -43,13 +43,13 @@ export const MessengerMenu: React.FC<Props> = ({ onSelectChat, onSelectNote, onC
            </div>
            
            <div className="flex gap-4 relative z-10">
-              <div className="p-3 bg-emerald-500/10 rounded-xl h-fit">
-                 <Shield className="w-6 h-6 text-emerald-400" />
+              <div className="p-3 bg-teal-500/10 rounded-xl h-fit">
+                 <Shield className="w-6 h-6 text-teal-400" />
               </div>
               <div>
                  <h3 className="text-sm font-bold text-white mb-1 flex items-center gap-2">
                     Militarny Standard Szyfrowania
-                    <span className="text-[10px] bg-emerald-500/20 text-emerald-400 px-1.5 py-0.5 rounded border border-emerald-500/20">AES-256</span>
+                    <span className="text-[10px] bg-teal-500/20 text-teal-400 px-1.5 py-0.5 rounded border border-teal-500/20">AES-256</span>
                  </h3>
                  <p className="text-xs text-slate-400 leading-relaxed">
                     Twoje notatki i rozmowy są chronione algorytmem <strong>AES-256</strong> – tym samym, którego używają agencje wywiadowcze (NSA) do zabezpieczania ściśle tajnych informacji. Szyfrowanie odbywa się bezpośrednio na Twoim urządzeniu (End-to-End), co gwarantuje 100% prywatności.
@@ -61,7 +61,7 @@ export const MessengerMenu: React.FC<Props> = ({ onSelectChat, onSelectNote, onC
         {/* Chat Tile */}
         <button 
           onClick={onSelectChat}
-          className="group relative overflow-hidden rounded-2xl bg-white/5 hover:bg-white/10 border border-white/5 hover:border-emerald-500/30 transition-all duration-300 p-6 text-left shadow-lg hover:shadow-emerald-900/20"
+          className="group relative overflow-hidden rounded-2xl bg-white/5 hover:bg-white/10 border border-white/5 hover:border-teal-500/30 transition-all duration-300 p-6 text-left shadow-lg hover:shadow-teal-900/20"
         >
           <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity transform group-hover:scale-110 duration-500">
              <MessageSquare className="w-32 h-32" />
@@ -71,12 +71,12 @@ export const MessengerMenu: React.FC<Props> = ({ onSelectChat, onSelectNote, onC
             <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center mb-4 shadow-lg">
               <MessageSquare className="w-6 h-6 text-white" />
             </div>
-            <div className="w-8 h-8 rounded-full bg-white/5 group-hover:bg-emerald-500 flex items-center justify-center transition-colors">
+            <div className="w-8 h-8 rounded-full bg-white/5 group-hover:bg-teal-500 flex items-center justify-center transition-colors">
               <ChevronRight className="w-4 h-4 text-slate-400 group-hover:text-white" />
             </div>
           </div>
           
-          <h3 className="text-xl font-bold mb-2 group-hover:text-emerald-400 transition-colors">Prywatny Czat</h3>
+          <h3 className="text-xl font-bold mb-2 group-hover:text-teal-400 transition-colors">Prywatny Czat</h3>
           <p className="text-sm text-slate-400 leading-relaxed">
             Rozpocznij szyfrowaną rozmowę. Wiadomości znikają automatycznie po odczytaniu.
           </p>
@@ -89,7 +89,7 @@ export const MessengerMenu: React.FC<Props> = ({ onSelectChat, onSelectNote, onC
         {/* Note Tile */}
         <button 
           onClick={onSelectNote}
-          className="group relative overflow-hidden rounded-2xl bg-white/5 hover:bg-white/10 border border-white/5 hover:border-emerald-500/30 transition-all duration-300 p-6 text-left shadow-lg hover:shadow-emerald-900/20"
+          className="group relative overflow-hidden rounded-2xl bg-white/5 hover:bg-white/10 border border-white/5 hover:border-teal-500/30 transition-all duration-300 p-6 text-left shadow-lg hover:shadow-teal-900/20"
         >
           <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity transform group-hover:scale-110 duration-500">
              <FileText className="w-32 h-32" />
@@ -99,7 +99,7 @@ export const MessengerMenu: React.FC<Props> = ({ onSelectChat, onSelectNote, onC
             <div className="w-12 h-12 rounded-full bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center mb-4 shadow-lg">
               <FileText className="w-6 h-6 text-white" />
             </div>
-            <div className="w-8 h-8 rounded-full bg-white/5 group-hover:bg-emerald-500 flex items-center justify-center transition-colors">
+            <div className="w-8 h-8 rounded-full bg-white/5 group-hover:bg-teal-500 flex items-center justify-center transition-colors">
               <ChevronRight className="w-4 h-4 text-slate-400 group-hover:text-white" />
             </div>
           </div>

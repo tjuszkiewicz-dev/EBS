@@ -124,7 +124,7 @@ export const HREmployeeTable: React.FC<HREmployeeTableProps> = ({
               </div>
               <div className="w-[30%] flex justify-end gap-2">
                   {isActive && (
-                      <button onClick={() => onTopUp(user.id)} className="px-3 py-1.5 bg-emerald-100 text-emerald-800 rounded-lg hover:bg-emerald-200 transition font-bold text-xs border border-emerald-200">
+                      <button onClick={() => onTopUp(user.id)} className="px-3 py-1.5 bg-teal-100 text-teal-800 rounded-lg hover:bg-teal-200 transition font-bold text-xs border border-teal-200">
                           Zasil
                       </button>
                   )}
@@ -280,7 +280,7 @@ export const HREmployeeTable: React.FC<HREmployeeTableProps> = ({
                         
                         <div className="inline-flex items-center gap-2 bg-slate-50 px-4 py-2 rounded-xl border border-slate-200">
                             <span className="text-xs text-slate-500 font-bold uppercase">Saldo</span>
-                            <span className="text-lg font-mono font-bold text-emerald-600">{mobileSelectedUser.voucherBalance} PLN</span>
+                            <span className="text-lg font-mono font-bold text-teal-600">{mobileSelectedUser.voucherBalance} PLN</span>
                         </div>
                     </div>
 

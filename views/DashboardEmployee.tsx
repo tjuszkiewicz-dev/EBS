@@ -15,8 +15,7 @@ import { SecureMessengerWidget } from '../components/employee/dashboard/secure-m
 import { SecureDigitalVaultWidget } from '../components/employee/dashboard/digital-vault/SecureDigitalVaultWidget';
 import { DigitalVaultApp } from '../components/employee/dashboard/digital-vault/DigitalVaultApp';
 import { MarketplaceHero } from '../components/employee/dashboard/marketplace/MarketplaceHero';
-import { ElitonBanner } from '../components/employee/dashboard/marketplace/ElitonBanner';
-import { OrangeOfferSection } from '../components/employee/dashboard/OrangeOfferSection';
+import { LuxMedOfferSection } from '../components/employee/dashboard/LuxMedOfferSection';
 import { PZUServiceSection } from '../components/employee/dashboard/PZUServiceSection';
 import { Wallet, History, Settings, HelpCircle, Grid, Heart, Lock, Brain, ArrowRight, Scale, ShieldCheck, X } from 'lucide-react';
 import { useStrattonSystem } from '../context/StrattonContext';
@@ -191,7 +190,7 @@ export const DashboardEmployee: React.FC<Props> = ({
           if (s.id === 'SRV-LEGAL-01' && hasLegalAccess) return false;
           if (s.id === 'SRV-SECURE-01' && hasSecureMessengerAccess) return false;
           if (s.id === 'SRV-VAULT-01' && hasVaultAccess) return false;
-          if (s.id.startsWith('SRV-ORANGE')) return false; // Hide Orange services from generic catalog
+          if (s.id.startsWith('SRV-LUXMED')) return false; // Hide LuxMed services from generic catalog
           return true;
       });
   }, [services, hasMentalHealthAccess, hasLegalAccess, hasSecureMessengerAccess, hasVaultAccess]);
@@ -265,7 +264,7 @@ export const DashboardEmployee: React.FC<Props> = ({
           <div className="pt-8 border-t border-slate-200/60 pb-12">
              <div className="flex items-center justify-between mb-8">
                 <h3 className="text-xl font-bold text-slate-800 tracking-tight">Twoje Narzędzia</h3>
-                <span className="text-xs font-bold text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full uppercase tracking-wider hidden md:block">
+                <span className="text-xs font-bold text-teal-600 bg-teal-50 px-3 py-1 rounded-full uppercase tracking-wider hidden md:block">
                    Zarządzane przez Eliton
                 </span>
              </div>
@@ -289,7 +288,7 @@ export const DashboardEmployee: React.FC<Props> = ({
                           <div className="relative z-10 flex justify-between items-center h-full">
                               <div>
                                   <div className="flex items-center gap-2 mb-2">
-                                      <span className="bg-emerald-500/20 text-emerald-300 text-[10px] font-bold px-2 py-0.5 rounded border border-emerald-500/30 uppercase tracking-wider">
+                                      <span className="bg-teal-500/20 text-teal-300 text-[10px] font-bold px-2 py-0.5 rounded border border-teal-500/30 uppercase tracking-wider">
                                           Dostęp Aktywny
                                       </span>
                                   </div>
@@ -425,17 +424,17 @@ export const DashboardEmployee: React.FC<Props> = ({
           </div>
           </div>
 
-          {/* ORANGE OFFER SECTION */}
+          {/* LUX MED OFFER SECTION */}
           <div className="pt-12 border-t border-slate-200/60 pb-12">
              <div className="flex items-center justify-between mb-8">
                 <h3 className="text-xl font-bold text-slate-800 tracking-tight">Strefa Partnerów</h3>
-                 <span className="text-xs font-bold text-orange-600 bg-orange-50 px-3 py-1 rounded-full uppercase tracking-wider">
+                 <span className="text-xs font-bold text-blue-700 bg-blue-50 px-3 py-1 rounded-full uppercase tracking-wider">
                    Oferty Specjalne
                 </span>
              </div>
 
              <div className="space-y-12">
-                <OrangeOfferSection 
+                <LuxMedOfferSection
                     services={services}
                     onPurchase={setSelectedService}
                 />
@@ -457,21 +456,18 @@ export const DashboardEmployee: React.FC<Props> = ({
              </div>
           </div>
 
-          <ElitonBanner />
-
-
           {/* Catalog Preview (Mobile Only - Full View is separate tab) */}
           <div className="md:hidden">
               <div className="flex justify-between items-center mb-4">
                   <h3 className="font-bold text-slate-800">Polecane Usługi</h3>
-                  <button onClick={() => setActiveTab('CATALOG')} className="text-xs text-emerald-600 font-bold">Zobacz wszystkie</button>
+                  <button onClick={() => setActiveTab('CATALOG')} className="text-xs text-teal-600 font-bold">Zobacz wszystkie</button>
               </div>
               <div className="flex gap-4 overflow-x-auto pb-4 no-scrollbar">
                   {displayServices.slice(0, 4).map(s => (
                       <div key={s.id} onClick={() => setSelectedService(s)} className="min-w-[140px] bg-white p-3 rounded-xl border border-slate-100 shadow-sm flex flex-col items-center text-center active:scale-95 transition-transform">
                           <div className="w-10 h-10 bg-slate-50 rounded-full flex items-center justify-center text-xl mb-2">🎁</div>
                           <p className="text-xs font-bold text-slate-700 leading-tight line-clamp-2 h-8">{s.name}</p>
-                          <p className="text-emerald-600 font-bold text-sm mt-1">{s.price} pkt</p>
+                          <p className="text-teal-600 font-bold text-sm mt-1">{s.price} pkt</p>
                       </div>
                   ))}
               </div>
@@ -484,7 +480,7 @@ export const DashboardEmployee: React.FC<Props> = ({
                   {transactions.slice(0, 3).map(t => (
                       <div key={t.id} className="flex justify-between items-center bg-white p-3 rounded-xl border border-slate-50 shadow-sm">
                           <div className="flex items-center gap-3">
-                              <div className={`w-8 h-8 rounded-full flex items-center justify-center ${t.type === 'CREDIT' ? 'bg-emerald-100 text-emerald-600' : 'bg-slate-100 text-slate-600'}`}>
+                              <div className={`w-8 h-8 rounded-full flex items-center justify-center ${t.type === 'CREDIT' ? 'bg-teal-100 text-teal-600' : 'bg-slate-100 text-slate-600'}`}>
                                   {t.type === 'CREDIT' ? '+' : '-'}
                               </div>
                               <div>
@@ -492,7 +488,7 @@ export const DashboardEmployee: React.FC<Props> = ({
                                   <p className="text-[10px] text-slate-400">{new Date(t.date).toLocaleDateString()}</p>
                               </div>
                           </div>
-                          <span className={`text-sm font-bold ${t.type === 'CREDIT' ? 'text-emerald-600' : 'text-slate-800'}`}>
+                          <span className={`text-sm font-bold ${t.type === 'CREDIT' ? 'text-teal-600' : 'text-slate-800'}`}>
                               {t.type === 'CREDIT' ? '+' : '-'}{t.amount}
                           </span>
                       </div>
@@ -533,10 +529,10 @@ export const DashboardEmployee: React.FC<Props> = ({
               {/* Minimal Top Bar */}
               <div className="bg-white border-b border-slate-200 px-6 py-3 flex justify-between items-center shrink-0 z-50">
                   <div className="flex items-center gap-2">
-                      <div className="bg-emerald-600 text-white p-1.5 rounded-lg">
+                      <div className="bg-teal-600 text-white p-1.5 rounded-lg">
                           <Lock size={18}/>
                       </div>
-                      <span className="font-bold tracking-tight text-slate-900">STRATTON <span className="text-emerald-600">SECURE</span></span>
+                      <span className="font-bold tracking-tight text-slate-900">STRATTON <span className="text-teal-600">SECURE</span></span>
                   </div>
                   <button onClick={() => setActiveTab('WALLET')} className="p-2 hover:bg-slate-100 rounded-full text-slate-500 transition">
                       <X size={20}/>
@@ -589,11 +585,11 @@ export const DashboardEmployee: React.FC<Props> = ({
           <div className="space-y-8 animate-in fade-in duration-500">
               {/* Header */}
               <div className="bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-slate-100 relative overflow-hidden">
-                  <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-50 rounded-full blur-3xl -mr-20 -mt-20 opacity-60"></div>
+                  <div className="absolute top-0 right-0 w-64 h-64 bg-teal-50 rounded-full blur-3xl -mr-20 -mt-20 opacity-60"></div>
                   <div className="relative z-10 max-w-2xl">
                       <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4 tracking-tight">
                           Witaj w swoim katalogu <br/>
-                          <span className="text-emerald-600">aktywnych usług</span>
+                          <span className="text-teal-600">aktywnych usług</span>
                       </h2>
                       <p className="text-slate-500 text-lg leading-relaxed">
                           Dziękujemy że skorzystałeś z naszych możliwości i życzymy miłego użytkowania.
@@ -637,7 +633,7 @@ export const DashboardEmployee: React.FC<Props> = ({
                                   <div className="relative z-10 flex justify-between items-center h-full">
                                       <div>
                                           <div className="flex items-center gap-2 mb-2">
-                                              <span className="bg-emerald-500/20 text-emerald-300 text-[10px] font-bold px-2 py-0.5 rounded border border-emerald-500/30 uppercase tracking-wider">
+                                              <span className="bg-teal-500/20 text-teal-300 text-[10px] font-bold px-2 py-0.5 rounded border border-teal-500/30 uppercase tracking-wider">
                                                   Dostęp Aktywny
                                               </span>
                                           </div>
@@ -719,11 +715,11 @@ export const DashboardEmployee: React.FC<Props> = ({
              <div className="bg-white/80 backdrop-blur-xl border border-white/40 shadow-xl shadow-slate-200/50 p-6 rounded-3xl min-w-[240px] text-right transform hover:scale-105 transition-all duration-300">
                 <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Dostępne środki</p>
                 <div className="flex items-center justify-end gap-2 text-4xl font-black text-slate-800">
-                   {user.voucherBalance} <span className="text-lg font-bold text-emerald-500 self-start mt-2">pkt</span>
+                   {user.voucherBalance} <span className="text-lg font-bold text-teal-500 self-start mt-2">pkt</span>
                 </div>
                 {/* Visual Indicator */}
                 <div className="w-full bg-slate-100 h-1.5 rounded-full mt-4 overflow-hidden">
-                   <div className="h-full bg-gradient-to-r from-emerald-400 to-teal-500 w-3/4 rounded-full"></div>
+                   <div className="h-full bg-gradient-to-r from-teal-400 to-teal-500 w-3/4 rounded-full"></div>
                 </div>
              </div>
           </div>

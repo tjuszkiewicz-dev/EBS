@@ -239,6 +239,10 @@ export interface User {
   
   // Security
   isTwoFactorEnabled?: boolean; // NEW: 2FA
+
+  // Custom credentials
+  username?: string;
+  password?: string;
 }
 
 // --- CORE JSON ARCHITECTURE (AUDIT & COMPLIANCE) ---

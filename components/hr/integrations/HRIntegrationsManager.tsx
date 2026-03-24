@@ -106,12 +106,12 @@ export const HRIntegrationsManager: React.FC = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4">
                     {sectionItems.map(int => (
                         <div key={int.id} className={`group bg-white rounded-xl border p-5 shadow-sm hover:shadow-md transition-all relative overflow-hidden flex flex-col h-full ${
-                            int.status === 'CONNECTED' ? 'border-emerald-200' : 
+                            int.status === 'CONNECTED' ? 'border-teal-200' : 
                             int.status === 'ATTENTION' ? 'border-amber-200' : 'border-slate-200 grayscale opacity-80 hover:opacity-100 hover:grayscale-0'
                         }`}>
                             {/* Status Indicator Stripe */}
                             <div className={`absolute left-0 top-0 bottom-0 w-1 ${
-                                int.status === 'CONNECTED' ? 'bg-emerald-500' : 
+                                int.status === 'CONNECTED' ? 'bg-teal-500' : 
                                 int.status === 'ATTENTION' ? 'bg-amber-500' : 'bg-slate-300'
                             }`}></div>
 
@@ -130,7 +130,7 @@ export const HRIntegrationsManager: React.FC = () => {
                                 </div>
                                 <div className="flex items-center gap-1.5">
                                     <span className={`w-2 h-2 rounded-full ${
-                                        int.status === 'CONNECTED' ? 'bg-emerald-500 animate-pulse' : 
+                                        int.status === 'CONNECTED' ? 'bg-teal-500 animate-pulse' : 
                                         int.status === 'ATTENTION' ? 'bg-amber-500' : 'bg-slate-300'
                                     }`}></span>
                                 </div>
@@ -186,7 +186,7 @@ export const HRIntegrationsManager: React.FC = () => {
                 </div>
                 <div className="flex gap-4 text-xs font-medium bg-slate-50 p-3 rounded-lg border border-slate-100">
                     <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 rounded-full bg-emerald-500"></div>
+                        <div className="w-2 h-2 rounded-full bg-teal-500"></div>
                         <span className="text-slate-700">2 Aktywne</span>
                     </div>
                     <div className="flex items-center gap-2">
@@ -209,7 +209,7 @@ export const HRIntegrationsManager: React.FC = () => {
             <div className="bg-slate-900 rounded-xl overflow-hidden shadow-lg border border-slate-800 mt-8">
                 <div className="p-3 bg-slate-950 border-b border-slate-800 flex justify-between items-center">
                     <h3 className="font-bold text-slate-200 flex items-center gap-2 text-xs uppercase tracking-wider">
-                        <Terminal size={14} className="text-emerald-500"/> Ostatnie zdarzenia (API Logs)
+                        <Terminal size={14} className="text-teal-500"/> Ostatnie zdarzenia (API Logs)
                     </h3>
                     <button className="text-[10px] text-slate-500 hover:text-white transition flex items-center gap-1 bg-slate-800 px-2 py-1 rounded">
                         <RefreshCw size={10}/> Odśwież
@@ -225,7 +225,7 @@ export const HRIntegrationsManager: React.FC = () => {
                                     <td className="p-2 font-bold text-slate-300 w-32">{log.event}</td>
                                     <td className="p-2 w-20">
                                         {log.status === 'SUCCESS' 
-                                            ? <span className="text-emerald-500">200 OK</span>
+                                            ? <span className="text-teal-500">200 OK</span>
                                             : <span className="text-red-500">500 ERR</span>
                                         }
                                     </td>

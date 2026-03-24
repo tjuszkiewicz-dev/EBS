@@ -1,5 +1,5 @@
 
-import { useCallback } from 'react';
+import { useCallback, useEffect } from 'react';
 import { User, Role, ContractType, ImportRow, ImportHistoryEntry, UserFinance, Company } from '../../types';
 import { INITIAL_USERS } from '../../services/mockData';
 import { generateSecurePassword } from '../../services/payrollService';
@@ -12,8 +12,25 @@ export const useUserLogic = (
     addToast: (t: string, m: string, type: any) => void,
     currentUser: User
 ) => {
+  // Cleanup old user keys on mount
+  useEffect(() => {
+    ['ebs_users_v1', 'ebs_users_v2', 'ebs_users_v3', 'ebs_users_v4'].forEach(k => localStorage.removeItem(k));
+  }, []);
+
   // Persistent State
-  const [users, setUsers] = usePersistedState<User[]>('ebs_users_v1', INITIAL_USERS);
+  const [usersRaw, setUsers] = usePersistedState<User[]>('ebs_users_v5', INITIAL_USERS);
+
+  // Ensure ALL INITIAL_USERS are always present (guards against HMR/stale localStorage).
+  // Also always applies fresh username/password from code so credentials are never stale.
+  const users = [
+    ...INITIAL_USERS.map(iu => {
+      const stored = usersRaw.find(u => u.id === iu.id);
+      return stored
+        ? { ...stored, username: iu.username, password: iu.password }
+        : iu;
+    }),
+    ...usersRaw.filter(u => !INITIAL_USERS.some(iu => iu.id === u.id))
+  ];
   const [importHistory, setImportHistory] = usePersistedState<ImportHistoryEntry[]>('ebs_import_history_v1', []);
 
   const handleUpdateEmployee = useCallback((userId: string, data: Partial<User>) => {
@@ -105,6 +122,8 @@ export const useUserLogic = (
              companyId: companyId,
              name: `${row.name} ${row.surname}`,
              email: row.email,
+             username: row.email, // login = email
+             password: tempPassword, // persisted so login works
              pesel: row.pesel,
              department: row.department,
              position: row.position,

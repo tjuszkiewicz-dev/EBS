@@ -1,9 +1,10 @@
 
-import React, { useState } from 'react';
-import { Lock, Mail, ArrowRight, ShieldCheck, AlertCircle, KeyRound, Smartphone } from 'lucide-react';
+import React, { useState, useRef, useEffect } from 'react';
+import { Lock, Mail, ArrowRight, ShieldCheck, AlertCircle, KeyRound, Smartphone, ChevronDown, Eye, EyeOff } from 'lucide-react';
 import { User, Role } from '../types';
 import { Button } from '../components/ui/Button';
 import { Input } from '../components/ui/Input';
+import { INITIAL_USERS } from '../services/mockData';
 
 interface LoginScreenProps {
   users: User[];
@@ -18,6 +19,27 @@ export const LoginScreen: React.FC<LoginScreenProps> = ({ users, onLogin }) => {
   const [twoFactorCode, setTwoFactorCode] = useState('');
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [logoError, setLogoError] = useState(false);
+  const [showDropdown, setShowDropdown] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  const demoUsers = [
+    { label: 'Admin (2FA)',  role: Role.SUPERADMIN, email: 'admin@eliton-benefits.com' },
+    { label: 'HR Manager',  role: Role.HR,          email: 'hr@techsolutions.pl' },
+    { label: 'Pracownik',   role: Role.EMPLOYEE,    email: 'jan.kowalski@techsolutions.pl' },
+    { label: 'Sprzedaż',    role: Role.ADVISOR,     email: 'adam.d@eliton-benefits.com' },
+  ];
+
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setShowDropdown(false);
+      }
+    };
+    document.addEventListener('mousedown', handler);
+    return () => document.removeEventListener('mousedown', handler);
+  }, []);
 
   const handleCredentialsSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -26,25 +48,39 @@ export const LoginScreen: React.FC<LoginScreenProps> = ({ users, onLogin }) => {
 
     // Simulation delay
     setTimeout(() => {
-        const user = users.find(u => u.email.toLowerCase() === email.toLowerCase());
+        // Auth source: INITIAL_USERS (always fresh) + any dynamically added users from state
+        const dynamicUsers = users.filter(u => !INITIAL_USERS.some(iu => iu.id === u.id));
+        const allAuthUsers = [...INITIAL_USERS, ...dynamicUsers];
+
+        const authUser = allAuthUsers.find(u =>
+            u.email.toLowerCase() === email.toLowerCase() ||
+            (u.username && u.username.toLowerCase() === email.toLowerCase())
+        );
         
-        if (user) {
-            if (user.status === 'INACTIVE') {
+        if (authUser) {
+            const expectedPassword = authUser.password ?? '123';
+            if (password !== expectedPassword) {
+                setError('Nieprawidłowy użytkownik lub hasło.');
+                setIsLoading(false);
+                return;
+            }
+            if (authUser.status === 'INACTIVE') {
                 setError('To konto zostało dezaktywowane. Skontaktuj się z HR.');
                 setIsLoading(false);
                 return;
             }
             
             // Check for 2FA
-            if (user.isTwoFactorEnabled) {
-                setUserId(user.id);
+            if (authUser.isTwoFactorEnabled) {
+                setUserId(authUser.id);
                 setStep('2FA');
                 setIsLoading(false);
             } else {
-                onLogin(user.id);
+                setIsLoading(false);
+                onLogin(authUser.id);
             }
         } else {
-            setError('Nieprawidłowy email lub hasło.');
+            setError('Nieprawidłowy użytkownik lub hasło.');
             setIsLoading(false);
         }
     }, 800);
@@ -68,8 +104,9 @@ export const LoginScreen: React.FC<LoginScreenProps> = ({ users, onLogin }) => {
   const demoLogin = (role: Role) => {
       const demoUser = users.find(u => u.role === role && u.status === 'ACTIVE');
       if (demoUser) {
-          setEmail(demoUser.email);
-          setPassword('password123');
+          setEmail(demoUser.username || demoUser.email);
+          setPassword('');
+          setShowDropdown(false);
       }
   };
 
@@ -77,25 +114,29 @@ export const LoginScreen: React.FC<LoginScreenProps> = ({ users, onLogin }) => {
     <div className="min-h-screen flex bg-slate-900">
       
       {/* Left Side - Branding */}
-      <div className="hidden lg:flex w-1/2 bg-slate-800 relative overflow-hidden items-center justify-center">
-          <div className="absolute inset-0 bg-gradient-to-br from-emerald-900/40 to-slate-900/90 z-10" />
-          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-20 grayscale" />
+      <div className="hidden lg:flex w-1/2 bg-slate-900 relative overflow-hidden items-center justify-center">
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-900/40 to-slate-900/65 z-10" />
+          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1764114908655-9a26d32750a0?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-30 grayscale" />
           
           <div className="relative z-20 text-center p-12 max-w-lg">
               <div className="mb-6 flex justify-center">
-                  <div className="w-24 h-24 bg-emerald-500 rounded-3xl flex items-center justify-center shadow-2xl shadow-emerald-500/20">
-                      <ShieldCheck size={56} className="text-white" />
+                  <div className="w-72 h-72 flex items-center justify-center overflow-hidden">
+                      {logoError ? (
+                          <ShieldCheck size={112} className="text-white" />
+                      ) : (
+                          <img src="/bbs.png" alt="BBS" className="w-full h-full object-contain p-3" onError={() => setLogoError(true)} />
+                      )}
                   </div>
               </div>
-              <h1 className="text-5xl font-bold text-white mb-6 tracking-tight">STRATTON PRIME</h1>
-              <p className="text-emerald-400 font-medium text-xl mb-8 uppercase tracking-widest border-b border-slate-600 pb-4 inline-block">Eliton Benefits System</p>
+              <h1 className="text-5xl font-bold text-white mb-6 tracking-tight">BALTIC BENEFIT</h1>
+              <p className="text-blue-400 font-medium text-xl mb-8 uppercase tracking-widest border-b border-slate-600 pb-4 inline-block">System</p>
               <p className="text-slate-400 text-lg leading-relaxed font-light">
-                  Zaawansowana platforma zarządzania benefitami pracowniczymi, automatyzacji procesów HR oraz optymalizacji podatkowej.
+                  Zaawansowana platforma zarządzania benefitami pracowniczymi oraz automatyzacji procesów HR.
               </p>
               
               <div className="mt-16 flex justify-center gap-6 text-sm text-slate-500 font-mono">
                   <div className="flex items-center gap-2 px-4 py-2 bg-slate-900/50 rounded-full border border-slate-700 backdrop-blur-sm">
-                      <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
+                      <div className="w-2 h-2 bg-teal-500 rounded-full animate-pulse"></div>
                       System Operational
                   </div>
                   <div className="flex items-center gap-2 px-4 py-2 bg-slate-900/50 rounded-full border border-slate-700 backdrop-blur-sm">
@@ -120,27 +161,69 @@ export const LoginScreen: React.FC<LoginScreenProps> = ({ users, onLogin }) => {
                           </div>
 
                           <form onSubmit={handleCredentialsSubmit} className="space-y-5">
-                              <Input 
-                                  label="Email Służbowy"
-                                  icon={<Mail size={18}/>}
-                                  type="email"
-                                  required
-                                  value={email}
-                                  onChange={(e) => setEmail(e.target.value)}
-                                  placeholder="jan.kowalski@firma.pl"
-                              />
+                              {/* Email field with demo dropdown */}
+                              <div>
+                                <label className="block text-xs font-bold text-slate-600 uppercase mb-1.5">Użytkownik</label>
+                                <div className="relative" ref={dropdownRef}>
+                                  <div className="relative group flex items-center">
+                                    <div className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-indigo-500 transition-colors pointer-events-none">
+                                      <Mail size={18} />
+                                    </div>
+                                    <input
+                                      type="text"
+                                      required
+                                      autoComplete="off"
+                                      value={email}
+                                      onChange={(e) => setEmail(e.target.value)}
+                                      placeholder="login lub email"
+                                      className="w-full bg-white border border-slate-300 text-slate-900 text-sm rounded-xl pl-10 pr-10 py-2.5 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200"
+                                    />
+                                    <button
+                                      type="button"
+                                      onClick={() => setShowDropdown(v => !v)}
+                                      className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-blue-700 transition-colors"
+                                      title="Szybkie logowanie demo"
+                                    >
+                                      <ChevronDown size={16} className={`transition-transform duration-200 ${showDropdown ? 'rotate-180' : ''}`} />
+                                    </button>
+                                  </div>
+
+                                  {showDropdown && (
+                                    <div className="absolute z-50 top-full mt-1.5 left-0 w-full bg-white border border-slate-200 rounded-xl shadow-xl overflow-hidden animate-in fade-in slide-in-from-top-2 duration-150">
+                                      <p className="px-3 pt-2.5 pb-1 text-[10px] font-bold text-slate-400 uppercase tracking-wider">Szybkie logowanie (Demo)</p>
+                                      {demoUsers.map(u => (
+                                        <button
+                                          key={u.role}
+                                          type="button"
+                                          onClick={() => demoLogin(u.role)}
+                                          className="w-full flex items-center justify-between px-3 py-2.5 text-sm text-slate-700 hover:bg-blue-50 hover:text-blue-700 transition-colors"
+                                        >
+                                          <span className="font-medium">{u.label}</span>
+                                          <span className="text-xs text-slate-400 font-mono truncate ml-2">{u.email}</span>
+                                        </button>
+                                      ))}
+                                    </div>
+                                  )}
+                                </div>
+                              </div>
 
                               <div>
                                   <div className="flex justify-end mb-1">
-                                      <a href="#" className="text-xs font-medium text-emerald-600 hover:text-emerald-700">Zapomniałeś hasła?</a>
+                                      <a href="#" className="text-xs font-medium text-blue-700 hover:text-blue-800">Zapomniałeś hasła?</a>
                                   </div>
                                   <Input
                                       icon={<Lock size={18}/>}
-                                      type="password"
+                                      type={showPassword ? 'text' : 'password'}
                                       required
+                                      autoComplete="new-password"
                                       value={password}
                                       onChange={(e) => setPassword(e.target.value)}
                                       placeholder="••••••••"
+                                      rightElement={
+                                          <button type="button" onClick={() => setShowPassword(v => !v)} className="text-slate-400 hover:text-blue-700 transition-colors">
+                                              {showPassword ? <EyeOff size={16}/> : <Eye size={16}/>}
+                                          </button>
+                                      }
                                   />
                               </div>
 
@@ -162,16 +245,6 @@ export const LoginScreen: React.FC<LoginScreenProps> = ({ users, onLogin }) => {
                               </Button>
                           </form>
 
-                          {/* Demo Shortcuts */}
-                          <div className="mt-10 pt-6 border-t border-slate-100">
-                              <p className="text-center text-xs text-slate-400 mb-4 uppercase tracking-wider font-bold">Szybkie logowanie (Demo)</p>
-                              <div className="grid grid-cols-2 gap-3">
-                                  <button onClick={() => demoLogin(Role.SUPERADMIN)} className="p-2.5 text-xs border border-slate-200 rounded-xl hover:bg-slate-50 text-slate-600 font-bold transition">Admin (2FA)</button>
-                                  <button onClick={() => demoLogin(Role.HR)} className="p-2.5 text-xs border border-slate-200 rounded-xl hover:bg-slate-50 text-slate-600 font-bold transition">HR Manager</button>
-                                  <button onClick={() => demoLogin(Role.EMPLOYEE)} className="p-2.5 text-xs border border-slate-200 rounded-xl hover:bg-slate-50 text-slate-600 font-bold transition">Pracownik</button>
-                                  <button onClick={() => demoLogin(Role.ADVISOR)} className="p-2.5 text-xs border border-slate-200 rounded-xl hover:bg-slate-50 text-slate-600 font-bold transition">Sprzedaż</button>
-                              </div>
-                          </div>
                       </div>
                   )}
 
@@ -235,7 +308,7 @@ export const LoginScreen: React.FC<LoginScreenProps> = ({ users, onLogin }) => {
               </div>
               
               <p className="text-center text-slate-400 text-xs mt-8">
-                  &copy; {new Date().getFullYear()} Stratton Prime S.A. Wszystkie prawa zastrzeżone.
+                  &copy; {new Date().getFullYear()} Baltic Benefit System. Wszystkie prawa zastrzeżone.
               </p>
           </div>
       </div>

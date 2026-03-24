@@ -92,7 +92,7 @@ export const StrattonProvider = ({ children }: { children?: ReactNode }) => {
 
   const [systemConfig, setSystemConfig] = usePersistedState<SystemConfig>('ebs_sys_config_v1', INITIAL_SYSTEM_CONFIG);
   const [auditLogs, setAuditLogs] = useState<AuditLogEntry[]>(INITIAL_AUDIT_LOGS);
-  const [services, setServices] = usePersistedState<ServiceItem[]>('ebs_services_v14_fuel_removed', INITIAL_SERVICES); 
+  const [services, setServices] = usePersistedState<ServiceItem[]>('ebs_services_v15', INITIAL_SERVICES); 
   const [quarterlyStats, setQuarterlyStats] = useState<QuarterlyPerformance[]>([]);
   const [tickets, setTickets] = usePersistedState<SupportTicket[]>('ebs_tickets_v1', INITIAL_TICKETS);
 
@@ -113,9 +113,14 @@ export const StrattonProvider = ({ children }: { children?: ReactNode }) => {
     // Check if Fuel Card is STILL present in state (should be removed)
     const hasFuelCard = services.some(s => s.id === 'SRV-05');
 
-    if (needsImageUpdate || !hasAI || hasFuelCard) {
-        console.log('[StrattonContext] DETECTED STALE SERVICES (Missing Images/Cats or Deleted Item Present). Forcing reload from INITIAL_SERVICES version 15.');
-        // Force replace entire array with the Import from mockData
+    // Check for any service not belonging to current INITIAL_SERVICES (e.g. old Orange/Światłowód services)
+    const hasUnknownServices = services.some(s => !INITIAL_SERVICES.some(is => is.id === s.id));
+
+    // Check if any current service is missing its image URL
+    const hasMissingImages = services.some(s => INITIAL_SERVICES.some(is => is.id === s.id) && !s.image);
+
+    if (needsImageUpdate || !hasAI || hasFuelCard || hasUnknownServices || hasMissingImages) {
+        console.log('[StrattonContext] DETECTED STALE SERVICES. Forcing reload from INITIAL_SERVICES v15.');
         setServices(INITIAL_SERVICES);
     }
   }, [services, setServices]); 

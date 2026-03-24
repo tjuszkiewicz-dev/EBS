@@ -70,12 +70,12 @@ export const DistributionModal: React.FC<DistributionModalProps> = ({
         <form onSubmit={handleSubmit} className="space-y-6">
             {/* Pool Info Cards */}
             <div className="grid grid-cols-2 gap-3">
-                <div className={`p-3 rounded-xl border flex flex-col justify-center transition-colors ${isDippingIntoReserve && activePool < numericAmount ? 'bg-slate-50 border-slate-200 opacity-70' : 'bg-emerald-50 border-emerald-100'}`}>
+                <div className={`p-3 rounded-xl border flex flex-col justify-center transition-colors ${isDippingIntoReserve && activePool < numericAmount ? 'bg-slate-50 border-slate-200 opacity-70' : 'bg-teal-50 border-teal-100'}`}>
                     <div className="flex items-center gap-2 mb-1">
-                        <Wallet size={14} className="text-emerald-600"/>
-                        <span className="label-text text-emerald-600">Aktywne</span>
+                        <Wallet size={14} className="text-teal-600"/>
+                        <span className="label-text text-teal-600">Aktywne</span>
                     </div>
-                    <span className="text-xl font-bold text-emerald-800">{activePool}</span>
+                    <span className="text-xl font-bold text-teal-800">{activePool}</span>
                 </div>
                 <div className={`p-3 rounded-xl border flex flex-col justify-center transition-colors ${isDippingIntoReserve ? 'bg-indigo-50 border-indigo-200 ring-1 ring-indigo-200' : 'bg-white border-slate-200'}`}>
                     <div className="flex items-center gap-2 mb-1">
@@ -115,13 +115,13 @@ export const DistributionModal: React.FC<DistributionModalProps> = ({
                     <div className="flex justify-between items-start mt-2">
                         {selectedUser && numericAmount > 0 && (
                             <p className="text-[10px] text-slate-400">
-                                Nowe saldo: <strong className="text-emerald-600">{(selectedUser.voucherBalance + numericAmount)} pkt</strong>
+                                Nowe saldo: <strong className="text-teal-600">{(selectedUser.voucherBalance + numericAmount)} pkt</strong>
                             </p>
                         )}
                         {isDippingIntoReserve && (
                             <div className="text-[10px] text-right font-medium">
                                 <span className="text-slate-400">Pobranie: </span>
-                                <span className="text-emerald-600">{useFromActive} akt.</span>
+                                <span className="text-teal-600">{useFromActive} akt.</span>
                                 <span className="text-slate-300 mx-1">+</span>
                                 <span className="text-indigo-600">{useFromReserved} rez.</span>
                             </div>

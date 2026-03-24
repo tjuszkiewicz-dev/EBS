@@ -289,7 +289,7 @@ export const AdminBuybackManager: React.FC<AdminBuybackManagerProps> = ({
                 {statusFilter === 'APPROVED' && onMarkPaid && (
                     <button 
                         onClick={(e) => { e.stopPropagation(); setPaymentModalData(bb); }}
-                        className="p-1.5 text-white bg-emerald-600 hover:bg-emerald-700 rounded shadow-sm transition"
+                        className="p-1.5 text-white bg-teal-600 hover:bg-teal-700 rounded shadow-sm transition"
                         title="Potwierdź Przelew"
                     >
                         <CreditCard size={16}/>
@@ -438,7 +438,7 @@ export const AdminBuybackManager: React.FC<AdminBuybackManagerProps> = ({
                     headerActions={
                         <div className="flex gap-2">
                             {statusFilter === 'PENDING' && (
-                                <button onClick={handleAutoApproveSafe} className="px-3 py-2 bg-emerald-50 text-emerald-700 border border-emerald-200 rounded-lg text-xs font-bold hover:bg-emerald-100 transition flex items-center gap-1">
+                                <button onClick={handleAutoApproveSafe} className="px-3 py-2 bg-teal-50 text-teal-700 border border-teal-200 rounded-lg text-xs font-bold hover:bg-teal-100 transition flex items-center gap-1">
                                     <CheckCircle size={14} className="hidden sm:block"/> Auto-Zatwierdź {"<"}500 PLN
                                 </button>
                             )}
@@ -464,7 +464,7 @@ export const AdminBuybackManager: React.FC<AdminBuybackManagerProps> = ({
                             )}
                             <button 
                                 onClick={handleBulkAction} 
-                                className="flex-1 md:flex-none px-4 py-2.5 bg-emerald-600 rounded-lg text-xs font-bold hover:bg-emerald-500 transition shadow-lg shadow-emerald-900/20"
+                                className="flex-1 md:flex-none px-4 py-2.5 bg-teal-600 rounded-lg text-xs font-bold hover:bg-teal-500 transition shadow-lg shadow-teal-900/20"
                             >
                                 {statusFilter === 'PENDING' ? 'Zatwierdź Wybrane' : 'Zaksięguj Wybrane'}
                             </button>

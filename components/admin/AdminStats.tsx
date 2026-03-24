@@ -61,7 +61,7 @@ export const AdminStats: React.FC<Props> = ({ vouchers, orders, commissions, aud
                 value={stats.consumed} 
                 subValue="Zrealizowane usługi"
                 icon={ShoppingCart} 
-                color="emerald" 
+                color="teal" 
             />
             <StatCard 
                 label="Przychód (Fee)" 
@@ -79,7 +79,7 @@ export const AdminStats: React.FC<Props> = ({ vouchers, orders, commissions, aud
             {/* LEFT: FINANCIAL FLOW CHART */}
             <div className="xl:col-span-2 bg-white p-5 rounded-xl shadow-sm border border-slate-200 flex flex-col h-[320px]">
                 <h3 className="font-bold text-slate-800 mb-4 flex items-center gap-2">
-                    <Banknote size={20} className="text-emerald-600"/> Przepływ Środków (Ostatnie 7 dni)
+                    <Banknote size={20} className="text-teal-600"/> Przepływ Środków (Ostatnie 7 dni)
                 </h3>
                 <div className="flex-1 w-full min-h-0">
                     <ResponsiveContainer width="100%" height="100%">

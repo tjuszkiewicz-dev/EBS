@@ -124,13 +124,13 @@ export const HRCommandCenter: React.FC<Props> = ({
 
                         <button 
                             onClick={onOpenDistributionChoice} 
-                            className="bg-white p-4 md:p-6 rounded-xl border border-slate-200 shadow-sm active:bg-slate-50 hover:border-emerald-400 hover:shadow-md transition-all group text-left flex flex-row md:flex-col items-center md:items-start gap-4 h-auto md:h-32"
+                            className="bg-white p-4 md:p-6 rounded-xl border border-slate-200 shadow-sm active:bg-slate-50 hover:border-teal-400 hover:shadow-md transition-all group text-left flex flex-row md:flex-col items-center md:items-start gap-4 h-auto md:h-32"
                         >
-                            <div className="bg-emerald-50 w-10 h-10 md:w-10 md:h-10 rounded-lg flex items-center justify-center text-emerald-600 group-hover:scale-110 transition-transform shrink-0">
+                            <div className="bg-teal-50 w-10 h-10 md:w-10 md:h-10 rounded-lg flex items-center justify-center text-teal-600 group-hover:scale-110 transition-transform shrink-0">
                                 <Send size={20} />
                             </div>
                             <div>
-                                <span className="font-bold text-slate-800 block text-sm md:text-base group-hover:text-emerald-700">Przekaż Vouchery</span>
+                                <span className="font-bold text-slate-800 block text-sm md:text-base group-hover:text-teal-700">Przekaż Vouchery</span>
                                 <span className="text-xs text-slate-500">Pojedynczo lub Masowo</span>
                             </div>
                         </button>

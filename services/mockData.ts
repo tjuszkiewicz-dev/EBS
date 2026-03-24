@@ -37,7 +37,7 @@ export const INITIAL_SYSTEM_CONFIG: SystemConfig = {
   platformCurrency: 'PLN',
   
   // Security
-  minPasswordLength: 8,
+  minPasswordLength: 3,
   sessionTimeoutMinutes: 30,
   auditLogRetentionDays: 365,
   
@@ -211,6 +211,48 @@ export const INITIAL_USERS: User[] = [
         hasSicknessInsurance: false
     },
     // Missing Finance Layer (Unverified for Buyback)
+  },
+  {
+    id: 'EMP-003',
+    role: Role.EMPLOYEE,
+    companyId: 'FIRMA-042',
+    status: 'ACTIVE',
+    voucherBalance: 0,
+
+    // Credentials
+    username: 'm_koch',
+    password: '123mackoch123',
+
+    // Facade
+    name: 'Maciej Koch',
+    email: 'm.koch@techsolutions.pl',
+    pesel: '88030512345',
+    department: 'Produkcja',
+    position: 'Pracownik',
+
+    identity: {
+        firstName: 'Maciej',
+        lastName: 'Koch',
+        pesel: '88030512345',
+        email: 'm.koch@techsolutions.pl'
+    },
+    organization: {
+        department: 'Produkcja',
+        position: 'Pracownik'
+    },
+    contract: {
+        type: ContractType.UOP,
+        hasSicknessInsurance: true
+    },
+    finance: {
+        payoutAccount: {
+            iban: 'PL98765432109876543210987654',
+            country: 'PL',
+            isVerified: true,
+            verificationMethod: 'MICROTRANSFER',
+            lastVerifiedAt: new Date().toISOString()
+        }
+    }
   }
 ];
 
@@ -312,98 +354,108 @@ export const INITIAL_SERVICES: ServiceItem[] = [
   { 
       id: 'SRV-MENTAL-01', 
       name: 'EBS Wellbeing Premium', 
-      description: 'Miesięczny dostęp do platformy Mental Health (AI Coach, Medytacje, Wideo).', 
-      price: 100, // 100 points cost
+      description: 'Platforma zdrowia psychicznego z AI Coachem, sesjami medytacyjnymi, ćwiczeniami oddechowymi i filmami wideo od certyfikowanych terapeutów. Monitoruj swoje nastroje i śpij lepiej.', 
+      price: 100,
       type: ServiceType.SUBSCRIPTION, 
       icon: 'Brain', 
-      image: 'https://images.unsplash.com/photo-1544367563-12123d8975bd?auto=format&fit=crop&q=80&w=800',
+      image: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&q=80&w=800',
       isActive: true 
   },
-  // --- AI LEGAL ASSISTANT INTEGRATION (NEW) ---
+  // --- AI LEGAL ASSISTANT INTEGRATION ---
   { 
       id: 'SRV-LEGAL-01', 
       name: 'AI Legal Assistant', 
-      description: 'Twój osobisty prawnik 24/7. Analiza umów i porady prawne.', 
+      description: 'Inteligentny asystent prawny dostępny całą dobę. Analizuje umowy o pracę, umowy B2B i regulaminy. Odpowiada na pytania prawne w języku polskim, wskazuje ryzykowne klauzule i generuje pisma.', 
       price: 150, 
       type: ServiceType.SUBSCRIPTION, 
       icon: 'Scale', 
-      image: 'https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&q=80&w=800',
+      image: 'https://images.unsplash.com/photo-1589994965851-a8f479c573a9?auto=format&fit=crop&q=80&w=800',
       isActive: true 
   },
   { 
       id: 'SRV-LEGAL-SINGLE', 
       name: 'Analiza Umowy (Jednorazowa)', 
-      description: 'Sprawdzenie jednego dokumentu PDF pod kątem klauzul abuzywnych.', 
+      description: 'Prześlij dowolny dokument PDF lub Word – umowę o pracę, NDA, umowę najmu czy zlecenie. Otrzymasz szczegółowy raport z wyróżnionymi klauzulami abuzywnymi i rekomendacjami zmian w ciągu 15 minut.', 
       price: 50, 
       type: ServiceType.ONE_TIME, 
       icon: 'FileText', 
-      image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=800',
+      image: 'https://images.unsplash.com/photo-1568992688065-536aad8a12f6?auto=format&fit=crop&q=80&w=800',
       isActive: true 
   },
-  // --- OFERTA ORANGE ---
-  { 
-      id: 'SRV-ORANGE-FIBER', 
-      name: 'Światłowód Pro 2.0', 
-      description: 'Super szybki internet światłowodowy do Twojego domu.', 
-      price: 59, 
-      type: ServiceType.SUBSCRIPTION, 
-      icon: 'Wifi', 
-      image: 'https://images.unsplash.com/photo-1544197150-b99a580bbcbf?auto=format&fit=crop&q=80&w=800',
-      isActive: true 
+  // --- OFERTA GRUPA LUX MED ---
+  {
+      id: 'SRV-LUXMED-BASIC',
+      name: 'LUX MED Opieka S',
+      description: 'Podstawowa opieka ambulatoryjna Grupy LUX MED – jeden z największych prywatnych systemów ochrony zdrowia w Polsce. Obejmuje lekarza rodzinnego, internistę, teleporady 24/7 oraz podstawowy pakiet badań laboratoryjnych.',
+      price: 89,
+      type: ServiceType.SUBSCRIPTION,
+      icon: 'Stethoscope',
+      image: 'https://images.unsplash.com/photo-1666214280391-8ff5bd3c0bf0?auto=format&fit=crop&q=80&w=800',
+      isActive: true
   },
-  { 
-      id: 'SRV-ORANGE-GSM', 
-      name: 'Plan Firmowy L', 
-      description: 'Nielimitowane rozmowy i SMSy, duży pakiet danych.', 
-      price: 45, 
-      type: ServiceType.SUBSCRIPTION, 
-      icon: 'Smartphone', 
-      image: 'https://images.unsplash.com/photo-1512428559087-560fa5ce7d02?auto=format&fit=crop&q=80&w=800',
-      isActive: true 
+  {
+      id: 'SRV-LUXMED-COMFORT',
+      name: 'LUX MED Opieka M',
+      description: 'Rozbudowany pakiet opieki medycznej LUX MED z dostępem do ponad 30 specjalizacji bez skierowania, diagnostyką obrazową (RTG, USG), badaniami laboratoryjnymi oraz profilaktyczną opieką stomatologiczną. Wizyty w ponad 320 placówkach w Polsce.',
+      price: 149,
+      type: ServiceType.SUBSCRIPTION,
+      icon: 'Heart',
+      image: 'https://images.unsplash.com/photo-1551190822-a9333d879b1f?auto=format&fit=crop&q=80&w=800',
+      isActive: true
   },
-  { 
-      id: 'SRV-ORANGE-LOVE', 
-      name: 'Orange Love Mini', 
-      description: 'Pakiet usług dla całej rodziny w jednej cenie.', 
-      price: 89, 
-      type: ServiceType.SUBSCRIPTION, 
-      icon: 'Heart', 
-      image: 'https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&q=80&w=800',
-      isActive: true 
+  {
+      id: 'SRV-LUXMED-PREMIUM',
+      name: 'LUX MED Opieka L',
+      description: 'Kompleksowa ochrona zdrowia dla wymagających. Nieograniczony dostęp do specjalistów, hospitalizacja planowa w Szpitalu LUX MED, pełna diagnostyka (rezonans magnetyczny, tomografia), fizjoterapia, kompleksowa stomatologia i opieka okulistyczna.',
+      price: 249,
+      type: ServiceType.SUBSCRIPTION,
+      icon: 'ShieldCheck',
+      image: 'https://images.unsplash.com/photo-1538108149393-fbbd81895907?auto=format&fit=crop&q=80&w=800',
+      isActive: true
+  },
+  {
+      id: 'SRV-LUXMED-PSYCHO',
+      name: 'LUX MED Zdrowie Psychiczne',
+      description: 'Profesjonalne wsparcie psychologiczne od specjalistów Grupy LUX MED. 8 konsultacji psychologicznych rocznie, sesje psychoterapii indywidualnej, program zarządzania stresem oraz całodobowa infolinia zdrowia psychicznego. Pomaga w wypaleniu zawodowym i lęku.',
+      price: 99,
+      type: ServiceType.SUBSCRIPTION,
+      icon: 'Brain',
+      image: 'https://images.unsplash.com/photo-1620065478277-634a939f9e4f?auto=format&fit=crop&q=80&w=800',
+      isActive: true
   },
   // -------------------------------------
-  { id: 'SRV-01', name: 'Spotify Premium (30 dni)', description: 'Dostęp do muzyki bez reklam', price: 20, type: ServiceType.SUBSCRIPTION, icon: 'Headphones', image: 'https://images.unsplash.com/photo-1614680376593-902f74cf0d41?auto=format&fit=crop&q=80&w=800', isActive: true },
-  { id: 'SRV-02', name: 'Audioteka (1 Audiobook)', description: 'Dowolny audiobook z oferty', price: 35, type: ServiceType.ONE_TIME, icon: 'BookOpen', image: 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&q=80&w=800', isActive: true },
-  { id: 'SRV-03', name: 'Porada Prawna Online (Człowiek)', description: 'Konsultacja z radcą prawnym (Video)', price: 200, type: ServiceType.ONE_TIME, icon: 'Scale', image: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80&w=800', isActive: true },
-  { id: 'SRV-04', name: 'Multikino (Bilet)', description: 'Bilet na dowolny seans 2D', price: 25, type: ServiceType.ONE_TIME, icon: 'Film', image: 'https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&q=80&w=800', isActive: true },
+  { id: 'SRV-01', name: 'Spotify Premium (30 dni)', description: 'Miesiąc nieprzerwanego słuchania muzyki bez reklam. Ponad 100 milionów utworów, podcasty i audiobooki. Pobieraj playlisty offline na każde urządzenie. Jakość dźwięku do 320 kbps.', price: 20, type: ServiceType.SUBSCRIPTION, icon: 'Headphones', image: 'https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&q=80&w=800', isActive: true },
+  { id: 'SRV-02', name: 'Audioteka (1 Audiobook)', description: 'Jeden audiobook do wyboru z katalogu Audioteki – największej polskiej platformy z audiobookami. Ponad 30 000 tytułów: literatura, biznes, reportaże, kryminały. Słuchaj w aplikacji mobilnej lub przeglądarce.', price: 35, type: ServiceType.ONE_TIME, icon: 'BookOpen', image: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&q=80&w=800', isActive: true },
+  { id: 'SRV-03', name: 'Porada Prawna Online (Człowiek)', description: 'Godzinna wideo-konsultacja z licencjonowanym radcą prawnym lub adwokatem. Specjalizacje: prawo pracy, prawo cywilne, umowy, nieruchomości. Umów termin online, otrzymaj podsumowanie na piśmie po spotkaniu.', price: 200, type: ServiceType.ONE_TIME, icon: 'Scale', image: 'https://images.unsplash.com/photo-1521791055366-0d553872952f?auto=format&fit=crop&q=80&w=800', isActive: true },
+  { id: 'SRV-04', name: 'Multikino (Bilet)', description: 'Bilet na dowolny seans 2D w sieci kin Multikino – ponad 30 multipleksów w całej Polsce. Aktualny repertuar, filmy polskie i zagraniczne. Zarezerwuj miejsce online, odbierz e-bilet w aplikacji. Ważny 3 miesiące od aktywacji.', price: 25, type: ServiceType.ONE_TIME, icon: 'Film', image: 'https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&q=80&w=800', isActive: true },
 
   // --- AI & PRODUCTIVITY ---
-  { id: 'SRV-AI-01', name: 'Twój pierwszy dzień z osobistym AI', description: 'Jak delegować nudne zadania.', price: 23, type: ServiceType.ONE_TIME, icon: 'Cpu', image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800', isActive: true },
-  { id: 'SRV-AI-02', name: 'Prompt Engineering dla nietechnicznych', description: 'Jak rozmawiać z maszyną, by Cię rozumiała.', price: 41, type: ServiceType.ONE_TIME, icon: 'Zap', image: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=800', isActive: true },
-  { id: 'SRV-AI-03', name: 'Głęboka praca w świecie powiadomień', description: 'Techniki koncentracji w 2026 roku.', price: 12, type: ServiceType.ONE_TIME, icon: 'Brain', image: 'https://images.unsplash.com/photo-1506784365847-bbad939e9335?auto=format&fit=crop&q=80&w=800', isActive: true },
-  { id: 'SRV-AI-04', name: 'Automatyzacja codzienności', description: 'Proste triki na cyfrowe porządki.', price: 37, type: ServiceType.ONE_TIME, icon: 'Settings', image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=800', isActive: true },
-  { id: 'SRV-AI-05', name: 'Etyka AI w Twoim biurze', description: 'Co wolno, a czego nie, używając sztucznej inteligencji.', price: 49, type: ServiceType.ONE_TIME, icon: 'Shield', image: 'https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&q=80&w=800', isActive: true },
+  { id: 'SRV-AI-01', name: 'Twój pierwszy dzień z osobistym AI', description: 'Praktyczny warsztat online pokazujący, jak używać narzędzi AI (ChatGPT, Copilot, Gemini) do delegowania rutynowych zadań. Nauczysz się pisać e-maile, tworzyć raporty i podsumowywać spotkania 10x szybciej.', price: 23, type: ServiceType.ONE_TIME, icon: 'Cpu', image: 'https://images.unsplash.com/photo-1655720828018-edd2daec9349?auto=format&fit=crop&q=80&w=800', isActive: true },
+  { id: 'SRV-AI-02', name: 'Prompt Engineering dla nietechnicznych', description: 'Naucz się konstruować skuteczne zapytania do modeli językowych bez znajomości programowania. Kurs zawiera ponad 50 gotowych szablonów promptów dla HR, sprzedaży, marketingu i obsługi klienta.', price: 41, type: ServiceType.ONE_TIME, icon: 'Zap', image: 'https://images.unsplash.com/photo-1686191128892-3b37add4c844?auto=format&fit=crop&q=80&w=800', isActive: true },
+  { id: 'SRV-AI-03', name: 'Głęboka praca w świecie powiadomień', description: 'Metody koncentracji opracowane na podstawie badań neuropsychologii: technika Pomodoro, blokowanie rozpraszaczy, planowanie tygodnia w blokach czasowych. Naucz się osiągać flow i realizować projekty wymagające skupienia.', price: 12, type: ServiceType.ONE_TIME, icon: 'Brain', image: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&q=80&w=800', isActive: true },
+  { id: 'SRV-AI-04', name: 'Automatyzacja codzienności', description: 'Bez kodowania: naucz się łączyć aplikacje przez Zapier i Make.com, automatyzować arkusze Excel/Google Sheets i tworzyć własne chatboty. Oszczędź do 2 godzin dziennie na powtarzalnych zadaniach.', price: 37, type: ServiceType.ONE_TIME, icon: 'Settings', image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800', isActive: true },
+  { id: 'SRV-AI-05', name: 'Etyka AI w Twoim biurze', description: 'Praktyczny przewodnik po zasadach bezpiecznego i legalnego korzystania ze sztucznej inteligencji w pracy. Omawia RODO a AI, ochronę danych firmowych, halucynacje modeli i odpowiedzialność prawną za treści generowane przez AI.', price: 49, type: ServiceType.ONE_TIME, icon: 'Shield', image: 'https://images.unsplash.com/photo-1531746790731-6c087fecd65a?auto=format&fit=crop&q=80&w=800', isActive: true },
 
   // --- MENTAL HEALTH ---
-  { id: 'SRV-MH-01', name: 'Cyfrowy detoks w 15 minut', description: 'Jak odzyskać spokój bez wyrzucania telefonu.', price: 9, type: ServiceType.ONE_TIME, icon: 'Smartphone', image: 'https://images.unsplash.com/photo-1516738901171-8eb4fc13bd20?auto=format&fit=crop&q=80&w=800', isActive: true },
-  { id: 'SRV-MH-02', name: 'Trening odporności na stres (Resilience)', description: 'Techniki jednostek specjalnych dla korporacji.', price: 33, type: ServiceType.ONE_TIME, icon: 'Heart', image: 'https://images.unsplash.com/photo-1522204538344-922f76ecc041?auto=format&fit=crop&q=80&w=800', isActive: true },
-  { id: 'SRV-MH-03', name: 'Sztuka asertywności na Teamsach', description: 'Jak mówić "nie" bez poczucia winy.', price: 21, type: ServiceType.ONE_TIME, icon: 'MessageSquare', image: 'https://images.unsplash.com/photo-1573497620053-ea5300f94f21?auto=format&fit=crop&q=80&w=800', isActive: true },
-  { id: 'SRV-MH-04', name: 'Sen jako Twój najlepszy projekt', description: 'Biohacking nocnej regeneracji.', price: 44, type: ServiceType.ONE_TIME, icon: 'Moon', image: 'https://images.unsplash.com/photo-1511296933631-18b46797e652?auto=format&fit=crop&q=80&w=800', isActive: true },
-  { id: 'SRV-MH-05', name: 'Praca z domu i samotność', description: 'Jak budować relacje w trybie remote.', price: 15, type: ServiceType.ONE_TIME, icon: 'Users', image: 'https://images.unsplash.com/photo-1593642532973-d31b6557fa68?auto=format&fit=crop&q=80&w=800', isActive: true },
+  { id: 'SRV-MH-01', name: 'Cyfrowy detoks w 15 minut', description: 'Krótki program oparty na mindfulness: techniki uziemienia (grounding), ćwiczenia oddechowe 4-7-8, protokół ograniczania ekranowego czasu. Dostępny jako seria nagrań audio – idealne na przerwę w pracy.', price: 9, type: ServiceType.ONE_TIME, icon: 'Smartphone', image: 'https://images.unsplash.com/photo-1528716321680-815a8cdb8cbe?auto=format&fit=crop&q=80&w=800', isActive: true },
+  { id: 'SRV-MH-02', name: 'Trening odporności na stres (Resilience)', description: 'Program budowania odporności psychicznej oparty na metodach stosowanych przez wojsko i służby ratunkowe: kontrola oddechu, reframing poznawczy i techniki deaktywacji stresu. Dla osób w wymagających zawodach.', price: 33, type: ServiceType.ONE_TIME, icon: 'Heart', image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&q=80&w=800', isActive: true },
+  { id: 'SRV-MH-03', name: 'Sztuka asertywności na Teamsach', description: 'Jak wyznaczać granice zawodowe w kulturze ciągłej dostępności: odmawianie zadań poza zakresem, ochrona czasu prywatnego, komunikacja potrzeb bez agresji. Zawiera gotowe skrypty odpowiedzi na trudne wiadomości.', price: 21, type: ServiceType.ONE_TIME, icon: 'MessageSquare', image: 'https://images.unsplash.com/photo-1552581234-26160f608093?auto=format&fit=crop&q=80&w=800', isActive: true },
+  { id: 'SRV-MH-04', name: 'Sen jako Twój najlepszy projekt', description: 'Oparte na sleep science metody poprawy jakości snu: optymalizacja temperatury sypialni, protokół wyciszenia przed snem, wpływ niebieskiego światła i kofeiny. Naucz się spać mniej, ale regenerować się skuteczniej.', price: 44, type: ServiceType.ONE_TIME, icon: 'Moon', image: 'https://images.unsplash.com/photo-1531353826977-0941b4779a1c?auto=format&fit=crop&q=80&w=800', isActive: true },
+  { id: 'SRV-MH-05', name: 'Praca zdalna a izolacja społeczna', description: 'Jak przeciwdziałać poczuciu osamotnienia przy pracy zdalnej: tworzenie rytuałów połączenia z zespołem, networkingowe przerwy online, hybrydowe strategie integracji. Zawiera checklistę dla menedżerów i pracowników.', price: 15, type: ServiceType.ONE_TIME, icon: 'Users', image: 'https://images.unsplash.com/photo-1573167243872-43c6433b9d40?auto=format&fit=crop&q=80&w=800', isActive: true },
 
   // --- FINANCE & GROWTH ---
-  { id: 'SRV-FIN-01', name: 'Inwestowanie dla ostrożnych', description: 'Podstawy budowania poduszki finansowej.', price: 28, type: ServiceType.ONE_TIME, icon: 'DollarSign', image: 'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&q=80&w=800', isActive: true },
-  { id: 'SRV-FIN-02', name: 'Psychologia zakupów online', description: 'Jak nie dać się zmanipulować algorytmom.', price: 7, type: ServiceType.ONE_TIME, icon: 'ShoppingCart', image: 'https://images.unsplash.com/photo-1556742049-0cfed4f7a07d?auto=format&fit=crop&q=80&w=800', isActive: true },
-  { id: 'SRV-FIN-03', name: 'Negocjacje podwyżki w 2026', description: 'Nowoczesne argumenty oparte na danych.', price: 42, type: ServiceType.ONE_TIME, icon: 'TrendingUp', image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=800', isActive: true },
-  { id: 'SRV-FIN-04', name: 'Personal Branding wewnątrz firmy', description: 'Jak być widocznym, nie będąc nachalnym.', price: 19, type: ServiceType.ONE_TIME, icon: 'UserCheck', image: 'https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?auto=format&fit=crop&q=80&w=800', isActive: true },
-  { id: 'SRV-FIN-05', name: 'Emerytura 2.0', description: 'Zrozumieć PPK, IKE i IKZE bez bólu głowy.', price: 36, type: ServiceType.ONE_TIME, icon: 'Landmark', image: 'https://images.unsplash.com/photo-1565514020176-6c2235b8b3a9?auto=format&fit=crop&q=80&w=800', isActive: true },
+  { id: 'SRV-FIN-01', name: 'Inwestowanie dla ostrożnych', description: 'Podstawy budowania bezpiecznego portfela inwestycyjnego: ETF-y, obligacje skarbowe, lokaty i konta oszczędnościowe. Nauka dywersyfikacji, zarządzania ryzykiem i długoterminowego myślenia o pieniądzach bez zbędnego żargonu.', price: 28, type: ServiceType.ONE_TIME, icon: 'DollarSign', image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&q=80&w=800', isActive: true },
+  { id: 'SRV-FIN-02', name: 'Psychologia zakupów online', description: 'Jak platformy e-commerce i algorytmy manipulują Twoją skłonnością do zakupów impulsywnych: dark patterns, FOMO marketing, dynamiczne ceny. Naucz się świadomie kupować i ograniczyć nieplanowane wydatki.', price: 7, type: ServiceType.ONE_TIME, icon: 'ShoppingCart', image: 'https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&q=80&w=800', isActive: true },
+  { id: 'SRV-FIN-03', name: 'Negocjacje podwyżki w 2026', description: 'Skuteczna strategia rozmowy o wynagrodzeniu oparta na danych rynkowych z raportów płacowych. Jak przygotować case biznesowy, dobrać moment rozmowy i reagować na obiekcje. Zawiera skrypt negocjacyjny do ćwiczeń.', price: 42, type: ServiceType.ONE_TIME, icon: 'TrendingUp', image: 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?auto=format&fit=crop&q=80&w=800', isActive: true },
+  { id: 'SRV-FIN-04', name: 'Personal Branding wewnątrz firmy', description: 'Jak budować reputację eksperta wewnątrz organizacji: widoczność na spotkaniach, prowadzenie wewnętrznych szkoleń, strategiczna komunikacja osiągnięć bez efektu samochwalstwa. Dla osób aspirujących do awansu.', price: 19, type: ServiceType.ONE_TIME, icon: 'UserCheck', image: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80&w=800', isActive: true },
+  { id: 'SRV-FIN-05', name: 'Emerytura 2.0 – PPK, IKE i IKZE', description: 'Przystępny przewodnik po polskim systemie emerytalnym III filaru. Dowiedz się jak działają Pracownicze Plany Kapitałowe, jakie ulgi daje IKZE (odliczenie od podatku), czym różni się IKE i jak wybrać najlepszy fundusz.', price: 36, type: ServiceType.ONE_TIME, icon: 'Landmark', image: 'https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&q=80&w=800', isActive: true },
 
   // --- LIFESTYLE ---
-  { id: 'SRV-LIFE-01', name: 'Bajka na dobranoc: Robot, który chciał mieć sny', description: 'Audio dla dzieci pracowników.', price: 11, type: ServiceType.ONE_TIME, icon: 'Baby', image: 'https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&q=80&w=800', isActive: true },
-  { id: 'SRV-LIFE-02', name: 'Kuchnia w 15 minut', description: 'Meal-prep dla zapracowanych.', price: 24, type: ServiceType.ONE_TIME, icon: 'Utensils', image: 'https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&q=80&w=800', isActive: true },
-  { id: 'SRV-LIFE-03', name: 'Hobby zamiast scrollowania', description: 'Jak znaleźć pasję, która nie wymaga ekranu.', price: 17, type: ServiceType.ONE_TIME, icon: 'Compass', image: 'https://images.unsplash.com/photo-1455355675860-e883e35ab3a7?auto=format&fit=crop&q=80&w=800', isActive: true },
-  { id: 'SRV-LIFE-04', name: 'Podróże z nielimitowanym urlopem', description: 'Jak planować workation.', price: 48, type: ServiceType.ONE_TIME, icon: 'Plane', image: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&q=80&w=800', isActive: true },
-  { id: 'SRV-LIFE-05', name: 'Komunikacja między pokoleniami', description: 'Jak dogadać się z Gen Z i Boomerami.', price: 39, type: ServiceType.ONE_TIME, icon: 'Users', image: 'https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&q=80&w=800', isActive: true }
+  { id: 'SRV-LIFE-01', name: 'Bajka na dobranoc: Robot, który chciał mieć sny', description: 'Piękna audiobaśń dla dzieci pracowników (wiek 4–10 lat) o małym robocie szukającym marzeń sennych. Nagrana przez profesjonalnych lektorów z muzyką i efektami dźwiękowymi. Dostępna jako plik MP3 do pobrania.', price: 11, type: ServiceType.ONE_TIME, icon: 'Baby', image: 'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&q=80&w=800', isActive: true },
+  { id: 'SRV-LIFE-02', name: 'Kuchnia w 15 minut', description: 'Kurs planowania posiłków dla zapracowanych: meal-prep na cały tydzień w 2 godziny, lista zakupów do PowerPoint, 25 przepisów gotowych w 15 minut. Oszczędź pieniądze na jedzeniu na wynos i jedz zdrowo bez stresu.', price: 24, type: ServiceType.ONE_TIME, icon: 'Utensils', image: 'https://images.unsplash.com/photo-1543353071-873f17a7a088?auto=format&fit=crop&q=80&w=800', isActive: true },
+  { id: 'SRV-LIFE-03', name: 'Hobby zamiast scrollowania', description: 'Interaktywny quiz pomagający odkryć pasję dopasowaną do Twojego temperamentu, budżetu i dostępnego czasu. Propozycje obejmują rzemiosło, sport, muzykę, gotowanie i sztukę – z konkretnymi krokami jak zacząć w pierwszym tygodniu.', price: 17, type: ServiceType.ONE_TIME, icon: 'Compass', image: 'https://images.unsplash.com/photo-1452860606245-08befc0ff44b?auto=format&fit=crop&q=80&w=800', isActive: true },
+  { id: 'SRV-LIFE-04', name: 'Workation – praca z dowolnego miejsca', description: 'Kompletny poradnik planowania workation: jak wybrać destynację z dobrym internetem, negocjować ze pracodawcą pracę zdalną za granicą, rozliczyć podatki i ubezpieczenie zdrowotne. Lista 15 sprawdzonych lokalizacji w Europie.', price: 48, type: ServiceType.ONE_TIME, icon: 'Plane', image: 'https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&q=80&w=800', isActive: true },
+  { id: 'SRV-LIFE-05', name: 'Komunikacja między pokoleniami', description: 'Praktyczny przewodnik budowania efektywnych relacji zawodowych z różnymi generacjami: Baby Boomers, Gen X, Millenialsi i Gen Z. Omawia różnice w stylu pracy, komunikacji i motywacji – kluczowe kompetencje wielopokoleniowego miejsca pracy.', price: 39, type: ServiceType.ONE_TIME, icon: 'Users', image: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&q=80&w=800', isActive: true }
 ];
 
 export const INITIAL_TICKETS: SupportTicket[] = [

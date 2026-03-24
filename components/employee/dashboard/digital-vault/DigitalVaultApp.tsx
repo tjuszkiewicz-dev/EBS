@@ -188,7 +188,7 @@ export const DigitalVaultApp: React.FC<DigitalVaultAppProps> = ({ onClose, subsc
                 {/* Subscription Status */}
                 <div className="mt-4 pt-4 border-t border-slate-200">
                     <div className="flex items-center gap-2 mb-1">
-                        <Activity className="w-3 h-3 text-emerald-500" />
+                        <Activity className="w-3 h-3 text-teal-500" />
                         <span className="text-xs font-bold text-slate-700">Subskrypcja Aktywna</span>
                     </div>
                     <p className="text-[10px] text-slate-400">Następna płatność: 50 pkt (za 12 dni)</p>
@@ -293,7 +293,7 @@ export const DigitalVaultApp: React.FC<DigitalVaultAppProps> = ({ onClose, subsc
 
                 {uploadProgress !== null && (
                     <div className="ml-auto w-48 bg-slate-100 rounded-full h-2 overflow-hidden border border-slate-200">
-                         <div className="bg-emerald-500 h-full transition-all duration-300" style={{ width: `${uploadProgress}%` }}></div>
+                         <div className="bg-teal-500 h-full transition-all duration-300" style={{ width: `${uploadProgress}%` }}></div>
                     </div>
                 )}
             </div>
@@ -334,7 +334,7 @@ export const DigitalVaultApp: React.FC<DigitalVaultAppProps> = ({ onClose, subsc
                                     {/* Encrypted Badge */}
                                     {file.type === 'file' && (
                                         <div className="absolute -bottom-1 -right-1 bg-white rounded-full p-0.5 shadow-sm border border-slate-100" title="AES-256 Encrypted">
-                                            <Shield className="w-3 h-3 text-emerald-500 fill-emerald-100" />
+                                            <Shield className="w-3 h-3 text-teal-500 fill-teal-100" />
                                         </div>
                                     )}
                                 </div>

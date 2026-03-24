@@ -16,7 +16,7 @@ export const ServiceCatalog: React.FC<ServiceCatalogProps> = ({ services, userBa
 
   const getServiceTheme = (id: string, index: number) => {
       const themes = [
-          { glow: 'bg-emerald-500/20', line: 'from-emerald-400 to-teal-500', icon: 'text-emerald-600 bg-emerald-50', hoverIcon: 'group-hover:text-emerald-700 group-hover:bg-emerald-100', bg: 'bg-emerald-500/5', border: 'group-hover:border-emerald-300' },
+          { glow: 'bg-teal-500/20', line: 'from-teal-400 to-teal-500', icon: 'text-teal-600 bg-teal-50', hoverIcon: 'group-hover:text-teal-700 group-hover:bg-teal-100', bg: 'bg-teal-500/5', border: 'group-hover:border-teal-300' },
           { glow: 'bg-indigo-500/20', line: 'from-indigo-400 to-purple-500', icon: 'text-indigo-600 bg-indigo-50', hoverIcon: 'group-hover:text-indigo-700 group-hover:bg-indigo-100', bg: 'bg-indigo-500/5', border: 'group-hover:border-indigo-300' },
           { glow: 'bg-amber-500/20', line: 'from-amber-400 to-orange-500', icon: 'text-amber-600 bg-amber-50', hoverIcon: 'group-hover:text-amber-700 group-hover:bg-amber-100', bg: 'bg-amber-500/5', border: 'group-hover:border-amber-300' },
           { glow: 'bg-rose-500/20', line: 'from-rose-400 to-pink-500', icon: 'text-rose-600 bg-rose-50', hoverIcon: 'group-hover:text-rose-700 group-hover:bg-rose-100', bg: 'bg-rose-500/5', border: 'group-hover:border-rose-300' },
@@ -30,7 +30,7 @@ export const ServiceCatalog: React.FC<ServiceCatalogProps> = ({ services, userBa
 
       // New Categories
       if(id.includes('SRV-AI')) return themes[1]; // AI - Indigo (Tech)
-      if(id.includes('SRV-MH')) return themes[0]; // Mental Health - Emerald (Calm)
+      if(id.includes('SRV-MH')) return themes[0]; // Mental Health - teal (Calm)
       if(id.includes('SRV-FIN')) return themes[2]; // Finance - Amber (Gold)
       if(id.includes('SRV-LIFE')) return themes[3]; // Lifestyle - Rose (Passion/Fun)
 
@@ -133,7 +133,7 @@ export const ServiceCatalog: React.FC<ServiceCatalogProps> = ({ services, userBa
                                 {/* Category Badges - Compact */}
                                 <div className="flex gap-2 mb-3 flex-wrap">
                                     {service.id.includes('SRV-AI') && <span className="text-[9px] font-bold uppercase tracking-wider text-white bg-indigo-500/80 px-2 py-0.5 rounded backdrop-blur-md border border-white/10">AI</span>}
-                                    {service.id.includes('SRV-MH') && <span className="text-[9px] font-bold uppercase tracking-wider text-white bg-emerald-500/80 px-2 py-0.5 rounded backdrop-blur-md border border-white/10">Wellbeing</span>}
+                                    {service.id.includes('SRV-MH') && <span className="text-[9px] font-bold uppercase tracking-wider text-white bg-teal-500/80 px-2 py-0.5 rounded backdrop-blur-md border border-white/10">Wellbeing</span>}
                                     {service.id.includes('SRV-FIN') && <span className="text-[9px] font-bold uppercase tracking-wider text-white bg-amber-500/80 px-2 py-0.5 rounded backdrop-blur-md border border-white/10">Finanse</span>}
                                     {service.id.includes('SRV-LIFE') && <span className="text-[9px] font-bold uppercase tracking-wider text-white bg-rose-500/80 px-2 py-0.5 rounded backdrop-blur-md border border-white/10">Lifestyle</span>}
                                 </div>

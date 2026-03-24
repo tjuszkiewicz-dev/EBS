@@ -117,7 +117,7 @@ export const HROrderList: React.FC<HROrderListProps> = ({ orders, onViewProforma
                     <div className="flex gap-1">
                         <button 
                             onClick={() => onViewProforma('DEBIT_NOTE', o)}
-                            className="text-[10px] font-bold text-emerald-700 hover:text-emerald-900 bg-emerald-50 hover:bg-emerald-100 px-2 py-1 rounded border border-emerald-100 transition flex items-center gap-1"
+                            className="text-[10px] font-bold text-teal-700 hover:text-teal-900 bg-teal-50 hover:bg-teal-100 px-2 py-1 rounded border border-teal-100 transition flex items-center gap-1"
                         >
                             <FileSpreadsheet size={12}/> Nota
                         </button>

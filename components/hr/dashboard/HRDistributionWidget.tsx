@@ -39,7 +39,7 @@ export const HRDistributionWidget: React.FC<HRDistributionWidgetProps> = ({
         <div className={`flex justify-between items-start gap-4 mb-4 ${isCompact ? 'flex-col' : 'flex-col md:flex-row md:items-center'}`}>
             <div>
                 <h3 className="font-bold text-slate-800 text-base md:text-lg flex items-center gap-2">
-                    <Send size={20} className="text-emerald-600"/> Szybkie Przekazywanie
+                    <Send size={20} className="text-teal-600"/> Szybkie Przekazywanie
                 </h3>
                 {!isCompact && (
                     <p className="text-xs md:text-sm text-slate-500">
@@ -51,7 +51,7 @@ export const HRDistributionWidget: React.FC<HRDistributionWidgetProps> = ({
             {/* Pool Summary Pills */}
             <div className="flex flex-row md:flex-col items-end gap-2 md:gap-1 text-xs w-full md:w-auto justify-end md:pr-8">
                 <div className="flex items-center gap-2 font-bold text-slate-700 bg-slate-50 px-2 py-1 rounded">
-                    <Wallet size={14} className="text-emerald-600"/>
+                    <Wallet size={14} className="text-teal-600"/>
                     <span>Dostępne: {activePool}</span>
                 </div>
                 {reservedPool > 0 && (
@@ -66,13 +66,13 @@ export const HRDistributionWidget: React.FC<HRDistributionWidgetProps> = ({
         <div className={`grid gap-3 ${isCompact ? 'grid-cols-1' : 'grid-cols-1 md:grid-cols-2'}`}>
             <button 
                 onClick={onOpenSingle}
-                className={`group rounded-xl border border-slate-200 hover:border-emerald-500 hover:bg-emerald-50/30 transition-all flex items-center text-left relative overflow-hidden active:scale-[0.98] ${isCompact ? 'p-3 gap-3' : 'p-4 gap-4'}`}
+                className={`group rounded-xl border border-slate-200 hover:border-teal-500 hover:bg-teal-50/30 transition-all flex items-center text-left relative overflow-hidden active:scale-[0.98] ${isCompact ? 'p-3 gap-3' : 'p-4 gap-4'}`}
             >
-                <div className={`${isCompact ? 'w-10 h-10 text-sm' : 'w-12 h-12'} bg-emerald-100 rounded-full flex items-center justify-center text-emerald-600 group-hover:scale-110 transition-transform flex-shrink-0`}>
+                <div className={`${isCompact ? 'w-10 h-10 text-sm' : 'w-12 h-12'} bg-teal-100 rounded-full flex items-center justify-center text-teal-600 group-hover:scale-110 transition-transform flex-shrink-0`}>
                     <UserIcon size={isCompact ? 20 : 24}/>
                 </div>
                 <div>
-                    <h4 className="font-bold text-slate-700 group-hover:text-emerald-700 text-sm md:text-base">Jeden Pracownik</h4>
+                    <h4 className="font-bold text-slate-700 group-hover:text-teal-700 text-sm md:text-base">Jeden Pracownik</h4>
                     <p className="text-xs text-slate-500 line-clamp-1">Wybierz osobę z listy i określ kwotę.</p>
                 </div>
             </button>

@@ -104,9 +104,9 @@ export const DistributionEvidenceModal: React.FC<DistributionEvidenceModalProps>
                         <span className="text-xs font-bold text-slate-400 uppercase">Wartość Zamówienia</span>
                         <p className="text-2xl font-bold text-slate-800">{order.amount} pkt</p>
                     </div>
-                    <div className="p-4 rounded-xl border border-emerald-100 bg-emerald-50">
-                        <span className="text-xs font-bold text-emerald-600 uppercase">Wydano Pracownikom</span>
-                        <p className="text-2xl font-bold text-emerald-700">{totalDistributed} pkt</p>
+                    <div className="p-4 rounded-xl border border-teal-100 bg-teal-50">
+                        <span className="text-xs font-bold text-teal-600 uppercase">Wydano Pracownikom</span>
+                        <p className="text-2xl font-bold text-teal-700">{totalDistributed} pkt</p>
                     </div>
                     <div className={`p-4 rounded-xl border ${remainingInPool > 0 ? 'border-amber-100 bg-amber-50' : 'border-slate-200 bg-white'}`}>
                         <span className="text-xs font-bold text-slate-400 uppercase">Pozostało w Puli HR</span>

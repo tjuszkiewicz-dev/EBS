@@ -63,7 +63,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
                     <div className="hidden lg:flex flex-col gap-4 w-72">
                         <div className="bg-white/15 backdrop-blur-xl border border-white/20 p-4 rounded-2xl shadow-xl transform hover:rotate-2 transition-transform">
                             <div className="flex items-center gap-3 mb-2">
-                                <div className="p-2 bg-emerald-400/20 rounded-lg text-emerald-300">
+                                <div className="p-2 bg-teal-400/20 rounded-lg text-teal-300">
                                     <Shield size={20} />
                                 </div>
                                 <span className="font-bold text-sm">Ochrona 24/7</span>
@@ -87,7 +87,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
                 {[
                     { id: 'ANALYZER', title: 'Analiza Prawna', desc: 'Skanuj i analizuj umowy', icon: <FileSearch className="text-blue-600" />, color: 'bg-blue-50' },
-                    { id: 'GENERATOR', title: 'Generuj Pismo', desc: '15+ profesjonalnych wzorów', icon: <FilePlus className="text-emerald-600" />, color: 'bg-emerald-50' },
+                    { id: 'GENERATOR', title: 'Generuj Pismo', desc: '15+ profesjonalnych wzorów', icon: <FilePlus className="text-teal-600" />, color: 'bg-teal-50' },
                     { id: 'CONSUMER_WIZARD', title: 'Centrum Zwrotów', desc: 'Pomoc w reklamacjach', icon: <ShoppingCart className="text-purple-600" />, color: 'bg-purple-50' },
                     { id: 'CALCULATORS', title: 'Kalkulatory', desc: 'Terminy, odsetki, koszty', icon: <Calculator className="text-amber-600" />, color: 'bg-amber-50' }
                 ].map((action) => (

@@ -143,7 +143,7 @@ export const BankExportModal: React.FC<BankExportModalProps> = ({
                             <button 
                                 onClick={() => setFormat('CSV_GENERIC')}
                                 className={`p-3 rounded-lg border flex flex-col items-center gap-2 transition ${
-                                    format === 'CSV_GENERIC' ? 'bg-emerald-50 border-emerald-500 text-emerald-700 ring-1 ring-emerald-500' : 'bg-white border-slate-200 text-slate-600 hover:border-slate-300'
+                                    format === 'CSV_GENERIC' ? 'bg-teal-50 border-teal-500 text-teal-700 ring-1 ring-teal-500' : 'bg-white border-slate-200 text-slate-600 hover:border-slate-300'
                                 }`}
                             >
                                 <FileSpreadsheet size={24}/>

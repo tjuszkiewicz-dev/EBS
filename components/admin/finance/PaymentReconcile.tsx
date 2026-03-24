@@ -211,7 +211,7 @@ export const PaymentReconcile: React.FC<PaymentReconcileProps> = ({ orders, onPr
                         <span className="text-sm font-bold text-slate-700">{matchPercentage.toFixed(0)}% Zgodności</span>
                     </div>
                     <div className="flex h-2.5 w-full rounded-full overflow-hidden bg-slate-200">
-                        <div style={{ width: `${(stats.matched/stats.total)*100}%` }} className="bg-emerald-500" title={`Pełna zgodność: ${stats.matched}`} />
+                        <div style={{ width: `${(stats.matched/stats.total)*100}%` }} className="bg-teal-500" title={`Pełna zgodność: ${stats.matched}`} />
                         <div style={{ width: `${(stats.partial/stats.total)*100}%` }} className="bg-amber-400" title={`Częściowa zgodność: ${stats.partial}`} />
                     </div>
                 </div>
@@ -224,8 +224,8 @@ export const PaymentReconcile: React.FC<PaymentReconcileProps> = ({ orders, onPr
                         </div>
                         <div className="w-px h-8 bg-slate-300"></div>
                         <div className="flex flex-col">
-                            <span className="font-bold text-emerald-600 text-lg">{stats.matched}</span>
-                            <span className="text-xs text-emerald-700 uppercase font-bold">Zgodne</span>
+                            <span className="font-bold text-teal-600 text-lg">{stats.matched}</span>
+                            <span className="text-xs text-teal-700 uppercase font-bold">Zgodne</span>
                         </div>
                         <div className="flex flex-col">
                             <span className="font-bold text-amber-600 text-lg">{stats.partial}</span>
@@ -265,7 +265,7 @@ export const PaymentReconcile: React.FC<PaymentReconcileProps> = ({ orders, onPr
                         <tbody className="divide-y divide-slate-100">
                             {transactions.map(t => (
                                 <tr key={t.id} className={`hover:bg-slate-50 transition ${
-                                    t.matchStatus === 'FULL_MATCH' ? 'bg-emerald-50/30' : 
+                                    t.matchStatus === 'FULL_MATCH' ? 'bg-teal-50/30' : 
                                     t.matchStatus === 'PARTIAL_MATCH' ? 'bg-amber-50/30' : ''
                                 }`}>
                                     <td className="px-4 py-3 whitespace-nowrap text-slate-600">

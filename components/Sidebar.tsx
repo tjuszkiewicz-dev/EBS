@@ -92,9 +92,12 @@ export const Sidebar: React.FC<SidebarProps> = ({
       `}>
         {/* Brand Header */}
         <div className="h-20 flex items-center justify-between px-6 border-b border-slate-800 bg-slate-950/30 whitespace-nowrap min-w-[18rem]">
-          <div>
-            <h1 className="text-xl font-bold tracking-wider text-emerald-400">ELITON BENEFITS</h1>
-            <p className="text-[10px] text-slate-400 uppercase tracking-widest mt-0.5">System (EBS)</p>
+          <div className="flex items-center gap-3">
+            <img src="/bbs.png" alt="BBS" className="h-20 w-20 object-contain" />
+            <div>
+              <h1 className="text-lg font-extrabold tracking-wider text-white leading-tight">BBS</h1>
+              <p className="text-[10px] text-slate-400 tracking-widest mt-0 leading-tight">Baltic Benefit System</p>
+            </div>
           </div>
           <button onClick={onClose} className="md:hidden text-slate-400 hover:text-white transition p-1">
             <X size={24} />
@@ -113,7 +116,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
               }}
               className={`w-full flex items-center gap-3 px-4 py-3 text-sm font-medium rounded-xl transition-all duration-200 group ${
                 currentView === item.id
-                  ? 'bg-emerald-600 text-white shadow-lg shadow-emerald-900/20'
+                  ? 'bg-blue-700 text-white shadow-lg shadow-blue-900/20'
                   : 'text-slate-400 hover:bg-slate-800 hover:text-white'
               }`}
             >
@@ -135,7 +138,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
             }`}
           >
              <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold shadow-lg flex-shrink-0 ${
-                 isLogout ? 'bg-red-500/20 text-red-400' : 'bg-gradient-to-br from-emerald-500 to-emerald-700 text-white'
+                 isLogout ? 'bg-red-500/20 text-red-400' : 'bg-gradient-to-br from-blue-500 to-blue-700 text-white'
              }`}>
                 {isLogout ? <LogOut size={18}/> : currentUser.name.charAt(0)}
              </div>
@@ -145,14 +148,14 @@ export const Sidebar: React.FC<SidebarProps> = ({
                     {isLogout ? 'Wyloguj się' : currentUser.name}
                 </p>
                 <div className="flex items-center gap-1.5 text-xs text-slate-400">
-                  <span className={`w-1.5 h-1.5 rounded-full ${isLogout ? 'bg-red-500' : 'bg-emerald-500'} animate-pulse`} />
+                  <span className={`w-1.5 h-1.5 rounded-full ${isLogout ? 'bg-red-500' : 'bg-blue-500'} animate-pulse`} />
                   <span className="truncate">{getRoleLabel(currentUser.role)}</span>
                 </div>
              </div>
           </button>
           
           <div className="mt-3 text-center">
-            <p className="text-[10px] text-slate-600">Wersja EBS 1.0.9 (Accounting UI)</p>
+            <p className="text-[10px] text-slate-600">Wersja BBS 1.0.9 (Accounting UI)</p>
           </div>
         </div>
       </aside>

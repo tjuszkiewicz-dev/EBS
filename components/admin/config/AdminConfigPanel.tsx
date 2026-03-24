@@ -150,7 +150,7 @@ export const AdminConfigPanel: React.FC<AdminConfigPanelProps> = ({
           header: 'Saldo', 
           accessorKey: 'balanceActive',
           className: 'text-right', 
-          cell: (c) => <span className="font-mono font-bold text-emerald-600">{c.balanceActive} pkt</span> 
+          cell: (c) => <span className="font-mono font-bold text-teal-600">{c.balanceActive} pkt</span> 
       },
       { 
           header: 'Akcja', 
@@ -220,15 +220,15 @@ export const AdminConfigPanel: React.FC<AdminConfigPanelProps> = ({
                       <div className="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                           <div>
                               <h2 className="text-xl font-bold flex items-center gap-2">
-                                  <Link size={24} className="text-emerald-400"/> Central CRM Integration
+                                  <Link size={24} className="text-teal-400"/> Central CRM Integration
                               </h2>
                               <p className="text-slate-400 text-sm mt-1 max-w-lg">
                                   System jest połączony z główną bazą danych (HubSpot/Salesforce Mock).
                                   Firmy są tworzone w EBS po zmianie statusu umowy na "SIGNED".
                               </p>
                           </div>
-                          <div className="flex items-center gap-2 px-3 py-1.5 bg-emerald-500/20 border border-emerald-500/30 rounded-lg text-emerald-400 text-xs font-bold">
-                              <span className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
+                          <div className="flex items-center gap-2 px-3 py-1.5 bg-teal-500/20 border border-teal-500/30 rounded-lg text-teal-400 text-xs font-bold">
+                              <span className="w-2 h-2 bg-teal-500 rounded-full animate-pulse"></span>
                               API Connected
                           </div>
                       </div>

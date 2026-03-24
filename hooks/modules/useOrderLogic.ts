@@ -7,7 +7,8 @@ import { calculateOrderTotals, FINANCIAL_CONSTANTS } from '../../utils/financial
 import { usePersistedState } from '../usePersistedState';
 
 const COMMISSION_RATES = {
-  ADVISOR_FIRST_INVOICE: 0.10,
+  ADVISOR_FIRST_INVOICE: 0.45, // 45% - prowizja jednorazowa za pozyskanie kontraktu
+  ADVISOR_RECURRING: 0.05,     // 5%  - prowizja miesięczna za utrzymanie firmy
   MANAGER_RECURRING: 0.02,
   DIRECTOR_RECURRING: 0.01,
   RENEWAL_TIER_1: 0.02,
@@ -69,7 +70,12 @@ export const useOrderLogic = (
   // Persistent State
   const [orders, setOrders] = usePersistedState<Order[]>('ebs_orders_v1', INITIAL_ORDERS);
   const [companies, setCompanies] = usePersistedState<Company[]>('ebs_companies_v1', INITIAL_COMPANIES);
-  const [commissions, setCommissions] = usePersistedState<Commission[]>('ebs_commissions_v1', INITIAL_COMMISSIONS);
+
+  // Clear old commission keys to force fresh state with new rates
+  if (typeof window !== 'undefined') {
+    ['ebs_commissions_v1', 'ebs_commissions_v2'].forEach(k => window.localStorage.removeItem(k));
+  }
+  const [commissions, setCommissions] = usePersistedState<Commission[]>('ebs_commissions_v3', INITIAL_COMMISSIONS);
 
   // --- CRM SYNC LOGIC ---
   const handleCrmSync = useCallback(async () => {
@@ -367,6 +373,26 @@ export const useOrderLogic = (
                     orderId: order.id,
                     amount: commissionBase * COMMISSION_RATES.ADVISOR_FIRST_INVOICE,
                     rate: `${COMMISSION_RATES.ADVISOR_FIRST_INVOICE * 100}%`,
+                    dateCalculated,
+                    quarter: currentQuarter,
+                    isPaid: true
+                });
+            }
+        }
+    } else {
+        // Prowizja odnawialna 5% - wypłacana co miesiąc za utrzymanie firmy składającej zamówienia
+        if (company.advisorId) {
+            const advisor = users.find(u => u.id === company.advisorId);
+            if (advisor) {
+                newCommissions.push({
+                    id: `COM-${generateUUID()}-REC`,
+                    agentId: advisor.id,
+                    agentName: advisor.name,
+                    role: Role.ADVISOR,
+                    type: CommissionType.RECURRING,
+                    orderId: order.id,
+                    amount: commissionBase * COMMISSION_RATES.ADVISOR_RECURRING,
+                    rate: `${COMMISSION_RATES.ADVISOR_RECURRING * 100}%`,
                     dateCalculated,
                     quarter: currentQuarter,
                     isPaid: true

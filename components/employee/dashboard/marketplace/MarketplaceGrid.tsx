@@ -16,7 +16,7 @@ const CategoryCard = ({ icon, title, subtitle, image, color }) => {
                         {icon}
                     </div>
                     <div>
-                        <h3 className="text-white font-bold text-lg leading-tight group-hover:text-emerald-300 transition-colors drop-shadow-md">{title}</h3>
+                        <h3 className="text-white font-bold text-lg leading-tight group-hover:text-teal-300 transition-colors drop-shadow-md">{title}</h3>
                         <p className="text-white/70 text-xs font-medium mt-1 leading-tight">{subtitle}</p>
                     </div>
                 </div>
@@ -40,7 +40,7 @@ export const MarketplaceGrid = () => {
                 title="Cyberbezpieczeństwo"
                 subtitle="VPN, Antywirus, Ochrona Rodziny"
                 image="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=600"
-                color="emerald"
+                color="teal"
             />
             <CategoryCard 
                 icon={<Scale size={20} />}

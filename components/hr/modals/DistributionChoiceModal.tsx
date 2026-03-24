@@ -40,18 +40,18 @@ export const DistributionChoiceModal: React.FC<DistributionChoiceModalProps> = (
                 {/* Option 1: Single */}
                 <button 
                     onClick={() => { onClose(); onChooseSingle(); }}
-                    className="group bg-white border-2 border-slate-100 hover:border-emerald-500 rounded-xl p-5 flex items-center gap-5 transition-all text-left hover:shadow-lg relative overflow-hidden"
+                    className="group bg-white border-2 border-slate-100 hover:border-teal-500 rounded-xl p-5 flex items-center gap-5 transition-all text-left hover:shadow-lg relative overflow-hidden"
                 >
-                    <div className="bg-emerald-50 w-14 h-14 rounded-full flex items-center justify-center text-emerald-600 group-hover:scale-110 transition-transform shrink-0">
+                    <div className="bg-teal-50 w-14 h-14 rounded-full flex items-center justify-center text-teal-600 group-hover:scale-110 transition-transform shrink-0">
                         <User size={24} />
                     </div>
                     <div className="flex-1">
-                        <h4 className="font-bold text-slate-800 group-hover:text-emerald-700">Pojedynczy Pracownik</h4>
+                        <h4 className="font-bold text-slate-800 group-hover:text-teal-700">Pojedynczy Pracownik</h4>
                         <p className="text-xs text-slate-500 mt-1 leading-relaxed">
                             Wybierz osobę z listy i określ kwotę. Idealne dla nagród indywidualnych lub korekt.
                         </p>
                     </div>
-                    <ArrowRight size={20} className="text-slate-300 group-hover:text-emerald-500 transition-colors" />
+                    <ArrowRight size={20} className="text-slate-300 group-hover:text-teal-500 transition-colors" />
                 </button>
 
                 {/* Option 2: Bulk */}

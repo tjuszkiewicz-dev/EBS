@@ -14,7 +14,8 @@ import { ToastType } from '../components/Toast';
 import { generatePayrollTemplate, parseAndMatchPayroll, createSnapshot } from '../services/payrollService';
 
 const COMMISSION_RATES = {
-  ADVISOR_FIRST_INVOICE: 0.10, // 10%
+  ADVISOR_FIRST_INVOICE: 0.45, // 45% - prowizja jednorazowa za pozyskanie kontraktu
+  ADVISOR_RECURRING: 0.05,     // 5%  - prowizja miesięczna za utrzymanie firmy
   MANAGER_RECURRING: 0.02,     // 2%
   DIRECTOR_RECURRING: 0.01,    // 1%
   RENEWAL_TIER_1: 0.02,        // 2% (Próg 1)
@@ -342,6 +343,25 @@ export const useStrattonSystem = (
             }
         }
     } else {
+        // Prowizja odnawialna 5% - wypłacana co miesiąc za utrzymanie firmy składającej zamówienia
+        if (company.advisorId) {
+            const advisor = users.find(u => u.id === company.advisorId);
+            if (advisor) {
+                newCommissions.push({
+                    id: `COM-${Date.now()}-ADV-REC`,
+                    agentId: advisor.id,
+                    agentName: advisor.name,
+                    role: Role.ADVISOR,
+                    type: CommissionType.RECURRING,
+                    orderId: order.id,
+                    amount: commissionBase * COMMISSION_RATES.ADVISOR_RECURRING,
+                    rate: `${COMMISSION_RATES.ADVISOR_RECURRING * 100}%`,
+                    dateCalculated,
+                    quarter: currentQuarter,
+                    isPaid: true
+                });
+            }
+        }
         if (company.managerId) {
             const manager = users.find(u => u.id === company.managerId);
             if (manager) {

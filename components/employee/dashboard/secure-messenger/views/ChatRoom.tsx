@@ -126,8 +126,8 @@ export const ChatRoom: React.FC<Props> = ({ onBack }) => {
     return (
       <div className="flex flex-col h-full bg-slate-900 text-white p-6 justify-center max-w-md mx-auto w-full animate-in fade-in duration-300">
         <div className="mb-8 text-center">
-            <div className="w-16 h-16 bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-4 border border-slate-700 shadow-lg shadow-emerald-900/10">
-                <Users className="w-8 h-8 text-emerald-500" />
+            <div className="w-16 h-16 bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-4 border border-slate-700 shadow-lg shadow-teal-900/10">
+                <Users className="w-8 h-8 text-teal-500" />
             </div>
             <h2 className="text-2xl font-bold mb-2">Prywatne Czaty</h2>
             <p className="text-slate-400 text-sm">Szyfrowane, efemeryczne pokoje rozmów. Nic nie jest zapisywane na serwerze.</p>
@@ -136,7 +136,7 @@ export const ChatRoom: React.FC<Props> = ({ onBack }) => {
         <div className="space-y-4">
             <button 
                 onClick={handleCreateRoom}
-                className="w-full py-4 bg-emerald-600 hover:bg-emerald-500 rounded-xl font-bold transition-all shadow-lg hover:shadow-emerald-900/30 flex items-center justify-center gap-2"
+                className="w-full py-4 bg-teal-600 hover:bg-teal-500 rounded-xl font-bold transition-all shadow-lg hover:shadow-teal-900/30 flex items-center justify-center gap-2"
             >
                 <UserPlus className="w-5 h-5" />
                 Utwórz Nowy Pokój
@@ -157,7 +157,7 @@ export const ChatRoom: React.FC<Props> = ({ onBack }) => {
                     placeholder="KOD POKOJU" 
                     value={joinCode}
                     onChange={(e) => setJoinCode(e.target.value.toUpperCase())}
-                    className="flex-1 bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-center uppercase tracking-widest font-mono text-lg focus:outline-none focus:border-emerald-500 transition-colors"
+                    className="flex-1 bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-center uppercase tracking-widest font-mono text-lg focus:outline-none focus:border-teal-500 transition-colors"
                     maxLength={6}
                 />
                 <button 
@@ -182,17 +182,17 @@ export const ChatRoom: React.FC<Props> = ({ onBack }) => {
       {/* Header */}
       <header className="px-4 py-3 bg-slate-900 border-b border-slate-800 flex justify-between items-center z-20 shadow-sm">
         <div className="flex items-center gap-3">
-             <div className="w-8 h-8 rounded bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center text-white font-bold text-xs shadow-md">
+             <div className="w-8 h-8 rounded bg-gradient-to-br from-teal-500 to-teal-600 flex items-center justify-center text-white font-bold text-xs shadow-md">
                  {roomId.slice(0,2)}
              </div>
              <div>
                  <div className="flex items-center gap-2">
                     <h3 className="font-bold text-white text-sm">Pokój {roomId}</h3>
-                    <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" title="Connected"></div>
+                    <div className="w-2 h-2 rounded-full bg-teal-500 animate-pulse" title="Connected"></div>
                  </div>
                  <button onClick={copyRoomCode} className="text-[10px] text-slate-400 flex items-center gap-1 hover:text-white transition-colors">
                     {roomId} 
-                    {isCopied ? <Check className="w-3 h-3 text-emerald-500" /> : <Copy className="w-3 h-3" />}
+                    {isCopied ? <Check className="w-3 h-3 text-teal-500" /> : <Copy className="w-3 h-3" />}
                  </button>
              </div>
         </div>
@@ -222,12 +222,12 @@ export const ChatRoom: React.FC<Props> = ({ onBack }) => {
              >
                  <div className={`max-w-[75%] rounded-2xl px-4 py-3 relative group transition-all duration-500 ${
                      msg.sender === 'me' 
-                        ? 'bg-emerald-600 text-white rounded-br-none shadow-lg shadow-emerald-900/10' 
+                        ? 'bg-teal-600 text-white rounded-br-none shadow-lg shadow-teal-900/10' 
                         : 'bg-slate-800 text-slate-200 rounded-bl-none border border-slate-700'
                  }`}>
                      <p className="text-sm leading-relaxed">{msg.content}</p>
                      
-                     <div className={`flex items-center gap-2 mt-1 text-[10px] ${msg.sender === 'me' ? 'text-emerald-200' : 'text-slate-500'} justify-end`}>
+                     <div className={`flex items-center gap-2 mt-1 text-[10px] ${msg.sender === 'me' ? 'text-teal-200' : 'text-slate-500'} justify-end`}>
                         {msg.ttl < 3600 && <TimeLeft timestamp={msg.timestamp} ttl={msg.ttl} />}
                      </div>
                  </div>
@@ -253,7 +253,7 @@ export const ChatRoom: React.FC<Props> = ({ onBack }) => {
                         <button 
                             key={t}
                             onClick={() => setTtl(t)}
-                            className={`text-xs text-left px-2 py-1 rounded hover:bg-slate-700 ${ttl === t ? 'text-emerald-400 bg-slate-700' : 'text-slate-300'}`}
+                            className={`text-xs text-left px-2 py-1 rounded hover:bg-slate-700 ${ttl === t ? 'text-teal-400 bg-slate-700' : 'text-slate-300'}`}
                         >
                             {t < 60 ? `${t} sek` : t === 60 ? '1 min' : '1 godz'}
                         </button>
@@ -267,14 +267,14 @@ export const ChatRoom: React.FC<Props> = ({ onBack }) => {
                 onChange={(e) => setInputValue(e.target.value)}
                 onKeyDown={(e) => e.key === 'Enter' && handleSendMessage()}
                 placeholder="Napisz wiadomość..."
-                className="flex-1 bg-slate-950 border border-slate-700 rounded-full px-4 py-3 text-sm focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all text-white placeholder-slate-600"
+                className="flex-1 bg-slate-950 border border-slate-700 rounded-full px-4 py-3 text-sm focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 transition-all text-white placeholder-slate-600"
                 autoFocus
              />
              
              <button 
                 onClick={handleSendMessage}
                 disabled={!inputValue.trim()}
-                className="p-3 bg-emerald-600 hover:bg-emerald-500 disabled:opacity-50 disabled:bg-slate-800 rounded-full text-white transition-all shadow-lg hover:shadow-emerald-900/30 transform active:scale-95"
+                className="p-3 bg-teal-600 hover:bg-teal-500 disabled:opacity-50 disabled:bg-slate-800 rounded-full text-white transition-all shadow-lg hover:shadow-teal-900/30 transform active:scale-95"
              >
                 <Send className="w-5 h-5" />
              </button>

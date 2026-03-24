@@ -1,6 +1,6 @@
 import React from 'react';
 import { 
-    History, Search, ArrowLeft, Filter, Calendar, Clock, ChevronRight, 
+    History, Search, ArrowLeft, ArrowRight, Filter, Calendar, Clock, ChevronRight, 
     Bot, FileText, CheckCircle2, MoreVertical, Trash2
 } from 'lucide-react';
 import { ViewMode, LegalCase } from './types';
@@ -60,7 +60,7 @@ export const CaseListView: React.FC<CaseListViewProps> = ({
                         >
                             <div className="flex items-center justify-between mb-4">
                                 <div className="flex items-center gap-2">
-                                    <span className={`px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest ${caseItem.status === 'OPEN' ? 'bg-emerald-100 text-emerald-700' : 'bg-slate-100 text-slate-500'}`}>
+                                    <span className={`px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest ${caseItem.status === 'OPEN' ? 'bg-teal-100 text-teal-700' : 'bg-slate-100 text-slate-500'}`}>
                                         {caseItem.status === 'OPEN' ? 'W toku' : 'Zamknięta'}
                                     </span>
                                     <span className="text-[10px] text-slate-300 font-bold font-mono">#{caseItem.id.includes('-') ? caseItem.id.split('-')[1] : caseItem.id}</span>
