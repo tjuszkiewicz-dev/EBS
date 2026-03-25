@@ -97,10 +97,10 @@ export const GlobalSearch: React.FC<GlobalSearchProps> = ({ isOpen, onClose, onN
                         category: 'EMPLOYEES',
                         label: u.name,
                         subLabel: `${u.email} • ${u.organization?.position || 'Pracownik'}`,
-                        icon: <User size={18} className={isActive ? 'text-teal-600' : 'text-slate-400'} />,
+                        icon: <User size={18} className={isActive ? 'text-emerald-600' : 'text-slate-400'} />,
                         metaRight: (
                             <div className="text-right">
-                                <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold uppercase ${isActive ? 'bg-teal-100 text-teal-700' : 'bg-slate-100 text-slate-500'}`}>
+                                <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold uppercase ${isActive ? 'bg-emerald-100 text-emerald-700' : 'bg-slate-100 text-slate-500'}`}>
                                     {isActive ? 'Aktywny' : 'Zwolniony'}
                                 </span>
                                 <div className="text-[10px] text-slate-400 mt-0.5 font-mono">
@@ -130,7 +130,7 @@ export const GlobalSearch: React.FC<GlobalSearchProps> = ({ isOpen, onClose, onN
                 .slice(0, 3)
                 .forEach(o => {
                     const statusColor = 
-                        o.status === OrderStatus.PAID ? 'bg-teal-100 text-teal-700' :
+                        o.status === OrderStatus.PAID ? 'bg-emerald-100 text-emerald-700' :
                         o.status === OrderStatus.APPROVED ? 'bg-blue-100 text-blue-700' :
                         o.status === OrderStatus.REJECTED ? 'bg-red-100 text-red-700' : 'bg-amber-100 text-amber-700';
                     
@@ -185,7 +185,7 @@ export const GlobalSearch: React.FC<GlobalSearchProps> = ({ isOpen, onClose, onN
                     metaRight: (
                         <div className="text-right">
                             <span className="text-[10px] text-slate-400 uppercase font-bold">Saldo</span>
-                            <div className="text-xs font-bold text-teal-600">
+                            <div className="text-xs font-bold text-emerald-600">
                                 {c.balanceActive} pkt
                             </div>
                         </div>

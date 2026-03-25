@@ -169,7 +169,7 @@ export const DashboardHR: React.FC<Props> = ({
       if (workflowStep === 'ORDER') return { label: 'TWORZENIE', color: 'bg-blue-100 text-blue-800 border-blue-200', icon: <FileText size={16}/> };
 
       // Priority 4: All Paid (Settled)
-      if (hasPaidInvoice) return { label: 'ROZLICZONY', color: 'bg-teal-100 text-teal-800 border-teal-200', icon: <CheckCircle2 size={16}/> };
+      if (hasPaidInvoice) return { label: 'ROZLICZONY', color: 'bg-emerald-100 text-emerald-800 border-emerald-200', icon: <CheckCircle2 size={16}/> };
       
       // Default
       return { label: 'OCZEKUJE', color: 'bg-slate-100 text-slate-600 border-slate-200', icon: <AlertTriangle size={16}/> };

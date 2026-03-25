@@ -176,8 +176,8 @@ export const PayrollModal: React.FC<PayrollModalProps> = ({
          <div className="bg-white border-b border-slate-200 p-4 shadow-sm flex flex-col md:flex-row gap-4 justify-between items-center shrink-0 z-10">
              <div className="flex gap-4 w-full md:w-auto overflow-x-auto no-scrollbar">
                  <div className="flex flex-col">
-                     <span className="label-text text-teal-600">Poprawne</span>
-                     <span className="text-xl font-bold text-teal-700">{matchedCount}</span>
+                     <span className="label-text text-emerald-600">Poprawne</span>
+                     <span className="text-xl font-bold text-emerald-700">{matchedCount}</span>
                  </div>
                  {invalidCount > 0 && (
                      <div className="flex flex-col border-l border-slate-100 pl-4">
@@ -204,7 +204,7 @@ export const PayrollModal: React.FC<PayrollModalProps> = ({
                             <th className="px-3 py-2 border-b text-right w-[15%]">Netto Budżet</th>
                             <th className="px-3 py-2 border-b text-right w-[10%] text-slate-400">Min. (ZUS)</th>
                             <th className="px-3 py-2 border-b w-[25%] text-center bg-indigo-50/50">Edycja (Godziny / Kwota)</th>
-                            <th className="px-3 py-2 border-b text-right w-[10%] text-teal-600 font-bold">Voucher</th>
+                            <th className="px-3 py-2 border-b text-right w-[10%] text-emerald-600 font-bold">Voucher</th>
                             <th className="px-3 py-2 border-b text-center w-[10%]">Status</th>
                         </tr>
                     </thead>
@@ -254,7 +254,7 @@ export const PayrollModal: React.FC<PayrollModalProps> = ({
                                                     <span className="text-slate-300">|</span>
                                                     <div className="text-[10px] text-slate-500 flex flex-col items-start leading-tight">
                                                         <span>Gotówka: {entry.cashPartNet.toFixed(0)}</span>
-                                                        <span className="text-teal-600 font-bold">Voucher: {(entry.totalHours - (entry.cashHours ?? entry.totalHours))}h</span>
+                                                        <span className="text-emerald-600 font-bold">Voucher: {(entry.totalHours - (entry.cashHours ?? entry.totalHours))}h</span>
                                                     </div>
                                                 </div>
                                             ) : (
@@ -277,7 +277,7 @@ export const PayrollModal: React.FC<PayrollModalProps> = ({
                                         )}
                                     </td>
 
-                                    <td className="px-3 py-2 text-right font-mono font-bold text-teal-600">
+                                    <td className="px-3 py-2 text-right font-mono font-bold text-emerald-600">
                                         {Math.floor(entry.voucherPartNet)}
                                     </td>
                                     <td className="px-3 py-2 text-center">
@@ -289,7 +289,7 @@ export const PayrollModal: React.FC<PayrollModalProps> = ({
                                                 </div>
                                             </div>
                                         ) : entry.status === 'MATCHED' ? (
-                                            <CheckCircle size={16} className="text-teal-500 mx-auto"/>
+                                            <CheckCircle size={16} className="text-emerald-500 mx-auto"/>
                                         ) : (
                                             <span className="text-[10px] text-slate-400">{entry.status}</span>
                                         )}
@@ -323,8 +323,8 @@ export const PayrollModal: React.FC<PayrollModalProps> = ({
 
   const renderStep3 = () => (
       <div className="flex flex-col items-center justify-center h-full text-center px-6 overflow-y-auto">
-           <div className={`p-6 rounded-full mb-6 ${totalVouchers > 0 ? 'bg-teal-50' : 'bg-slate-100'}`}>
-                <UserCheck size={64} className={totalVouchers > 0 ? 'text-teal-600' : 'text-slate-400'} />
+           <div className={`p-6 rounded-full mb-6 ${totalVouchers > 0 ? 'bg-emerald-50' : 'bg-slate-100'}`}>
+                <UserCheck size={64} className={totalVouchers > 0 ? 'text-emerald-600' : 'text-slate-400'} />
            </div>
            <h3 className="text-2xl font-bold text-slate-800 mb-2">
                {totalVouchers > 0 ? 'Gotowe do Zamówienia' : 'Wynik Netto Pusty'}
@@ -350,7 +350,7 @@ export const PayrollModal: React.FC<PayrollModalProps> = ({
            <div className="flex flex-col w-full max-w-sm gap-3">
                <button 
                   onClick={handleApply}
-                  className="w-full px-8 py-3.5 bg-teal-600 text-white rounded-xl hover:bg-teal-700 transition font-bold shadow-lg flex items-center justify-center gap-2"
+                  className="w-full px-8 py-3.5 bg-emerald-600 text-white rounded-xl hover:bg-emerald-700 transition font-bold shadow-lg flex items-center justify-center gap-2"
                >
                    Utwórz Zamówienie <ArrowRight size={18}/>
                </button>

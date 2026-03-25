@@ -17,7 +17,7 @@ export const EmployeeTransactionHistory: React.FC<EmployeeTransactionHistoryProp
           sortable: true,
           className: 'w-12 text-center',
           cell: (t) => t.type === 'CREDIT' 
-            ? <div className="p-1.5 bg-teal-100 text-teal-600 rounded-full inline-flex"><ArrowDownLeft size={16} /></div>
+            ? <div className="p-1.5 bg-emerald-100 text-emerald-600 rounded-full inline-flex"><ArrowDownLeft size={16} /></div>
             : <div className="p-1.5 bg-red-100 text-red-600 rounded-full inline-flex"><ArrowUpRight size={16} /></div>
       },
       {
@@ -53,7 +53,7 @@ export const EmployeeTransactionHistory: React.FC<EmployeeTransactionHistoryProp
           sortable: true,
           className: 'text-right',
           cell: (t) => t.type === 'CREDIT' 
-            ? <span className="font-bold text-teal-600">+{t.amount} pkt</span>
+            ? <span className="font-bold text-emerald-600">+{t.amount} pkt</span>
             : <span className="font-bold text-slate-800">-{t.amount} pkt</span>
       }
   ];
@@ -62,7 +62,7 @@ export const EmployeeTransactionHistory: React.FC<EmployeeTransactionHistoryProp
       <div className="flex justify-between items-center">
           <div className="flex items-center gap-3">
               {t.type === 'CREDIT' 
-                ? <div className="p-2 bg-teal-100 text-teal-600 rounded-full"><ArrowDownLeft size={16} /></div>
+                ? <div className="p-2 bg-emerald-100 text-emerald-600 rounded-full"><ArrowDownLeft size={16} /></div>
                 : <div className="p-2 bg-red-100 text-red-600 rounded-full"><ArrowUpRight size={16} /></div>
               }
               <div>
@@ -77,7 +77,7 @@ export const EmployeeTransactionHistory: React.FC<EmployeeTransactionHistoryProp
                   )}
               </div>
           </div>
-          <span className={`font-bold text-sm ${t.type === 'CREDIT' ? 'text-teal-600' : 'text-slate-800'}`}>
+          <span className={`font-bold text-sm ${t.type === 'CREDIT' ? 'text-emerald-600' : 'text-slate-800'}`}>
               {t.type === 'CREDIT' ? '+' : '-'}{t.amount}
           </span>
       </div>

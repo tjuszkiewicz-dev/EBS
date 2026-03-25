@@ -81,13 +81,13 @@ export const HRActionBar: React.FC<HRActionBarProps> = ({ step, onNavigate, onAc
         };
       case 'COMPLETE':
         return {
-          icon: <Sparkles size={24} className="text-teal-600" />,
+          icon: <Sparkles size={24} className="text-emerald-600" />,
           title: "Cykl Zamknięty. Gotowość na nowe zamówienie.",
           desc: "Wszystkie środki zostały rozdane, a faktury opłacone. Możesz rozpocząć nowy proces, ale pamiętaj: sprawdź najpierw czy lista pracowników (zatrudnienia/zwolnienia) jest aktualna.",
           buttonText: "Sprawdź Kadry i Zamów",
           buttonIcon: <UserCheck size={18} />,
           buttonAction: () => onNavigate('EMPLOYEES'), // Kierujemy do Kadr, a nie od razu do Rozliczeń
-          colorClass: "border-l-4 border-teal-500 bg-teal-50/50" // teal/Green for Success
+          colorClass: "border-l-4 border-emerald-500 bg-emerald-50/50" // Emerald/Green for Success
         };
       default:
         return null;

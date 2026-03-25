@@ -19,22 +19,22 @@ export const HRShortcuts: React.FC<HRShortcutsProps> = ({ onOpenDistribution, on
           {/* Action 1: Distribute */}
           <button 
             onClick={onOpenDistribution}
-            className="bg-white p-8 rounded-2xl shadow-md border-2 border-transparent hover:border-teal-500 hover:shadow-xl transition-all group text-left flex items-center gap-6 relative overflow-hidden"
+            className="bg-white p-8 rounded-2xl shadow-md border-2 border-transparent hover:border-emerald-500 hover:shadow-xl transition-all group text-left flex items-center gap-6 relative overflow-hidden"
           >
-              <div className="absolute right-0 top-0 w-32 h-32 bg-teal-50 rounded-bl-full -mr-10 -mt-10 transition-transform group-hover:scale-110"></div>
+              <div className="absolute right-0 top-0 w-32 h-32 bg-emerald-50 rounded-bl-full -mr-10 -mt-10 transition-transform group-hover:scale-110"></div>
               
-              <div className="bg-teal-100 w-16 h-16 rounded-2xl flex items-center justify-center text-teal-600 group-hover:bg-teal-600 group-hover:text-white transition-colors shadow-sm relative z-10">
+              <div className="bg-emerald-100 w-16 h-16 rounded-2xl flex items-center justify-center text-emerald-600 group-hover:bg-emerald-600 group-hover:text-white transition-colors shadow-sm relative z-10">
                   <Send size={32} />
               </div>
               
               <div className="flex-1 relative z-10">
-                  <h3 className="font-bold text-slate-800 text-xl group-hover:text-teal-700 mb-1">Przekaż Vouchery</h3>
+                  <h3 className="font-bold text-slate-800 text-xl group-hover:text-emerald-700 mb-1">Przekaż Vouchery</h3>
                   <p className="text-sm text-slate-500 leading-relaxed">
                       Wyślij środki pracownikom.<br/>Pojedynczo lub dla całej grupy.
                   </p>
               </div>
-              <div className="bg-slate-50 p-2 rounded-full group-hover:bg-teal-100 group-hover:text-teal-700 transition">
-                <ChevronRight size={24} className="text-slate-400 group-hover:text-teal-600" />
+              <div className="bg-slate-50 p-2 rounded-full group-hover:bg-emerald-100 group-hover:text-emerald-700 transition">
+                <ChevronRight size={24} className="text-slate-400 group-hover:text-emerald-600" />
               </div>
           </button>
 

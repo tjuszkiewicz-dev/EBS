@@ -44,7 +44,7 @@ export const ImportReportTemplate: React.FC<Props> = ({ data, company, user }) =
                 </div>
                 <div>
                     <span className="text-slate-500 block">Zaimportowano Kont:</span>
-                    <span className="font-bold text-teal-600">{data.importedCount}</span>
+                    <span className="font-bold text-emerald-600">{data.importedCount}</span>
                 </div>
             </div>
         </div>

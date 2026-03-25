@@ -42,7 +42,7 @@ export const SalesCommissionTable: React.FC<Props> = ({ commissions }) => {
         accessorKey: 'amount',
         sortable: true,
         className: 'text-right',
-        cell: (c) => <span className="font-bold text-teal-600">{c.amount.toFixed(2)} PLN</span>
+        cell: (c) => <span className="font-bold text-emerald-600">{c.amount.toFixed(2)} PLN</span>
     }
   ];
 
@@ -57,7 +57,7 @@ export const SalesCommissionTable: React.FC<Props> = ({ commissions }) => {
                   {c.type === CommissionType.ACQUISITION ? <Badge variant="indigo">Pozyskanie</Badge> : <Badge variant="success">Utrzymanie</Badge>}
                   <span className="text-xs text-slate-500 ml-2">({c.rate})</span>
               </div>
-              <span className="font-bold text-teal-600 text-sm">{c.amount.toFixed(2)} PLN</span>
+              <span className="font-bold text-emerald-600 text-sm">{c.amount.toFixed(2)} PLN</span>
           </div>
       </div>
   );

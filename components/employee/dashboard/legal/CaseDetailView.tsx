@@ -49,7 +49,7 @@ export const CaseDetailView: React.FC<CaseDetailViewProps> = ({
                         <div className="flex items-center gap-4 text-xs font-bold text-slate-400 uppercase tracking-widest">
                             <div className="flex items-center gap-1.5"><History size={14} /> Rozpoczęto {typeof selectedCase.createdAt === 'string' ? selectedCase.createdAt : selectedCase.createdAt instanceof Date ? selectedCase.createdAt.toLocaleDateString() : 'N/A'}</div>
                             {selectedCase.status === 'OPEN' ? (
-                                <div className="flex items-center text-teal-500 gap-1.5"><PulseIndicator /> Sprawa otwarta</div>
+                                <div className="flex items-center text-emerald-500 gap-1.5"><PulseIndicator /> Sprawa otwarta</div>
                             ) : (
                                 <div className="text-slate-400">Archiwum</div>
                             )}
@@ -124,7 +124,7 @@ export const CaseDetailView: React.FC<CaseDetailViewProps> = ({
                         <div className="px-5 py-2 bg-blue-900 text-white rounded-full text-[10px] font-bold uppercase tracking-widest flex items-center gap-3 shadow-2xl border border-white/20 opacity-0 group-focus-within:opacity-100 transform translate-y-4 group-focus-within:translate-y-0 transition-all duration-500">
                             <Shield size={14} className="text-blue-400" />
                             Szyfrowany kanał komunikacji z AI
-                            <div className="w-1.5 h-1.5 bg-teal-400 rounded-full animate-pulse"></div>
+                            <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse"></div>
                         </div>
                     </div>
                     <textarea 

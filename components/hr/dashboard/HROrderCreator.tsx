@@ -91,14 +91,14 @@ export const HROrderCreator: React.FC<HROrderCreatorProps> = ({
               </div>
 
               {hasActivePlan ? (
-                  <div className="bg-teal-50 border border-teal-200 rounded-2xl p-6 flex justify-between items-center animate-in zoom-in-95 shadow-sm">
+                  <div className="bg-emerald-50 border border-emerald-200 rounded-2xl p-6 flex justify-between items-center animate-in zoom-in-95 shadow-sm">
                       <div className="flex items-center gap-4">
-                          <div className="bg-white p-3 rounded-full shadow-sm text-teal-600">
+                          <div className="bg-white p-3 rounded-full shadow-sm text-emerald-600">
                               <FileSpreadsheet size={24} />
                           </div>
                           <div>
-                              <p className="text-sm font-bold text-teal-900">Zaimportowano Listę Płac</p>
-                              <p className="text-xs text-teal-700 mt-1">
+                              <p className="text-sm font-bold text-emerald-900">Zaimportowano Listę Płac</p>
+                              <p className="text-xs text-emerald-700 mt-1">
                                   {distributionPlan.length} pracowników | Suma: <strong>{formatCurrency(orderAmount)}</strong>
                               </p>
                           </div>
@@ -151,7 +151,7 @@ export const HROrderCreator: React.FC<HROrderCreatorProps> = ({
                       {/* Row 1 */}
                       <div className="flex justify-between items-center pb-4 border-b border-slate-50">
                           <div className="flex items-center gap-3">
-                              <div className="w-2 h-2 bg-teal-500 rounded-full"></div>
+                              <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
                               <div>
                                   <span className="text-sm font-medium text-slate-700 block">Vouchery (Nota)</span>
                                   <span className="text-[10px] text-slate-400">Wartość dla pracowników</span>
@@ -200,8 +200,8 @@ export const HROrderCreator: React.FC<HROrderCreatorProps> = ({
   const PaperDocument = ({ type }: { type: 'NOTE' | 'INVOICE' }) => {
       const isNote = type === 'NOTE';
       const docTitle = isNote ? 'NOTA KSIĘGOWA' : 'FAKTURA VAT';
-      const docColor = isNote ? 'text-teal-800' : 'text-indigo-800';
-      const borderColor = isNote ? 'border-teal-900' : 'border-indigo-900';
+      const docColor = isNote ? 'text-emerald-800' : 'text-indigo-800';
+      const borderColor = isNote ? 'border-emerald-900' : 'border-indigo-900';
       
       return (
           <div 
@@ -311,7 +311,7 @@ export const HROrderCreator: React.FC<HROrderCreatorProps> = ({
                       onClick={() => setActiveDoc('NOTE')}
                       className={`px-5 py-2 rounded-lg text-xs font-bold flex items-center gap-2 transition-all ${
                           activeDoc === 'NOTE' 
-                          ? 'bg-white text-teal-700 shadow-sm ring-1 ring-black/5' 
+                          ? 'bg-white text-emerald-700 shadow-sm ring-1 ring-black/5' 
                           : 'text-slate-500 hover:text-slate-700 hover:bg-slate-200/50'
                       }`}
                   >
@@ -353,7 +353,7 @@ export const HROrderCreator: React.FC<HROrderCreatorProps> = ({
                   </button>
 
                   <h3 className="text-xl font-bold text-slate-800 mb-6 flex items-center gap-2">
-                      <CheckCircle2 size={24} className="text-teal-600"/> Podsumowanie
+                      <CheckCircle2 size={24} className="text-emerald-600"/> Podsumowanie
                   </h3>
 
                   <div className="space-y-4">
@@ -406,7 +406,7 @@ export const HROrderCreator: React.FC<HROrderCreatorProps> = ({
                   <button 
                       onClick={onSubmit}
                       disabled={!isConfirmed}
-                      className="w-full py-4 bg-teal-600 text-white font-bold rounded-xl shadow-lg hover:bg-teal-700 hover:-translate-y-0.5 transition-all flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none disabled:shadow-none text-base"
+                      className="w-full py-4 bg-emerald-600 text-white font-bold rounded-xl shadow-lg hover:bg-emerald-700 hover:-translate-y-0.5 transition-all flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none disabled:shadow-none text-base"
                   >
                       {isConfirmed ? <Printer size={20}/> : <AlertCircle size={20}/>}
                       {isConfirmed ? 'Zatwierdź Zamówienie' : 'Zaznacz zgodę powyżej'}

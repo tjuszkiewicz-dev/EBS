@@ -104,7 +104,7 @@ export const NotificationPreferences: React.FC = () => {
                                             className="text-slate-300 hover:text-slate-500 transition focus:outline-none"
                                         >
                                             {pref.channels[channel] ? (
-                                                <ToggleRight size={28} className="text-teal-500" />
+                                                <ToggleRight size={28} className="text-emerald-500" />
                                             ) : (
                                                 <ToggleLeft size={28} />
                                             )}

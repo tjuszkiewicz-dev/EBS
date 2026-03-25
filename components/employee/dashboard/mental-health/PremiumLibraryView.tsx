@@ -84,9 +84,9 @@ export const PremiumLibraryView = ({ balance, sendMessage, setViewMode, theme, u
                                                 </div>
                                                 <button 
                                                     onClick={() => unlockContent(item)}
-                                                    className="bg-black/60 hover:bg-teal-600/90 hover:scale-105 backdrop-blur-md border border-white/20 text-white px-4 py-2 rounded-full text-xs font-bold transition-all flex items-center gap-2"
+                                                    className="bg-black/60 hover:bg-emerald-600/90 hover:scale-105 backdrop-blur-md border border-white/20 text-white px-4 py-2 rounded-full text-xs font-bold transition-all flex items-center gap-2"
                                                 >
-                                                    Odblokuj <span className="text-teal-400">{item.price} pkt</span>
+                                                    Odblokuj <span className="text-emerald-400">{item.price} pkt</span>
                                                 </button>
                                             </div>
                                         )}
@@ -119,7 +119,7 @@ export const PremiumLibraryView = ({ balance, sendMessage, setViewMode, theme, u
                                             <Activity size={20}/>
                                         </div>
                                         {isUnlocked ? (
-                                            <div className="text-teal-400"><Unlock size={16}/></div>
+                                            <div className="text-emerald-400"><Unlock size={16}/></div>
                                         ) : (
                                             <div className="text-slate-400"><Lock size={16}/></div>
                                         )}
@@ -132,7 +132,7 @@ export const PremiumLibraryView = ({ balance, sendMessage, setViewMode, theme, u
                                             <PlayCircle size={14}/> Odtwórz
                                         </button>
                                     ) : (
-                                        <button onClick={() => unlockContent(item)} className="w-full border border-border hover:border-teal-500/50 hover:bg-teal-500/10 text-foreground-muted hover:text-teal-500 py-2 rounded-lg text-xs font-bold transition-all">
+                                        <button onClick={() => unlockContent(item)} className="w-full border border-border hover:border-emerald-500/50 hover:bg-emerald-500/10 text-foreground-muted hover:text-emerald-500 py-2 rounded-lg text-xs font-bold transition-all">
                                             {item.price} pkt
                                         </button>
                                     )}

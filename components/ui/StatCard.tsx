@@ -9,7 +9,7 @@ interface StatCardProps {
   icon: LucideIcon;
   trend?: string;
   trendDirection?: 'up' | 'down' | 'neutral';
-  color?: 'teal' | 'indigo' | 'blue' | 'amber' | 'slate' | 'red';
+  color?: 'emerald' | 'indigo' | 'blue' | 'amber' | 'slate' | 'red';
   onClick?: () => void;
   className?: string;
 }
@@ -19,7 +19,7 @@ export const StatCard: React.FC<StatCardProps> = ({
 }) => {
   
   const colorStyles = {
-      teal: 'bg-teal-50 text-teal-600 border-teal-100',
+      emerald: 'bg-emerald-50 text-emerald-600 border-emerald-100',
       indigo: 'bg-indigo-50 text-indigo-600 border-indigo-100',
       blue: 'bg-blue-50 text-blue-600 border-blue-100',
       amber: 'bg-amber-50 text-amber-600 border-amber-100',
@@ -40,7 +40,7 @@ export const StatCard: React.FC<StatCardProps> = ({
             </div>
             {trend && (
                 <span className={`text-[10px] font-bold px-2 py-1 rounded-full ${
-                    trendDirection === 'up' ? 'bg-teal-100 text-teal-700' : 
+                    trendDirection === 'up' ? 'bg-emerald-100 text-emerald-700' : 
                     trendDirection === 'down' ? 'bg-red-100 text-red-700' : 'bg-slate-100 text-slate-600'
                 }`}>
                     {trend}

@@ -21,7 +21,7 @@ export const StatusBadge: React.FC<StatusBadgeProps> = ({ status, className = ''
       case 'RESOLVED':
       case 'SUCCESS':
       case 'CONNECTED':
-        return { color: 'bg-teal-500', text: 'text-teal-700', bg: 'bg-teal-50', border: 'border-teal-200', label: getLabel(normalized) };
+        return { color: 'bg-emerald-500', text: 'text-emerald-700', bg: 'bg-emerald-50', border: 'border-emerald-200', label: getLabel(normalized) };
       
       case 'PENDING':
       case 'PENDING_APPROVAL':

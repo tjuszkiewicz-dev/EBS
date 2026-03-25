@@ -90,7 +90,7 @@ export const NoteCreator: React.FC<Props> = ({ onBack, onSimulateRead }) => {
                 value={content}
                 onChange={(e) => setContent(e.target.value)}
                 placeholder="Napisz swoją wiadomość tutaj..."
-                className="w-full h-64 bg-slate-800/50 border border-slate-700/50 rounded-xl p-4 text-slate-200 placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-teal-500/50 focus:border-teal-500/50 transition-all resize-none font-mono text-sm leading-relaxed"
+                className="w-full h-64 bg-slate-800/50 border border-slate-700/50 rounded-xl p-4 text-slate-200 placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500/50 transition-all resize-none font-mono text-sm leading-relaxed"
                 autoFocus
               />
               <div className="absolute bottom-4 right-4 text-xs text-slate-500">
@@ -104,7 +104,7 @@ export const NoteCreator: React.FC<Props> = ({ onBack, onSimulateRead }) => {
               className={`mt-6 w-full py-4 rounded-xl font-bold flex items-center justify-center gap-2 transition-all duration-300 ${
                 !content.trim() 
                   ? 'bg-slate-800 text-slate-500 cursor-not-allowed'
-                  : 'bg-teal-600 hover:bg-teal-500 text-white shadow-lg hover:shadow-teal-900/20 active:scale-[0.98]'
+                  : 'bg-emerald-600 hover:bg-emerald-500 text-white shadow-lg hover:shadow-emerald-900/20 active:scale-[0.98]'
               }`}
             >
               {isLoading ? (
@@ -119,7 +119,7 @@ export const NoteCreator: React.FC<Props> = ({ onBack, onSimulateRead }) => {
           </>
         ) : (
           <div className="flex flex-col items-center justify-center h-full animate-in zoom-in-95 duration-500">
-            <div className="w-16 h-16 rounded-full bg-teal-500/20 flex items-center justify-center mb-6 text-teal-400 border border-teal-500/30">
+            <div className="w-16 h-16 rounded-full bg-emerald-500/20 flex items-center justify-center mb-6 text-emerald-400 border border-emerald-500/30">
                <LinkIcon className="w-8 h-8" />
             </div>
             
@@ -129,7 +129,7 @@ export const NoteCreator: React.FC<Props> = ({ onBack, onSimulateRead }) => {
             </p>
 
             <div className="w-full bg-black/40 p-4 rounded-xl border border-white/10 flex items-center gap-3 mb-6 relative group">
-              <div className="flex-1 font-mono text-xs text-teal-400 truncate select-all">
+              <div className="flex-1 font-mono text-xs text-emerald-400 truncate select-all">
                 {generatedLink}
               </div>
               <button 
@@ -137,7 +137,7 @@ export const NoteCreator: React.FC<Props> = ({ onBack, onSimulateRead }) => {
                 className="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-white transition-colors"
                 title="Kopiuj link"
               >
-                {isCopied ? <Check className="w-5 h-5 text-teal-400" /> : <Copy className="w-5 h-5" />}
+                {isCopied ? <Check className="w-5 h-5 text-emerald-400" /> : <Copy className="w-5 h-5" />}
               </button>
             </div>
 
@@ -150,7 +150,7 @@ export const NoteCreator: React.FC<Props> = ({ onBack, onSimulateRead }) => {
               </button>
               <button 
                 onClick={() => onSimulateRead(generatedLink)}
-                className="py-3 px-4 rounded-xl bg-teal-900/30 hover:bg-teal-900/50 border border-teal-500/30 text-teal-400 font-medium text-sm transition-colors flex items-center justify-center gap-2 group"
+                className="py-3 px-4 rounded-xl bg-emerald-900/30 hover:bg-emerald-900/50 border border-emerald-500/30 text-emerald-400 font-medium text-sm transition-colors flex items-center justify-center gap-2 group"
               >
                 <Eye className="w-4 h-4" />
                 Symuluj Odczyt

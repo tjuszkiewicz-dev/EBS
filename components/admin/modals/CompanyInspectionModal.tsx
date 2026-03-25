@@ -129,7 +129,7 @@ export const CompanyInspectionModal: React.FC<CompanyInspectionModalProps> = ({
       { header: 'Nazwisko i Imię', accessorKey: 'name', sortable: true, cell: (u) => <span className="font-medium">{u.name}</span> },
       { header: 'Email', accessorKey: 'email', cell: (u) => <span className="text-xs text-slate-500">{u.email}</span> },
       { header: 'Dział', accessorKey: 'department', sortable: true, cell: (u) => <span className="text-xs bg-slate-100 px-2 py-1 rounded">{u.organization?.department || u.department || '-'}</span> },
-      { header: 'Saldo', accessorKey: 'voucherBalance', className: 'text-right', cell: (u) => <span className="font-mono font-bold text-teal-600">{u.voucherBalance}</span> }
+      { header: 'Saldo', accessorKey: 'voucherBalance', className: 'text-right', cell: (u) => <span className="font-mono font-bold text-emerald-600">{u.voucherBalance}</span> }
   ];
 
   const orderColumns: Column<Order>[] = [
@@ -171,7 +171,7 @@ export const CompanyInspectionModal: React.FC<CompanyInspectionModalProps> = ({
       return (
           <div className="relative border-l-2 border-slate-200 ml-4 my-4 space-y-8">
               {sortedOrders.map((order) => {
-                  const statusColor = order.status === OrderStatus.PAID ? 'bg-teal-500' : 
+                  const statusColor = order.status === OrderStatus.PAID ? 'bg-emerald-500' : 
                                       order.status === OrderStatus.REJECTED ? 'bg-red-500' : 'bg-amber-500';
                   
                   const statusIcon = order.status === OrderStatus.PAID ? <CheckCircle size={14} className="text-white"/> : 
@@ -209,7 +209,7 @@ export const CompanyInspectionModal: React.FC<CompanyInspectionModalProps> = ({
                                   <div className="mt-3 flex gap-2">
                                       <button 
                                         onClick={() => onViewDocument('DEBIT_NOTE', order)}
-                                        className="bg-slate-50 px-2 py-1 rounded text-[10px] text-slate-500 flex items-center gap-1 border border-slate-200 hover:bg-teal-50 hover:text-teal-700 hover:border-teal-200 transition cursor-pointer"
+                                        className="bg-slate-50 px-2 py-1 rounded text-[10px] text-slate-500 flex items-center gap-1 border border-slate-200 hover:bg-emerald-50 hover:text-emerald-700 hover:border-emerald-200 transition cursor-pointer"
                                         title="Pobierz Notę"
                                       >
                                           <FileSpreadsheet size={10} /> Nota {order.docVoucherId}
@@ -276,7 +276,7 @@ export const CompanyInspectionModal: React.FC<CompanyInspectionModalProps> = ({
                 <div className="flex gap-2">
                     {isEditing ? (
                         <>
-                            <button onClick={handleSave} className="px-4 py-2 bg-teal-600 hover:bg-teal-500 text-white rounded-lg flex items-center gap-2 text-sm font-bold shadow-lg transition">
+                            <button onClick={handleSave} className="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg flex items-center gap-2 text-sm font-bold shadow-lg transition">
                                 <Save size={16}/> Zapisz
                             </button>
                             <button onClick={handleCancel} className="px-4 py-2 bg-white/10 hover:bg-white/20 text-white rounded-lg flex items-center gap-2 text-sm font-bold transition">
@@ -332,7 +332,7 @@ export const CompanyInspectionModal: React.FC<CompanyInspectionModalProps> = ({
                         </div>
                         <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
                             <p className="text-xs text-slate-400 font-bold uppercase">Całkowity Obrót</p>
-                            <p className="text-2xl font-bold text-teal-600">{totalSpent.toLocaleString()} PLN</p>
+                            <p className="text-2xl font-bold text-emerald-600">{totalSpent.toLocaleString()} PLN</p>
                         </div>
                         <div className="p-4 rounded-xl border bg-white border-slate-200 shadow-sm">
                             <p className="text-xs text-slate-400 font-bold uppercase">Saldo Aktywne</p>
@@ -382,7 +382,7 @@ export const CompanyInspectionModal: React.FC<CompanyInspectionModalProps> = ({
                                         <p className="text-[10px] text-slate-500">{manager?.email || '-'}</p>
                                     </div>
                                 </div>
-                                <div className="mt-2 text-[10px] text-teal-600 font-bold flex items-center gap-1">
+                                <div className="mt-2 text-[10px] text-emerald-600 font-bold flex items-center gap-1">
                                     <DollarSign size={10}/> Prowizja Pasywna (2. msc+)
                                 </div>
                             </div>
@@ -399,7 +399,7 @@ export const CompanyInspectionModal: React.FC<CompanyInspectionModalProps> = ({
                                         <p className="text-[10px] text-slate-500">{director?.email || '-'}</p>
                                     </div>
                                 </div>
-                                <div className="mt-2 text-[10px] text-teal-600 font-bold flex items-center gap-1">
+                                <div className="mt-2 text-[10px] text-emerald-600 font-bold flex items-center gap-1">
                                     <DollarSign size={10}/> Prowizja Pasywna (2. msc+)
                                 </div>
                             </div>
@@ -447,7 +447,7 @@ export const CompanyInspectionModal: React.FC<CompanyInspectionModalProps> = ({
                         {/* CHART 2: MONTHLY SPENDING */}
                         <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex flex-col h-64">
                             <h3 className="font-bold text-slate-700 mb-4 flex items-center gap-2">
-                                <CreditCard size={18} className="text-teal-500"/> Wydatki Miesięczne (12 m-cy)
+                                <CreditCard size={18} className="text-emerald-500"/> Wydatki Miesięczne (12 m-cy)
                             </h3>
                             <div className="flex-1 w-full min-h-0">
                                 <ResponsiveContainer width="100%" height="100%">

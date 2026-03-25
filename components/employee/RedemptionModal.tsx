@@ -80,8 +80,8 @@ export const RedemptionModal: React.FC<RedemptionModalProps> = ({
                 <>
                     {/* Header Image */}
                     <div className="h-48 bg-slate-100 relative flex items-center justify-center overflow-hidden">
-                        <div className={`absolute inset-0 opacity-20 bg-teal-500`}></div>
-                        <ShoppingCart size={64} className="text-teal-700 relative z-10" />
+                        <div className={`absolute inset-0 opacity-20 bg-emerald-500`}></div>
+                        <ShoppingCart size={64} className="text-emerald-700 relative z-10" />
                         <button 
                             onClick={onClose}
                             className="absolute top-4 right-4 bg-white/50 hover:bg-white p-2 rounded-full backdrop-blur-sm transition"
@@ -110,7 +110,7 @@ export const RedemptionModal: React.FC<RedemptionModalProps> = ({
                         {/* SLIDE TO PAY */}
                         <div className="mt-8 relative h-14 bg-slate-100 rounded-full border border-slate-200 overflow-hidden select-none">
                             <div 
-                                className="absolute left-0 top-0 bottom-0 bg-teal-500 transition-all duration-75"
+                                className="absolute left-0 top-0 bottom-0 bg-emerald-500 transition-all duration-75"
                                 style={{ width: `${sliderValue}%` }}
                             ></div>
                             
@@ -138,7 +138,7 @@ export const RedemptionModal: React.FC<RedemptionModalProps> = ({
                                 className="absolute top-1 bottom-1 w-12 bg-white rounded-full shadow-md flex items-center justify-center transition-all duration-75 z-10 pointer-events-none"
                                 style={{ left: `calc(${sliderValue}% - ${sliderValue * 0.48}px + 4px)` }}
                             >
-                                {isProcessing ? <Loader2 size={20} className="animate-spin text-teal-600"/> : <ChevronRight size={24} className="text-teal-600" />}
+                                {isProcessing ? <Loader2 size={20} className="animate-spin text-emerald-600"/> : <ChevronRight size={24} className="text-emerald-600" />}
                             </div>
                         </div>
                     </div>
@@ -147,12 +147,12 @@ export const RedemptionModal: React.FC<RedemptionModalProps> = ({
 
             {step === 'SUCCESS' && (
                 <div className="flex flex-col h-full">
-                    <div className="bg-teal-600 p-8 text-center text-white relative shrink-0">
+                    <div className="bg-emerald-600 p-8 text-center text-white relative shrink-0">
                         <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4 backdrop-blur-md">
                             <CheckCircle size={32} className="text-white"/>
                         </div>
                         <h2 className="text-2xl font-bold">Zakup Udany!</h2>
-                        <p className="text-teal-100 text-sm mt-1">Środki zostały pobrane z Twojego portfela.</p>
+                        <p className="text-emerald-100 text-sm mt-1">Środki zostały pobrane z Twojego portfela.</p>
                         
                         <div className="absolute bottom-0 left-0 right-0 h-4 bg-white rounded-t-2xl translate-y-2"></div>
                     </div>

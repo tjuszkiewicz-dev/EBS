@@ -269,16 +269,16 @@ export const EmployeeImportModal: React.FC<EmployeeImportModalProps> = ({
 
               <button 
                   onClick={() => setMode('IMPORT')}
-                  className="group bg-white p-8 rounded-2xl border-2 border-slate-200 hover:border-teal-500 hover:shadow-xl transition-all text-left flex flex-col items-center md:items-start relative overflow-hidden h-full"
+                  className="group bg-white p-8 rounded-2xl border-2 border-slate-200 hover:border-emerald-500 hover:shadow-xl transition-all text-left flex flex-col items-center md:items-start relative overflow-hidden h-full"
               >
-                  <div className="bg-teal-50 w-14 h-14 rounded-2xl flex items-center justify-center mb-4 group-hover:bg-teal-600 transition-colors">
-                      <FileSpreadsheet size={28} className="text-teal-600 group-hover:text-white" />
+                  <div className="bg-emerald-50 w-14 h-14 rounded-2xl flex items-center justify-center mb-4 group-hover:bg-emerald-600 transition-colors">
+                      <FileSpreadsheet size={28} className="text-emerald-600 group-hover:text-white" />
                   </div>
-                  <h4 className="text-lg font-bold text-slate-800 mb-2 group-hover:text-teal-700">Lista z Excela</h4>
+                  <h4 className="text-lg font-bold text-slate-800 mb-2 group-hover:text-emerald-700">Lista z Excela</h4>
                   <p className="text-slate-500 text-sm leading-relaxed mb-6">
                       Wgraj plik z wieloma pracownikami naraz (zawiera IBAN i Telefon).
                   </p>
-                  <div className="mt-auto flex items-center gap-2 text-teal-600 font-bold text-sm bg-teal-50 px-3 py-1.5 rounded-lg group-hover:bg-teal-600 group-hover:text-white transition-colors">
+                  <div className="mt-auto flex items-center gap-2 text-emerald-600 font-bold text-sm bg-emerald-50 px-3 py-1.5 rounded-lg group-hover:bg-emerald-600 group-hover:text-white transition-colors">
                       Wgraj plik <ArrowRight size={16}/>
                   </div>
               </button>
@@ -380,8 +380,8 @@ export const EmployeeImportModal: React.FC<EmployeeImportModalProps> = ({
           <div className="flex-1 overflow-y-auto p-6 min-h-0 relative">
               {step === 1 && (
                   <div className="flex flex-col items-center justify-center h-full text-center">
-                      <div className="bg-teal-50 p-6 rounded-full mb-6">
-                          <FileSpreadsheet size={48} className="text-teal-600" />
+                      <div className="bg-emerald-50 p-6 rounded-full mb-6">
+                          <FileSpreadsheet size={48} className="text-emerald-600" />
                       </div>
                       <h4 className="text-xl font-bold text-slate-800 mb-2">Masz już przygotowaną listę?</h4>
                       <p className="text-slate-500 max-w-md mb-8">
@@ -429,9 +429,9 @@ export const EmployeeImportModal: React.FC<EmployeeImportModalProps> = ({
                                   <span className="label-text">Wszystkie</span>
                                   <span className="text-lg font-bold text-slate-700">{importResult.total}</span>
                               </div>
-                              <div className="text-center px-4 py-1 bg-white rounded border border-teal-200">
-                                  <span className="label-text text-teal-600">Poprawne</span>
-                                  <span className="text-lg font-bold text-teal-700">{importResult.valid}</span>
+                              <div className="text-center px-4 py-1 bg-white rounded border border-emerald-200">
+                                  <span className="label-text text-emerald-600">Poprawne</span>
+                                  <span className="text-lg font-bold text-emerald-700">{importResult.valid}</span>
                               </div>
                               {importResult.invalid > 0 && (
                                   <div className="text-center px-4 py-1 bg-red-50 rounded border border-red-200">
@@ -465,7 +465,7 @@ export const EmployeeImportModal: React.FC<EmployeeImportModalProps> = ({
                                           </td>
                                           <td className="p-3 text-right">
                                               {r.isValid 
-                                                  ? <span className="text-teal-600 font-bold flex items-center justify-end gap-1"><UserPlus size={14}/> OK</span>
+                                                  ? <span className="text-emerald-600 font-bold flex items-center justify-end gap-1"><UserPlus size={14}/> OK</span>
                                                   : <span className="text-red-600 font-bold flex items-center justify-end gap-1"><AlertTriangle size={14}/> {r.errors[0]}</span>
                                               }
                                           </td>
@@ -508,8 +508,8 @@ export const EmployeeImportModal: React.FC<EmployeeImportModalProps> = ({
 
               {step === 3 && (
                   <div className="flex flex-col items-center justify-center h-full text-center">
-                      <div className="bg-teal-100 p-6 rounded-full mb-6 animate-in zoom-in duration-300">
-                          <UserPlus size={64} className="text-teal-600" />
+                      <div className="bg-emerald-100 p-6 rounded-full mb-6 animate-in zoom-in duration-300">
+                          <UserPlus size={64} className="text-emerald-600" />
                       </div>
                       <h3 className="text-2xl font-bold text-slate-800 mb-2">Sukces!</h3>
                       <p className="text-slate-500 mb-8 max-w-md">

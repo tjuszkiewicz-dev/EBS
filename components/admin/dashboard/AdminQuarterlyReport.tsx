@@ -58,7 +58,7 @@ export const AdminQuarterlyReport: React.FC<AdminQuarterlyReportProps> = ({ comm
           accessorKey: 'totalAmount',
           sortable: true,
           className: 'text-right',
-          cell: (s) => <span className="font-bold text-teal-600">{s.totalAmount.toFixed(2)} PLN</span>
+          cell: (s) => <span className="font-bold text-emerald-600">{s.totalAmount.toFixed(2)} PLN</span>
       }
   ];
 
@@ -69,7 +69,7 @@ export const AdminQuarterlyReport: React.FC<AdminQuarterlyReportProps> = ({ comm
               <span className="font-bold text-slate-800">{s.agentName}</span>
               <span className="text-xs text-slate-500 block">{s.commissionCount} transakcji</span>
           </div>
-          <span className="font-bold text-teal-600 text-lg">{s.totalAmount.toFixed(2)}</span>
+          <span className="font-bold text-emerald-600 text-lg">{s.totalAmount.toFixed(2)}</span>
       </div>
   );
 

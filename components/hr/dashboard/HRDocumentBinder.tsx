@@ -446,7 +446,7 @@ export const HRDocumentBinder: React.FC<Props> = ({
         { header: 'Data', accessorKey: 'date', cell: (r) => new Date(r.date).toLocaleDateString() },
         { header: 'Pracownik', accessorKey: 'userName', cell: (r) => <span className="font-medium">{r.userName}</span> },
         { header: 'Źródło', cell: (r) => <span className="text-[10px] text-slate-500">{r.sourceRef}</span> },
-        { header: 'Kwota', accessorKey: 'amount', className: 'text-right', cell: (r) => <span className="font-bold text-teal-600">{r.amount} PLN</span> },
+        { header: 'Kwota', accessorKey: 'amount', className: 'text-right', cell: (r) => <span className="font-bold text-emerald-600">{r.amount} PLN</span> },
         {
             header: 'Potwierdzenie', className: 'text-right',
             cell: (r) => (

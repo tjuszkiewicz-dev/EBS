@@ -82,8 +82,8 @@ export const JournalView = ({ theme, setViewMode }: any) => (
             <button onClick={() => setViewMode('DASHBOARD')} className={`p-2 rounded-lg transition-colors ${theme.textSec} hover:text-foreground hover:bg-surface/50`}>
                 <ChevronLeft size={24}/>
             </button>
-            <h2 className={`text-lg font-bold flex items-center gap-2 ${theme.highlight}`}><BookOpen size={18} className="text-teal-400"/> Dziennik Myśli</h2>
-            <button className="text-sm font-bold text-teal-500 hover:text-teal-400">Historia</button>
+            <h2 className={`text-lg font-bold flex items-center gap-2 ${theme.highlight}`}><BookOpen size={18} className="text-emerald-400"/> Dziennik Myśli</h2>
+            <button className="text-sm font-bold text-emerald-500 hover:text-emerald-400">Historia</button>
         </div>
 
         <div className={`flex-1 rounded-2xl p-6 flex flex-col gap-4 ${theme.card}`}>
@@ -94,7 +94,7 @@ export const JournalView = ({ theme, setViewMode }: any) => (
                 autoFocus
             />
             <div className="flex justify-end">
-                <button onClick={() => { alert('Zapisano w pamięci lokalnej (szyfrowane).'); setViewMode('DASHBOARD'); }} className="bg-teal-600 hover:bg-teal-500 text-white px-6 py-2 rounded-xl font-bold shadow-lg shadow-teal-500/20 transition-all flex items-center gap-2">
+                <button onClick={() => { alert('Zapisano w pamięci lokalnej (szyfrowane).'); setViewMode('DASHBOARD'); }} className="bg-emerald-600 hover:bg-emerald-500 text-white px-6 py-2 rounded-xl font-bold shadow-lg shadow-emerald-500/20 transition-all flex items-center gap-2">
                     <CheckCircle size={18}/> Zapisz Wpis
                 </button>
             </div>

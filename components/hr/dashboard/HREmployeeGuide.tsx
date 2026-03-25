@@ -59,7 +59,7 @@ export const HREmployeeGuide: React.FC<HREmployeeGuideProps> = ({ onClose }) => 
                     <div className="bg-white p-4 rounded-xl border border-indigo-100 shadow-sm relative group hover:border-indigo-300 transition-colors">
                         <div className="absolute top-4 right-4 text-slate-200 font-bold text-4xl opacity-20 group-hover:opacity-40 transition-opacity">1</div>
                         <div className="flex items-center gap-3 mb-3">
-                            <div className="bg-teal-100 p-2 rounded-lg text-teal-600">
+                            <div className="bg-emerald-100 p-2 rounded-lg text-emerald-600">
                                 <UserPlus size={20} />
                             </div>
                             <span className="font-bold text-sm text-slate-700">Rejestracja</span>

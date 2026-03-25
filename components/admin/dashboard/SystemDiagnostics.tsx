@@ -96,14 +96,14 @@ export const SystemDiagnostics: React.FC = () => {
             <div className="bg-slate-900 text-white p-6 rounded-xl shadow-lg border border-slate-800 flex flex-col md:flex-row justify-between items-center gap-6">
                 <div className="flex items-center gap-4">
                     <div className="w-16 h-16 bg-slate-800 rounded-xl flex items-center justify-center border border-slate-700 shadow-inner">
-                        <Terminal size={32} className="text-teal-500" />
+                        <Terminal size={32} className="text-emerald-500" />
                     </div>
                     <div>
                         <h2 className="text-xl font-bold flex items-center gap-2">
                             System Health Monitor
                             <span className="flex h-2 w-2 relative">
-                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75"></span>
-                                <span className="relative inline-flex rounded-full h-2 w-2 bg-teal-500"></span>
+                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                             </span>
                         </h2>
                         <p className="text-slate-400 text-sm mt-1 font-mono">
@@ -115,7 +115,7 @@ export const SystemDiagnostics: React.FC = () => {
                 <div className="flex gap-4">
                     <div className="text-right hidden md:block">
                         <p className="text-xs text-slate-500 uppercase font-bold">Uptime</p>
-                        <p className="font-mono text-teal-400">99.98%</p>
+                        <p className="font-mono text-emerald-400">99.98%</p>
                     </div>
                     <button 
                         onClick={runDiagnostics}
@@ -123,7 +123,7 @@ export const SystemDiagnostics: React.FC = () => {
                         className={`px-6 py-3 rounded-lg font-bold flex items-center gap-2 transition border ${
                             isRunning 
                             ? 'bg-slate-800 border-slate-700 text-slate-500 cursor-not-allowed' 
-                            : 'bg-teal-600 border-teal-500 hover:bg-teal-500 text-white shadow-lg shadow-teal-900/50'
+                            : 'bg-emerald-600 border-emerald-500 hover:bg-emerald-500 text-white shadow-lg shadow-emerald-900/50'
                         }`}
                     >
                         {isRunning ? <Loader2 size={18} className="animate-spin"/> : <Play size={18}/>}
@@ -137,7 +137,7 @@ export const SystemDiagnostics: React.FC = () => {
                 {tests.map((test) => (
                     <div key={test.id} className={`bg-white border rounded-xl overflow-hidden transition-all duration-300 ${
                         test.status === 'RUNNING' ? 'border-blue-400 ring-2 ring-blue-50 shadow-md' : 
-                        test.status === 'PASSED' ? 'border-teal-200' :
+                        test.status === 'PASSED' ? 'border-emerald-200' :
                         test.status === 'FAILED' ? 'border-red-200' : 'border-slate-200'
                     }`}>
                         {/* Card Header */}
@@ -146,7 +146,7 @@ export const SystemDiagnostics: React.FC = () => {
                                 <div className={`mt-1 ${
                                     test.status === 'IDLE' ? 'text-slate-300' :
                                     test.status === 'RUNNING' ? 'text-blue-500' :
-                                    test.status === 'PASSED' ? 'text-teal-500' : 'text-red-500'
+                                    test.status === 'PASSED' ? 'text-emerald-500' : 'text-red-500'
                                 }`}>
                                     {test.category === 'CORE' && <Database size={20}/>}
                                     {test.category === 'FINANCE' && <Activity size={20}/>}
@@ -155,7 +155,7 @@ export const SystemDiagnostics: React.FC = () => {
                                 <div>
                                     <h4 className="font-bold text-slate-800 text-sm flex items-center gap-2">
                                         {test.name}
-                                        {test.status === 'PASSED' && <span className="text-[10px] bg-teal-100 text-teal-700 px-1.5 py-0.5 rounded font-mono">{test.latency}ms</span>}
+                                        {test.status === 'PASSED' && <span className="text-[10px] bg-emerald-100 text-emerald-700 px-1.5 py-0.5 rounded font-mono">{test.latency}ms</span>}
                                     </h4>
                                     <p className="text-xs text-slate-500 mt-0.5">{test.description}</p>
                                 </div>

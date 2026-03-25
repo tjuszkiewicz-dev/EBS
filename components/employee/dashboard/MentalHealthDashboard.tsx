@@ -63,8 +63,8 @@ export const MentalHealthDashboard: React.FC<MentalHealthDashboardProps> = ({ cu
         cardHover: 'hover:shadow-md hover:-translate-y-0.5',
         highlight: 'text-slate-900',
         input: 'bg-slate-50 border-slate-200 text-slate-800 focus:bg-white',
-        accent: 'text-teal-600',
-        accentBg: 'bg-teal-50',
+        accent: 'text-emerald-600',
+        accentBg: 'bg-emerald-50',
         nav: 'bg-white/90 border-slate-200 backdrop-blur-md',
         buttonPrimary: 'bg-slate-900 text-white hover:bg-slate-800'
     };
@@ -106,12 +106,12 @@ export const MentalHealthDashboard: React.FC<MentalHealthDashboardProps> = ({ cu
                     onClick={() => setViewMode('CHECKIN')}
                     className="relative overflow-hidden rounded-3xl bg-slate-900 p-8 shadow-xl cursor-pointer group transition-all hover:shadow-2xl"
                 >
-                    <div className="absolute right-0 top-0 h-full w-1/2 bg-gradient-to-l from-teal-600/20 to-transparent"></div>
+                    <div className="absolute right-0 top-0 h-full w-1/2 bg-gradient-to-l from-emerald-600/20 to-transparent"></div>
                     <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-teal-500/20 rounded-full blur-3xl group-hover:bg-teal-500/30 transition-colors"></div>
                     
                     <div className="relative z-10 flex justify-between items-center">
                         <div>
-                            <div className="flex items-center gap-2 text-teal-400 font-bold uppercase tracking-wider text-xs mb-3">
+                            <div className="flex items-center gap-2 text-emerald-400 font-bold uppercase tracking-wider text-xs mb-3">
                                 <Activity size={14}/> Daily Check-in
                             </div>
                             <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">Jak się dzisiaj czujesz?</h3>
@@ -228,7 +228,7 @@ export const MentalHealthDashboard: React.FC<MentalHealthDashboardProps> = ({ cu
                         <X size={20} />
                     </button>
                     <div className="flex items-center gap-3">
-                        <div className="bg-gradient-to-tr from-teal-500 to-teal-400 p-2 rounded-lg text-white shadow-sm">
+                        <div className="bg-gradient-to-tr from-emerald-500 to-teal-400 p-2 rounded-lg text-white shadow-sm">
                             <Leaf size={20} className="fill-white/20"/>
                         </div>
                         <span className={`font-bold text-lg tracking-tight hidden md:block ${theme.highlight}`}>EBS Wellbeing</span>
@@ -276,7 +276,7 @@ export const MentalHealthDashboard: React.FC<MentalHealthDashboardProps> = ({ cu
             {/* Mobile Bottom Navigation (Native App Feel) */}
             {viewMode === 'DASHBOARD' && (
                 <div className={`md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 px-6 py-3 pb-safe flex justify-between items-center z-40 ${isDarkMode ? 'bg-slate-950 border-slate-800' : ''}`}>
-                    <button className="flex flex-col items-center gap-1 text-teal-600">
+                    <button className="flex flex-col items-center gap-1 text-emerald-600">
                         <Layout size={24}/>
                         <span className="text-[10px] font-bold">Pulpit</span>
                     </button>

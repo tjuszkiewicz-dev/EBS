@@ -42,7 +42,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({
           onClick={() => onChangeTab(tab.id)}
           className={`flex flex-col items-center gap-1 p-2 flex-1 rounded-xl transition-all ${
             activeTab === tab.id 
-              ? 'text-teal-600 font-bold bg-teal-50' 
+              ? 'text-emerald-600 font-bold bg-emerald-50' 
               : 'text-slate-400 font-medium hover:bg-slate-50'
           }`}
         >

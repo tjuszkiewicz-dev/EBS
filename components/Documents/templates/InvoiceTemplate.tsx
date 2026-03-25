@@ -92,7 +92,7 @@ export const InvoiceTemplate: React.FC<Props> = ({ type, order, company }) => {
           </div>
           <div className="text-right">
               <p className="uppercase text-slate-500 font-bold mb-0.5" style={{ fontSize: '7pt' }}>Termin Płatności ({effectivePaymentTerms} dni)</p>
-              <p className={`font-bold ${order.status === OrderStatus.PAID ? 'text-teal-600' : 'text-red-600'}`}>
+              <p className={`font-bold ${order.status === OrderStatus.PAID ? 'text-emerald-600' : 'text-red-600'}`}>
                 {order.status === OrderStatus.PAID ? formatDate(order.date) : calculatedDueDate}
               </p>
           </div>
@@ -170,7 +170,7 @@ export const InvoiceTemplate: React.FC<Props> = ({ type, order, company }) => {
                  </div>
              )}
              {order.status === OrderStatus.PAID && (
-                <div className="transform -rotate-12 border-[4px] border-teal-600 text-teal-600 text-[28px] font-bold opacity-80 px-8 py-2 tracking-widest w-fit" style={{ mixBlendMode: 'multiply' }}>
+                <div className="transform -rotate-12 border-[4px] border-emerald-600 text-emerald-600 text-[28px] font-bold opacity-80 px-8 py-2 tracking-widest w-fit" style={{ mixBlendMode: 'multiply' }}>
                     OPŁACONO
                 </div>
              )}

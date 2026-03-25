@@ -11,15 +11,15 @@ export const EmployeeGuide: React.FC<EmployeeGuideProps> = ({ onClose, forceVisi
   const [isOpen, setIsOpen] = useState(forceVisible); // Domyślnie zwinięte, chyba że forceVisible
 
   return (
-    <div className={`bg-white border border-teal-100 rounded-2xl mb-6 overflow-hidden transition-all duration-300 shadow-sm ${isOpen ? 'ring-2 ring-teal-50' : ''}`}>
+    <div className={`bg-white border border-emerald-100 rounded-2xl mb-6 overflow-hidden transition-all duration-300 shadow-sm ${isOpen ? 'ring-2 ring-emerald-50' : ''}`}>
         
         {/* Clickable Header */}
         <div 
             onClick={() => setIsOpen(!isOpen)}
-            className="p-4 flex justify-between items-center cursor-pointer bg-gradient-to-r from-teal-50 to-white hover:from-teal-100 transition-colors group select-none"
+            className="p-4 flex justify-between items-center cursor-pointer bg-gradient-to-r from-emerald-50 to-white hover:from-emerald-100 transition-colors group select-none"
         >
             <div className="flex items-center gap-3">
-                <div className={`p-2 rounded-lg transition-colors ${isOpen ? 'bg-teal-600 text-white' : 'bg-white text-teal-600 border border-teal-100'}`}>
+                <div className={`p-2 rounded-lg transition-colors ${isOpen ? 'bg-emerald-600 text-white' : 'bg-white text-emerald-600 border border-emerald-100'}`}>
                     <Lightbulb size={20} className={isOpen ? "fill-current" : ""} />
                 </div>
                 <div>
@@ -53,14 +53,14 @@ export const EmployeeGuide: React.FC<EmployeeGuideProps> = ({ onClose, forceVisi
 
         {/* Expandable Content */}
         {isOpen && (
-            <div className="p-6 bg-slate-50/50 border-t border-teal-50 animate-in slide-in-from-top-2 duration-200">
+            <div className="p-6 bg-slate-50/50 border-t border-emerald-50 animate-in slide-in-from-top-2 duration-200">
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-4 relative">
                     
                     {/* Step 1 */}
-                    <div className="bg-white p-4 rounded-xl border border-teal-100 shadow-sm relative group hover:border-teal-300 transition-colors">
+                    <div className="bg-white p-4 rounded-xl border border-emerald-100 shadow-sm relative group hover:border-emerald-300 transition-colors">
                         <div className="absolute top-4 right-4 text-slate-100 font-bold text-4xl opacity-40 group-hover:opacity-60 transition-opacity">1</div>
                         <div className="flex items-center gap-3 mb-3">
-                            <div className="bg-teal-100 p-2 rounded-lg text-teal-600">
+                            <div className="bg-emerald-100 p-2 rounded-lg text-emerald-600">
                                 <Wallet size={20} />
                             </div>
                             <span className="font-bold text-sm text-slate-700">Zasilenie</span>
@@ -72,11 +72,11 @@ export const EmployeeGuide: React.FC<EmployeeGuideProps> = ({ onClose, forceVisi
 
                     {/* Arrow */}
                     <div className="hidden md:flex items-center justify-center">
-                        <ArrowRight size={24} className="text-teal-200" />
+                        <ArrowRight size={24} className="text-emerald-200" />
                     </div>
 
                     {/* Step 2 */}
-                    <div className="bg-white p-4 rounded-xl border border-teal-100 shadow-sm relative group hover:border-teal-300 transition-colors">
+                    <div className="bg-white p-4 rounded-xl border border-emerald-100 shadow-sm relative group hover:border-emerald-300 transition-colors">
                         <div className="absolute top-4 right-4 text-slate-100 font-bold text-4xl opacity-40 group-hover:opacity-60 transition-opacity">2</div>
                         <div className="flex items-center gap-3 mb-3">
                             <div className="bg-indigo-100 p-2 rounded-lg text-indigo-600">
@@ -91,11 +91,11 @@ export const EmployeeGuide: React.FC<EmployeeGuideProps> = ({ onClose, forceVisi
 
                     {/* Arrow */}
                     <div className="hidden md:flex items-center justify-center">
-                        <ArrowRight size={24} className="text-teal-200" />
+                        <ArrowRight size={24} className="text-emerald-200" />
                     </div>
 
                     {/* Step 3 */}
-                    <div className="bg-white p-4 rounded-xl border border-teal-100 shadow-sm relative group hover:border-teal-300 transition-colors">
+                    <div className="bg-white p-4 rounded-xl border border-emerald-100 shadow-sm relative group hover:border-emerald-300 transition-colors">
                         <div className="absolute top-4 right-4 text-slate-100 font-bold text-4xl opacity-40 group-hover:opacity-60 transition-opacity">3</div>
                         <div className="flex items-center gap-3 mb-3">
                             <div className="bg-amber-100 p-2 rounded-lg text-amber-600">
@@ -110,11 +110,11 @@ export const EmployeeGuide: React.FC<EmployeeGuideProps> = ({ onClose, forceVisi
 
                     {/* Arrow */}
                     <div className="hidden md:flex items-center justify-center">
-                        <ArrowRight size={24} className="text-teal-200" />
+                        <ArrowRight size={24} className="text-emerald-200" />
                     </div>
 
                     {/* Step 4 */}
-                    <div className="bg-white p-4 rounded-xl border border-teal-100 shadow-sm relative group hover:border-teal-300 transition-colors">
+                    <div className="bg-white p-4 rounded-xl border border-emerald-100 shadow-sm relative group hover:border-emerald-300 transition-colors">
                         <div className="absolute top-4 right-4 text-slate-100 font-bold text-4xl opacity-40 group-hover:opacity-60 transition-opacity">4</div>
                         <div className="flex items-center gap-3 mb-3">
                             <div className="bg-blue-100 p-2 rounded-lg text-blue-600">

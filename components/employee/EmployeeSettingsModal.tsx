@@ -122,7 +122,7 @@ export const EmployeeSettingsModal: React.FC<EmployeeSettingsModalProps> = ({
           <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-xl p-6 text-white shadow-lg relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -mr-10 -mt-10 blur-2xl"></div>
               <div className="flex items-center gap-4 relative z-10">
-                  <div className="w-16 h-16 rounded-full bg-teal-500 flex items-center justify-center text-2xl font-bold border-4 border-slate-700 shadow-md">
+                  <div className="w-16 h-16 rounded-full bg-emerald-500 flex items-center justify-center text-2xl font-bold border-4 border-slate-700 shadow-md">
                       {user.name.charAt(0)}
                   </div>
                   <div>
@@ -169,7 +169,7 @@ export const EmployeeSettingsModal: React.FC<EmployeeSettingsModalProps> = ({
           <div className="bg-white border border-slate-200 rounded-xl p-5 shadow-sm">
               <div className="flex justify-between items-start mb-4">
                   <h4 className="font-bold text-slate-800 text-sm flex items-center gap-2">
-                      <CreditCard size={18} className="text-teal-600"/> Twoje Konto do Wypłat
+                      <CreditCard size={18} className="text-emerald-600"/> Twoje Konto do Wypłat
                   </h4>
                   {/* Status Badge */}
                   {isPending ? (
@@ -177,7 +177,7 @@ export const EmployeeSettingsModal: React.FC<EmployeeSettingsModalProps> = ({
                           <Clock size={10}/> Weryfikacja
                       </span>
                   ) : user.finance?.payoutAccount?.isVerified ? (
-                      <span className="bg-teal-100 text-teal-800 text-[10px] font-bold px-2 py-1 rounded-full flex items-center gap-1">
+                      <span className="bg-emerald-100 text-emerald-800 text-[10px] font-bold px-2 py-1 rounded-full flex items-center gap-1">
                           <ShieldCheck size={10}/> Zweryfikowane
                       </span>
                   ) : (
@@ -243,7 +243,7 @@ export const EmployeeSettingsModal: React.FC<EmployeeSettingsModalProps> = ({
                       onClick={handleRequestChange}
                       disabled={isSaved || isPending}
                       className={`w-full py-2.5 rounded-lg font-bold text-sm flex items-center justify-center gap-2 transition ${
-                          isSaved ? 'bg-teal-500 text-white' : 'bg-slate-900 text-white hover:bg-slate-800'
+                          isSaved ? 'bg-emerald-500 text-white' : 'bg-slate-900 text-white hover:bg-slate-800'
                       }`}
                   >
                       {isSaved ? <Check size={16}/> : <Save size={16}/>}
@@ -269,7 +269,7 @@ export const EmployeeSettingsModal: React.FC<EmployeeSettingsModalProps> = ({
                   </h4>
                   <button 
                       onClick={handleToggle2Fa}
-                      className={`relative w-10 h-6 rounded-full transition-colors ${is2FaEnabled ? 'bg-teal-500' : 'bg-slate-300'}`}
+                      className={`relative w-10 h-6 rounded-full transition-colors ${is2FaEnabled ? 'bg-emerald-500' : 'bg-slate-300'}`}
                   >
                       <div className={`absolute top-1 left-1 w-4 h-4 bg-white rounded-full transition-transform ${is2FaEnabled ? 'translate-x-4' : ''}`}></div>
                   </button>
@@ -278,7 +278,7 @@ export const EmployeeSettingsModal: React.FC<EmployeeSettingsModalProps> = ({
               <p className="text-xs text-slate-500 mb-4 leading-relaxed">
                   Zabezpiecz swoje konto kodem jednorazowym z aplikacji (Google Authenticator, Authy).
                   {is2FaEnabled 
-                      ? <span className="text-teal-600 font-bold block mt-1">Status: Aktywne</span> 
+                      ? <span className="text-emerald-600 font-bold block mt-1">Status: Aktywne</span> 
                       : <span className="text-slate-400 block mt-1">Status: Nieaktywne</span>
                   }
               </p>

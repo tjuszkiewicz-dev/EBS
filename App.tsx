@@ -356,12 +356,12 @@ const AppContent = () => {
             {/* SEARCH / STATS BAR for Employee */}
             {currentUser?.role === Role.EMPLOYEE && (
                 <div className="hidden lg:flex items-center gap-4 mr-6 pl-6 border-l border-slate-100">
-                    <div className="flex items-center gap-3 px-4 py-2 bg-blue-50/50 rounded-2xl border border-blue-100">
-                       <div className="w-9 h-9 rounded-full bg-blue-700 text-white flex items-center justify-center shadow-lg shadow-blue-600/20">
+                    <div className="flex items-center gap-3 px-4 py-2 bg-emerald-50/50 rounded-2xl border border-emerald-100">
+                       <div className="w-9 h-9 rounded-full bg-emerald-600 text-white flex items-center justify-center shadow-lg shadow-emerald-600/20">
                           <Wallet size={18} />
                        </div>
                        <div className="flex flex-col">
-                          <span className="text-[10px] font-bold text-blue-700 uppercase leading-none tracking-tight">Twoje Saldo</span>
+                          <span className="text-[10px] font-bold text-emerald-600 uppercase leading-none tracking-tight">Twoje Saldo</span>
                           <span className="text-base font-bold text-slate-800 leading-tight">
                             {currentUser.voucherBalance} <span className="text-xs text-slate-400 font-normal">pkt</span>
                           </span>

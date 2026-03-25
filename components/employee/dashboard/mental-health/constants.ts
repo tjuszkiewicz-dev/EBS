@@ -52,6 +52,6 @@ export const FOCUS_TRACKS = [
 export const PREMIUM_CONTENT = [
     { id: 'master_burnout', type: 'MASTERCLASS', title: 'Wypalenie Zawodowe: Protokół Wyjścia', author: 'Dr Anna S.', duration: '45 min', price: 50, color: 'text-orange-400', bg: 'bg-orange-500/10', videoId: 'dQw4w9WgXcQ' },
     { id: 'master_sleep', type: 'MASTERCLASS', title: 'Sen Polifazowy dla Managerów', author: 'Marek Z.', duration: '60 min', price: 40, color: 'text-indigo-400', bg: 'bg-indigo-500/10', videoId: 'dQw4w9WgXcQ' },
-    { id: 'soma_tre', type: 'SOMATIC', title: 'TRE: Uwalnianie Napięcia', author: 'Studio Ciało', duration: '15 min', price: 10, color: 'text-teal-400', bg: 'bg-teal-500/10', videoId: 'dQw4w9WgXcQ' },
+    { id: 'soma_tre', type: 'SOMATIC', title: 'TRE: Uwalnianie Napięcia', author: 'Studio Ciało', duration: '15 min', price: 10, color: 'text-emerald-400', bg: 'bg-emerald-500/10', videoId: 'dQw4w9WgXcQ' },
     { id: 'soma_vagus', type: 'SOMATIC', title: 'Masaż Nerwu Błędnego', author: 'Fizjo Pro', duration: '10 min', price: 10, color: 'text-teal-400', bg: 'bg-teal-500/10', videoId: 'dQw4w9WgXcQ' },
 ];

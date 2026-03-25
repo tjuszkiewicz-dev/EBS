@@ -226,13 +226,13 @@ export const HRReportCenter: React.FC<HRReportCenterProps> = ({ company, employe
                 {/* RIGHT: DEPARTMENT ALLOCATION (PIE CHART) */}
                 <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex flex-col h-full relative overflow-visible group/pie">
                     <div className="absolute top-4 right-4 z-10">
-                        <Info size={18} className="text-slate-300 hover:text-teal-600 cursor-help transition-colors"/>
+                        <Info size={18} className="text-slate-300 hover:text-emerald-600 cursor-help transition-colors"/>
                         <div className="absolute right-0 top-6 w-56 bg-slate-800 text-white text-[10px] p-2.5 rounded-lg shadow-xl opacity-0 group-hover/pie:opacity-100 transition-opacity pointer-events-none z-50">
                             Podział rozdysponowanych środków według działów (MPK) pracowników.
                         </div>
                     </div>
                     <h3 className="font-bold text-slate-800 mb-4 flex items-center gap-2">
-                        <PieIcon size={20} className="text-teal-600"/> Koszty wg Działów
+                        <PieIcon size={20} className="text-emerald-600"/> Koszty wg Działów
                     </h3>
                     {/* Fixed Height Container for Recharts */}
                     <div className="w-full h-[300px] relative">
@@ -355,8 +355,8 @@ export const HRReportCenter: React.FC<HRReportCenterProps> = ({ company, employe
                     </div>
 
                     {/* Report 2: Cost Center */}
-                    <div className="border border-slate-200 rounded-xl p-5 hover:border-teal-300 hover:shadow-md transition-all group flex flex-col">
-                        <div className="w-12 h-12 bg-teal-50 rounded-lg flex items-center justify-center text-teal-600 mb-4 group-hover:bg-teal-600 group-hover:text-white transition-colors">
+                    <div className="border border-slate-200 rounded-xl p-5 hover:border-emerald-300 hover:shadow-md transition-all group flex flex-col">
+                        <div className="w-12 h-12 bg-emerald-50 rounded-lg flex items-center justify-center text-emerald-600 mb-4 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
                             <Users size={24}/>
                         </div>
                         <h4 className="font-bold text-slate-800 mb-1">Koszty wg MPK</h4>
@@ -365,7 +365,7 @@ export const HRReportCenter: React.FC<HRReportCenterProps> = ({ company, employe
                         </p>
                         <button 
                             onClick={() => generateReport('COST_CENTER')}
-                            className="w-full py-2 bg-white border border-teal-200 text-teal-700 font-bold rounded-lg text-xs hover:bg-teal-50 flex items-center justify-center gap-2"
+                            className="w-full py-2 bg-white border border-emerald-200 text-emerald-700 font-bold rounded-lg text-xs hover:bg-emerald-50 flex items-center justify-center gap-2"
                         >
                             <Download size={14}/> Pobierz XLSX
                         </button>

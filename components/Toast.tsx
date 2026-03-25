@@ -29,7 +29,7 @@ const ToastItem: React.FC<ToastProps> = ({ toast, onClose, index }) => {
   const getStyles = () => {
     switch (toast.type) {
       case 'SUCCESS':
-        return 'bg-white border-l-4 border-teal-500 text-slate-800 shadow-lg shadow-teal-900/5 ring-1 ring-black/5';
+        return 'bg-white border-l-4 border-emerald-500 text-slate-800 shadow-lg shadow-emerald-900/5 ring-1 ring-black/5';
       case 'ERROR':
         return 'bg-white border-l-4 border-red-500 text-slate-800 shadow-lg shadow-red-900/5 ring-1 ring-black/5';
       case 'WARNING':
@@ -41,7 +41,7 @@ const ToastItem: React.FC<ToastProps> = ({ toast, onClose, index }) => {
 
   const getIcon = () => {
     switch (toast.type) {
-      case 'SUCCESS': return <CheckCircle size={20} className="text-teal-500" />;
+      case 'SUCCESS': return <CheckCircle size={20} className="text-emerald-500" />;
       case 'ERROR': return <AlertCircle size={20} className="text-red-500" />;
       case 'WARNING': return <AlertTriangle size={20} className="text-amber-500" />;
       default: return <Info size={20} className="text-blue-500" />;

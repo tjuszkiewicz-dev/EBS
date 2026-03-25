@@ -35,14 +35,14 @@ export const SalesStats: React.FC<SalesStatsProps> = ({ role, commissions, myCom
       {/* Card 1: Total Earnings */}
       <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
          <div className="flex justify-between items-start mb-2">
-             <div className="p-2 bg-teal-100 rounded-lg text-teal-600">
+             <div className="p-2 bg-emerald-100 rounded-lg text-emerald-600">
                  <DollarSign size={20} />
              </div>
              <span className="text-[10px] font-bold uppercase text-slate-400 tracking-wider">Wypłacone</span>
          </div>
          <div>
              <h3 className="text-2xl font-bold text-slate-800">{totalEarned.toFixed(2)} <span className="text-xs font-medium text-slate-500">PLN</span></h3>
-             <p className="text-xs text-teal-600 font-medium mt-1">Zaksięgowane na koncie</p>
+             <p className="text-xs text-emerald-600 font-medium mt-1">Zaksięgowane na koncie</p>
          </div>
       </div>
 

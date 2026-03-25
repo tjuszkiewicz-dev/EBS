@@ -97,7 +97,7 @@ export const OrdersTable: React.FC<Props> = ({ orders, onApproveOrder, onSimulat
                     <>
                         <button 
                             onClick={() => onSimulateBankPayment(order.id, true)}
-                            className="px-3 py-1.5 bg-teal-600 text-white text-xs font-bold rounded hover:bg-teal-700 transition shadow-sm flex items-center gap-1"
+                            className="px-3 py-1.5 bg-emerald-600 text-white text-xs font-bold rounded hover:bg-emerald-700 transition shadow-sm flex items-center gap-1"
                             title="Potwierdź wpłatę"
                         >
                             <CheckCheck size={14}/> Opłacono
@@ -170,7 +170,7 @@ export const OrdersTable: React.FC<Props> = ({ orders, onApproveOrder, onSimulat
              {order.status === OrderStatus.APPROVED && (
                  <button 
                     onClick={() => onSimulateBankPayment(order.id, true)}
-                    className="flex-1 py-2 bg-teal-600 text-white text-xs font-bold rounded-lg flex items-center justify-center gap-2"
+                    className="flex-1 py-2 bg-emerald-600 text-white text-xs font-bold rounded-lg flex items-center justify-center gap-2"
                  >
                     <CheckCheck size={14}/> Potwierdź Wpłatę
                  </button>

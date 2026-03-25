@@ -114,12 +114,12 @@ export const IntegrationConfigModal: React.FC<IntegrationConfigModalProps> = ({
                 <div className="bg-slate-50 border border-slate-200 rounded-lg p-3 flex justify-between items-center">
                     <div className="flex items-center gap-2">
                         {isTestRunning ? <RefreshCw size={16} className="animate-spin text-blue-500"/> :
-                         testStatus === 'SUCCESS' ? <CheckCircle size={16} className="text-teal-500"/> :
+                         testStatus === 'SUCCESS' ? <CheckCircle size={16} className="text-emerald-500"/> :
                          testStatus === 'ERROR' ? <AlertCircle size={16} className="text-red-500"/> :
                          <div className="w-4 h-4 rounded-full border-2 border-slate-300"></div>}
                         
                         <span className={`text-xs font-bold ${
-                            testStatus === 'SUCCESS' ? 'text-teal-600' : 
+                            testStatus === 'SUCCESS' ? 'text-emerald-600' : 
                             testStatus === 'ERROR' ? 'text-red-600' : 'text-slate-500'
                         }`}>
                             {isTestRunning ? 'Testowanie połączenia...' : 

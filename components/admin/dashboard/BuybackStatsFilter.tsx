@@ -38,7 +38,7 @@ export const BuybackStatsFilter: React.FC<BuybackStatsFilterProps> = ({
         icon: <Clock size={14} className={currentFilter === 'PENDING' ? "text-amber-600" : "text-amber-500"}/>,
         count: pendingCount > 0 ? pendingCount : null
     },
-    { id: 'APPROVED', label: 'Zatwierdzone', icon: <CheckCircle size={14} className="text-teal-500"/>, count: null },
+    { id: 'APPROVED', label: 'Zatwierdzone', icon: <CheckCircle size={14} className="text-emerald-500"/>, count: null },
     { id: 'PAID', label: 'Opłacone', icon: <CreditCard size={14} className="text-blue-500"/>, count: null },
   ];
 

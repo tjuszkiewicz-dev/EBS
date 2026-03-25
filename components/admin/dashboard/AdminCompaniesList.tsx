@@ -82,7 +82,7 @@ export const AdminCompaniesList: React.FC<AdminCompaniesListProps> = ({
           sortable: true,
           className: 'text-right',
           cell: (c) => (
-              <span className="font-mono font-bold text-teal-600">{c.turnover.toLocaleString('pl-PL', { maximumFractionDigits: 0 })} PLN</span>
+              <span className="font-mono font-bold text-emerald-600">{c.turnover.toLocaleString('pl-PL', { maximumFractionDigits: 0 })} PLN</span>
           )
       },
       {
@@ -131,7 +131,7 @@ export const AdminCompaniesList: React.FC<AdminCompaniesListProps> = ({
           </div>
           <div className="flex justify-between text-sm mt-1">
               <span className="text-slate-500">Prac: {c.activeEmployees}</span>
-              <span className="font-bold text-teal-600">{c.turnover.toLocaleString()} PLN</span>
+              <span className="font-bold text-emerald-600">{c.turnover.toLocaleString()} PLN</span>
           </div>
           <button onClick={() => onInspectCompany(c)} className="w-full py-2 mt-2 bg-slate-50 text-indigo-600 font-bold text-xs rounded border border-slate-200">
               Profil Klienta

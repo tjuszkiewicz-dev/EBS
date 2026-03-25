@@ -61,7 +61,7 @@ export const ConsumerWizardView: React.FC<ConsumerWizardViewProps> = ({
                 </div>
                 <div className="flex -space-x-3 overflow-hidden">
                     {[1, 2, 3, 4].map(i => (
-                        <div key={i} className={`w-10 h-10 rounded-full border-4 border-white flex items-center justify-center text-[10px] font-bold ${wizardHistory.length >= i ? 'bg-teal-500 text-white' : 'bg-slate-100 text-slate-400'}`}>
+                        <div key={i} className={`w-10 h-10 rounded-full border-4 border-white flex items-center justify-center text-[10px] font-bold ${wizardHistory.length >= i ? 'bg-emerald-500 text-white' : 'bg-slate-100 text-slate-400'}`}>
                             {i}
                         </div>
                     ))}
@@ -100,7 +100,7 @@ export const ConsumerWizardView: React.FC<ConsumerWizardViewProps> = ({
                         </>
                     ) : (
                         <div className="text-center py-6 animate-in zoom-in-95 duration-500">
-                            <div className={`w-28 h-28 rounded-full flex items-center justify-center mx-auto mb-10 shadow-2xl ${currentStep.advice?.isPositive ? 'bg-teal-100 text-teal-600 shadow-teal-100' : 'bg-amber-100 text-amber-600 shadow-amber-100'}`}>
+                            <div className={`w-28 h-28 rounded-full flex items-center justify-center mx-auto mb-10 shadow-2xl ${currentStep.advice?.isPositive ? 'bg-emerald-100 text-emerald-600 shadow-emerald-100' : 'bg-amber-100 text-amber-600 shadow-amber-100'}`}>
                                 {currentStep.advice?.isPositive ? <CheckCircle2 size={56} /> : <AlertCircle size={56} />}
                             </div>
                             <h4 className="text-3xl font-extrabold text-slate-900 mb-4 px-4">{currentStep.advice?.title}</h4>

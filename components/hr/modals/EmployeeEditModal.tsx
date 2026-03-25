@@ -130,7 +130,7 @@ export const EmployeeEditModal: React.FC<EmployeeEditModalProps> = ({
             <div className="px-6 py-4 border-b border-slate-100 flex justify-between items-center bg-slate-50 flex-shrink-0">
                 <div>
                     <h3 className="font-bold text-slate-800 text-lg flex items-center gap-2">
-                        <UserIcon size={20} className="text-teal-600"/>
+                        <UserIcon size={20} className="text-emerald-600"/>
                         Edycja Kartoteki Pracownika
                     </h3>
                     <p className="text-xs text-slate-500 hidden md:block">Dane kadrowe, płacowe i kontaktowe</p>
@@ -195,10 +195,10 @@ export const EmployeeEditModal: React.FC<EmployeeEditModalProps> = ({
                                 <div className="bg-slate-50 rounded-lg p-3 border border-slate-100 flex flex-col justify-center">
                                     <div className="flex items-center justify-between mb-2">
                                         <span className="text-xs font-bold text-slate-700 flex items-center gap-2">
-                                            <ShieldCheck size={16} className={termsAccepted ? "text-teal-600" : "text-slate-400"}/>
+                                            <ShieldCheck size={16} className={termsAccepted ? "text-emerald-600" : "text-slate-400"}/>
                                             Zgoda RODO / Regulamin
                                         </span>
-                                        <input type="checkbox" checked={termsAccepted} onChange={e => setTermsAccepted(e.target.checked)} className="w-5 h-5 text-teal-600 rounded focus:ring-teal-500"/>
+                                        <input type="checkbox" checked={termsAccepted} onChange={e => setTermsAccepted(e.target.checked)} className="w-5 h-5 text-emerald-600 rounded focus:ring-emerald-500"/>
                                     </div>
                                     <p className="text-[10px] text-slate-500 leading-tight">
                                         {termsAccepted ? `Zaakceptowano: ${termsDate ? new Date(termsDate).toLocaleDateString() : 'Teraz'}` : 'Brak akceptacji.'}

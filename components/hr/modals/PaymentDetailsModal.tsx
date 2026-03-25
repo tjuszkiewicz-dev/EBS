@@ -46,7 +46,7 @@ export const PaymentDetailsModal: React.FC<PaymentDetailsModalProps> = ({ isOpen
                 className="p-2 hover:bg-slate-100 rounded-lg text-slate-400 hover:text-indigo-600 transition flex-shrink-0"
                 title="Skopiuj"
               >
-                  {copiedField === fieldId ? <Check size={18} className="text-teal-500"/> : <Copy size={18}/>}
+                  {copiedField === fieldId ? <Check size={18} className="text-emerald-500"/> : <Copy size={18}/>}
               </button>
           </div>
       </div>

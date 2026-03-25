@@ -93,7 +93,7 @@ export const EmployeeHistoryModal: React.FC<EmployeeHistoryModalProps> = ({
                 </div>
                 <div className="text-right">
                     <span className="text-xs font-bold text-slate-400 uppercase block">Suma w okresie</span>
-                    <span className="text-lg font-bold text-teal-600">{totalInPeriod} pkt</span>
+                    <span className="text-lg font-bold text-emerald-600">{totalInPeriod} pkt</span>
                 </div>
             </div>
 
@@ -135,7 +135,7 @@ export const EmployeeHistoryModal: React.FC<EmployeeHistoryModalProps> = ({
                                             group.status === VoucherStatus.DISTRIBUTED ? 'bg-blue-50 text-blue-700 border-blue-100' :
                                             group.status === VoucherStatus.CONSUMED ? 'bg-slate-100 text-slate-500 border-slate-200' :
                                             group.status === VoucherStatus.EXPIRED ? 'bg-amber-50 text-amber-700 border-amber-100' :
-                                            'bg-teal-50 text-teal-700 border-teal-100'
+                                            'bg-emerald-50 text-emerald-700 border-emerald-100'
                                         }`}>
                                             {group.status === VoucherStatus.DISTRIBUTED && <Wallet size={12}/>}
                                             {group.status === VoucherStatus.CONSUMED && <ShoppingCart size={12}/>}
@@ -163,7 +163,7 @@ export const EmployeeHistoryModal: React.FC<EmployeeHistoryModalProps> = ({
                                         </div>
                                     </td>
                                     <td className="px-6 py-4 text-right">
-                                        <span className={`text-sm font-bold ${isCredit ? 'text-teal-600' : 'text-slate-600'}`}>
+                                        <span className={`text-sm font-bold ${isCredit ? 'text-emerald-600' : 'text-slate-600'}`}>
                                             {isCredit ? '+' : '-'}{group.totalValue} PLN
                                         </span>
                                     </td>

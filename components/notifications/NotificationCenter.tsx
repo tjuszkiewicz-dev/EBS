@@ -70,7 +70,7 @@ export const NotificationCenter: React.FC<NotificationCenterProps> = ({
   const getIcon = (type: string, priority?: NotificationPriority) => {
       if (priority === 'CRITICAL') return <Zap size={18} className="text-red-600 fill-red-100" />;
       switch(type) {
-          case 'SUCCESS': return <CheckCircle size={18} className="text-teal-500" />;
+          case 'SUCCESS': return <CheckCircle size={18} className="text-emerald-500" />;
           case 'WARNING': return <AlertTriangle size={18} className="text-amber-500" />;
           case 'ERROR': return <AlertCircle size={18} className="text-red-500" />;
           default: return <Info size={18} className="text-blue-500" />;
@@ -82,7 +82,7 @@ export const NotificationCenter: React.FC<NotificationCenterProps> = ({
       <button 
         ref={buttonRef}
         onClick={handleToggle}
-        className={`p-2.5 rounded-full transition relative ${isOpen ? 'bg-slate-100 text-teal-600' : 'text-slate-500 hover:bg-slate-100 hover:text-teal-600'}`}
+        className={`p-2.5 rounded-full transition relative ${isOpen ? 'bg-slate-100 text-emerald-600' : 'text-slate-500 hover:bg-slate-100 hover:text-emerald-600'}`}
       >
         <Bell size={20} />
         {unreadCount > 0 && (
@@ -158,7 +158,7 @@ export const NotificationCenter: React.FC<NotificationCenterProps> = ({
                                             {n.action && (
                                                 <span className={`text-[10px] font-bold px-2 py-0.5 rounded ${
                                                     n.action.completed 
-                                                    ? 'bg-teal-100 text-teal-700' 
+                                                    ? 'bg-emerald-100 text-emerald-700' 
                                                     : n.action.variant === 'primary' ? 'bg-indigo-100 text-indigo-700' : 'bg-slate-200 text-slate-600'
                                                 }`}>
                                                     {n.action.completed ? n.action.completedLabel : n.action.label}

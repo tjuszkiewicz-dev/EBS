@@ -124,12 +124,12 @@ export const HRFinanceStats: React.FC<HRFinanceStatsProps> = ({ orders, onNaviga
                             {stats.nextDueDate.toLocaleDateString('pl-PL')}
                         </span>
                     ) : (
-                        <span className="text-xl font-bold text-teal-600 flex items-center gap-2">
+                        <span className="text-xl font-bold text-emerald-600 flex items-center gap-2">
                             Brak Zobowiązań
                         </span>
                     )}
                 </div>
-                <div className={`${stats.overdueCount > 0 ? 'bg-red-100 text-red-600' : stats.nextDueDate ? 'bg-amber-50 text-amber-600' : 'bg-teal-50 text-teal-600'} p-2 rounded-lg`}>
+                <div className={`${stats.overdueCount > 0 ? 'bg-red-100 text-red-600' : stats.nextDueDate ? 'bg-amber-50 text-amber-600' : 'bg-emerald-50 text-emerald-600'} p-2 rounded-lg`}>
                     {stats.overdueCount > 0 ? <AlertCircle size={20} /> : stats.nextDueDate ? <Clock size={20} /> : <CheckCircle2 size={20}/>}
                 </div>
             </div>
@@ -144,7 +144,7 @@ export const HRFinanceStats: React.FC<HRFinanceStatsProps> = ({ orders, onNaviga
                         Najbliższy termin płatności faktury.
                     </p>
                 ) : (
-                    <p className="text-xs text-teal-700 font-medium">
+                    <p className="text-xs text-emerald-700 font-medium">
                         Wszystkie faktury zostały opłacone w terminie.
                     </p>
                 )}
@@ -161,7 +161,7 @@ export const HRFinanceStats: React.FC<HRFinanceStatsProps> = ({ orders, onNaviga
                         <span className="text-xs text-slate-500 font-medium">PLN</span>
                     </div>
                 </div>
-                <div className={`p-2 rounded-lg ${stats.trendPercent > 0 ? 'bg-blue-50 text-blue-600' : 'bg-teal-50 text-teal-600'}`}>
+                <div className={`p-2 rounded-lg ${stats.trendPercent > 0 ? 'bg-blue-50 text-blue-600' : 'bg-emerald-50 text-emerald-600'}`}>
                     <TrendingUp size={20} />
                 </div>
             </div>
@@ -169,7 +169,7 @@ export const HRFinanceStats: React.FC<HRFinanceStatsProps> = ({ orders, onNaviga
             <div className="mt-auto">
                 <div className="flex items-center gap-2 mb-2">
                     {stats.trendPercent !== 0 ? (
-                        <span className={`text-xs font-bold flex items-center gap-1 ${stats.trendPercent > 0 ? 'text-blue-600' : 'text-teal-600'}`}>
+                        <span className={`text-xs font-bold flex items-center gap-1 ${stats.trendPercent > 0 ? 'text-blue-600' : 'text-emerald-600'}`}>
                             {stats.trendPercent > 0 ? <TrendingUp size={12}/> : <TrendingDown size={12}/>}
                             {Math.abs(stats.trendPercent).toFixed(1)}%
                         </span>
@@ -183,7 +183,7 @@ export const HRFinanceStats: React.FC<HRFinanceStatsProps> = ({ orders, onNaviga
                 <div className="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
                      {/* Simplified bar: if spent this month > prev, fill full, else proportional */}
                      <div 
-                        className={`h-full transition-all duration-500 ${stats.trendPercent > 0 ? 'bg-blue-500' : 'bg-teal-500'}`} 
+                        className={`h-full transition-all duration-500 ${stats.trendPercent > 0 ? 'bg-blue-500' : 'bg-emerald-500'}`} 
                         style={{ width: `${stats.spentPrevMonth > 0 ? Math.min((stats.spentThisMonth / stats.spentPrevMonth) * 100, 100) : 100}%` }}
                      ></div>
                 </div>

@@ -30,9 +30,9 @@ export const HRStats: React.FC<HRStatsProps> = ({
   return (
     <div className={containerClass}>
       {/* Karta 1: Środki DOSTĘPNE (Active) */}
-      <div className={`${cardClass} border-teal-500`}>
+      <div className={`${cardClass} border-emerald-500`}>
           <div className="absolute right-4 top-4 opacity-10 pointer-events-none">
-             <Wallet size={64} className="text-teal-600 transform group-hover:scale-110 transition-transform" />
+             <Wallet size={64} className="text-emerald-600 transform group-hover:scale-110 transition-transform" />
           </div>
           
           <div className="absolute top-3 right-3 z-20 md:hidden">
@@ -50,7 +50,7 @@ export const HRStats: React.FC<HRStatsProps> = ({
                   <span>{usagePercentage.toFixed(0)}%</span>
               </div>
               <div className="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
-                  <div className="h-full bg-teal-500 transition-all duration-500" style={{ width: `${usagePercentage}%` }}></div>
+                  <div className="h-full bg-emerald-500 transition-all duration-500" style={{ width: `${usagePercentage}%` }}></div>
               </div>
           </div>
       </div>
