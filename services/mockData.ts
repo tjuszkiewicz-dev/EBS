@@ -211,6 +211,300 @@ export const INITIAL_USERS: User[] = [
         hasSicknessInsurance: false
     },
     // Missing Finance Layer (Unverified for Buyback)
+  },
+  {
+    id: 'EMP-003',
+    role: Role.EMPLOYEE,
+    companyId: 'FIRMA-042',
+    status: 'ACTIVE',
+    voucherBalance: 0,
+
+    // Credentials
+    username: 'm_koch',
+    password: '123mackoch123',
+
+    // Facade
+    name: 'Maciej Koch',
+    email: 'm.koch@techsolutions.pl',
+    pesel: '88030512345',
+    department: 'Produkcja',
+    position: 'Pracownik',
+
+    identity: {
+        firstName: 'Maciej',
+        lastName: 'Koch',
+        pesel: '88030512345',
+        email: 'm.koch@techsolutions.pl'
+    },
+    organization: {
+        department: 'Produkcja',
+        position: 'Pracownik'
+    },
+    contract: {
+        type: ContractType.UOP,
+        hasSicknessInsurance: true
+    },
+    finance: {
+        payoutAccount: {
+            iban: 'PL98765432109876543210987654',
+            country: 'PL',
+            isVerified: true,
+            verificationMethod: 'MICROTRANSFER',
+            lastVerifiedAt: new Date().toISOString()
+        }
+    }
+  },
+  {
+    id: 'EMP-004',
+    role: Role.EMPLOYEE,
+    companyId: 'FIRMA-042',
+    status: 'ACTIVE',
+    voucherBalance: 0,
+
+    // Credentials
+    username: 'i_matczak',
+    password: '123igomatczak123',
+
+    // Facade
+    name: 'Igor Matczak',
+    email: 'i.matczak@techsolutions.pl',
+    pesel: '82051312345',
+    department: 'Produkcja',
+    position: 'Pracownik',
+
+    identity: {
+        firstName: 'Igor',
+        lastName: 'Matczak',
+        pesel: '82051312345',
+        email: 'i.matczak@techsolutions.pl'
+    },
+    organization: {
+        department: 'Produkcja',
+        position: 'Pracownik'
+    },
+    contract: {
+        type: ContractType.UOP,
+        hasSicknessInsurance: true
+    },
+    finance: {
+        payoutAccount: {
+            iban: 'PL11111111111111111111111111',
+            country: 'PL',
+            isVerified: true,
+            verificationMethod: 'MICROTRANSFER',
+            lastVerifiedAt: new Date().toISOString()
+        }
+    }
+  },
+  {
+    id: 'EMP-005',
+    role: Role.EMPLOYEE,
+    companyId: 'FIRMA-042',
+    status: 'ACTIVE',
+    voucherBalance: 0,
+
+    // Credentials
+    username: 'a_stawnicza',
+    password: '123annstawnicza123',
+
+    // Facade
+    name: 'Anna Stawnicza',
+    email: 'a.stawnicza@techsolutions.pl',
+    pesel: '91040298765',
+    department: 'Produkcja',
+    position: 'Pracownik',
+
+    identity: {
+        firstName: 'Anna',
+        lastName: 'Stawnicza',
+        pesel: '91040298765',
+        email: 'a.stawnicza@techsolutions.pl'
+    },
+    organization: {
+        department: 'Produkcja',
+        position: 'Pracownik'
+    },
+    contract: {
+        type: ContractType.UOP,
+        hasSicknessInsurance: true
+    },
+    finance: {
+        payoutAccount: {
+            iban: 'PL22222222222222222222222222',
+            country: 'PL',
+            isVerified: true,
+            verificationMethod: 'MICROTRANSFER',
+            lastVerifiedAt: new Date().toISOString()
+        }
+    }
+  },
+  {
+    id: 'EMP-006',
+    role: Role.EMPLOYEE,
+    companyId: 'FIRMA-042',
+    status: 'ACTIVE',
+    voucherBalance: 0,
+
+    // Credentials
+    username: 'm_stebelska',
+    password: '123malstebelska123',
+
+    // Facade
+    name: 'Małgorzata Stebelska',
+    email: 'm.stebelska@techsolutions.pl',
+    pesel: '78120556789',
+    department: 'Produkcja',
+    position: 'Pracownik',
+
+    identity: {
+        firstName: 'Małgorzata',
+        lastName: 'Stebelska',
+        pesel: '78120556789',
+        email: 'm.stebelska@techsolutions.pl'
+    },
+    organization: {
+        department: 'Produkcja',
+        position: 'Pracownik'
+    },
+    contract: {
+        type: ContractType.UOP,
+        hasSicknessInsurance: true
+    },
+    finance: {
+        payoutAccount: {
+            iban: 'PL33333333333333333333333333',
+            country: 'PL',
+            isVerified: true,
+            verificationMethod: 'MICROTRANSFER',
+            lastVerifiedAt: new Date().toISOString()
+        }
+    }
+  },
+  {
+    id: 'EMP-007',
+    role: Role.EMPLOYEE,
+    companyId: 'FIRMA-042',
+    status: 'ACTIVE',
+    voucherBalance: 0,
+
+    // Credentials
+    username: 'm_szpila',
+    password: '123marszpila123',
+
+    // Facade
+    name: 'Marek Szpila',
+    email: 'm.szpila@techsolutions.pl',
+    pesel: '85073054321',
+    department: 'Produkcja',
+    position: 'Pracownik',
+
+    identity: {
+        firstName: 'Marek',
+        lastName: 'Szpila',
+        pesel: '85073054321',
+        email: 'm.szpila@techsolutions.pl'
+    },
+    organization: {
+        department: 'Produkcja',
+        position: 'Pracownik'
+    },
+    contract: {
+        type: ContractType.UOP,
+        hasSicknessInsurance: true
+    },
+    finance: {
+        payoutAccount: {
+            iban: 'PL44444444444444444444444444',
+            country: 'PL',
+            isVerified: true,
+            verificationMethod: 'MICROTRANSFER',
+            lastVerifiedAt: new Date().toISOString()
+        }
+    }
+  },
+  {
+    id: 'EMP-008',
+    role: Role.EMPLOYEE,
+    companyId: 'FIRMA-042',
+    status: 'ACTIVE',
+    voucherBalance: 0,
+
+    // Credentials
+    username: 'a_krzanik',
+    password: '123agnkrzanik123',
+
+    // Facade
+    name: 'Agnieszka Krzanik',
+    email: 'a.krzanik@techsolutions.pl',
+    pesel: '94092812345',
+    department: 'Produkcja',
+    position: 'Pracownik',
+
+    identity: {
+        firstName: 'Agnieszka',
+        lastName: 'Krzanik',
+        pesel: '94092812345',
+        email: 'a.krzanik@techsolutions.pl'
+    },
+    organization: {
+        department: 'Produkcja',
+        position: 'Pracownik'
+    },
+    contract: {
+        type: ContractType.UOP,
+        hasSicknessInsurance: true
+    },
+    finance: {
+        payoutAccount: {
+            iban: 'PL55555555555555555555555555',
+            country: 'PL',
+            isVerified: true,
+            verificationMethod: 'MICROTRANSFER',
+            lastVerifiedAt: new Date().toISOString()
+        }
+    }
+  },
+  {
+    id: 'EMP-009',
+    role: Role.EMPLOYEE,
+    companyId: 'FIRMA-042',
+    status: 'ACTIVE',
+    voucherBalance: 0,
+
+    // Credentials
+    username: 'g_chorazy',
+    password: '123grzchorazy123',
+
+    // Facade
+    name: 'Grzegorz Chorąży',
+    email: 'g.chorazy@techsolutions.pl',
+    pesel: '75081567890',
+    department: 'Produkcja',
+    position: 'Pracownik',
+
+    identity: {
+        firstName: 'Grzegorz',
+        lastName: 'Chorąży',
+        pesel: '75081567890',
+        email: 'g.chorazy@techsolutions.pl'
+    },
+    organization: {
+        department: 'Produkcja',
+        position: 'Pracownik'
+    },
+    contract: {
+        type: ContractType.UOP,
+        hasSicknessInsurance: true
+    },
+    finance: {
+        payoutAccount: {
+            iban: 'PL66666666666666666666666666',
+            country: 'PL',
+            isVerified: true,
+            verificationMethod: 'MICROTRANSFER',
+            lastVerifiedAt: new Date().toISOString()
+        }
+    }
   }
 ];
 
