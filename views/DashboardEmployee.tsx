@@ -263,10 +263,10 @@ export const DashboardEmployee: React.FC<Props> = ({
 
 
           {/* APPS GRID */}
-          <div className="pt-8 border-t border-slate-200/60 pb-12">
+          <div className="pt-8 pb-12" style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
              <div className="flex items-center justify-between mb-8">
-                <h3 className="text-xl font-bold text-slate-800 tracking-tight">Twoje Narzędzia</h3>
-                <span className="text-xs font-bold text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full uppercase tracking-wider hidden md:block">
+                <h3 className="text-xl font-bold tracking-tight ebs-grad-text">Twoje Narzędzia</h3>
+                <span className="text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider hidden md:block" style={{ background: 'rgba(16,185,129,0.15)', color: '#10b981', border: '1px solid rgba(16,185,129,0.3)' }}>
                    Zarządzane przez Eliton
                 </span>
              </div>
@@ -312,25 +312,25 @@ export const DashboardEmployee: React.FC<Props> = ({
                         {/* Glow Underneath */}
                       <div className="absolute -bottom-6 left-4 right-4 h-6 bg-indigo-400 rounded-[100%] blur-2xl opacity-0 group-hover:opacity-50 transition-opacity duration-300 -z-10"></div>
 
-                     <div className="relative overflow-hidden bg-white rounded-2xl p-6 border-2 border-dashed border-indigo-200 hover:border-indigo-400 hover:bg-indigo-50/30 transition-all h-full flex flex-col justify-center">
+                     <div className="relative overflow-hidden rounded-2xl p-6 transition-all h-full flex flex-col justify-center" style={{ background: 'rgba(255,255,255,0.04)', border: '1px dashed rgba(99,102,241,0.4)' }}>
                         <div className="flex justify-between items-center w-full">
                             <div className="flex items-start gap-4">
-                                <div className="p-3 bg-indigo-100 rounded-xl text-indigo-600 group-hover:scale-110 transition-transform">
+                                <div className="p-3 rounded-xl group-hover:scale-110 transition-transform" style={{ background: 'rgba(99,102,241,0.2)', color: '#818cf8' }}>
                                     <Heart size={24} className="fill-current"/>
                                 </div>
                                 <div>
-                                    <h3 className="text-lg font-bold text-slate-800 flex items-center gap-2">
+                                    <h3 className="text-lg font-bold flex items-center gap-2" style={{ color: 'white' }}>
                                         Wellbeing
-                                        <Lock size={14} className="text-slate-400"/>
+                                        <Lock size={14} style={{ color: 'rgba(255,255,255,0.4)' }}/>
                                     </h3>
-                                    <p className="text-sm text-slate-500 mt-1 max-w-xs">
+                                    <p className="text-sm mt-1 max-w-xs" style={{ color: 'rgba(255,255,255,0.5)' }}>
                                         Zadbaj o swój spokój. AI Terapeuta i redukcja stresu.
                                     </p>
                                 </div>
                             </div>
                             <div className="text-right">
-                                <span className="block text-xl font-bold text-indigo-600">100 pkt</span>
-                                <span className="text-xs text-slate-400 uppercase font-bold">Msc</span>
+                                <span className="block text-xl font-bold" style={{ color: '#60a5fa' }}>100 pkt</span>
+                                <span className="text-xs uppercase font-bold" style={{ color: 'rgba(255,255,255,0.4)' }}>Msc</span>
                             </div>
                         </div>
                      </div>
@@ -380,25 +380,25 @@ export const DashboardEmployee: React.FC<Props> = ({
                       {/* Glow Underneath */}
                       <div className="absolute -bottom-6 left-4 right-4 h-6 bg-slate-400 rounded-[100%] blur-2xl opacity-0 group-hover:opacity-50 transition-opacity duration-300 -z-10"></div>
 
-                      <div className="relative overflow-hidden bg-white rounded-2xl p-6 border-2 border-dashed border-slate-300 hover:border-slate-500 hover:bg-slate-50 transition-all h-full flex flex-col justify-center">
+                      <div className="relative overflow-hidden rounded-2xl p-6 transition-all h-full flex flex-col justify-center" style={{ background: 'rgba(255,255,255,0.04)', border: '1px dashed rgba(99,102,241,0.4)' }}>
                           <div className="flex justify-between items-center w-full">
                               <div className="flex items-start gap-4">
-                                  <div className="p-3 bg-slate-100 rounded-xl text-slate-600 group-hover:scale-110 transition-transform">
+                                  <div className="p-3 rounded-xl group-hover:scale-110 transition-transform" style={{ background: 'rgba(99,102,241,0.2)', color: '#818cf8' }}>
                                       <ShieldCheck size={24} />
                                   </div>
                                   <div>
-                                      <h3 className="text-lg font-bold text-slate-800 flex items-center gap-2">
+                                      <h3 className="text-lg font-bold flex items-center gap-2" style={{ color: 'white' }}>
                                           AI Legal Assistant
-                                          <Lock size={14} className="text-slate-400"/>
+                                          <Lock size={14} style={{ color: 'rgba(255,255,255,0.4)' }}/>
                                       </h3>
-                                      <p className="text-sm text-slate-500 mt-1 max-w-xs">
+                                      <p className="text-sm mt-1 max-w-xs" style={{ color: 'rgba(255,255,255,0.5)' }}>
                                           Twój osobisty prawnik. Analiza umów i pism w 60 sekund.
                                       </p>
                                   </div>
                               </div>
                               <div className="text-right">
-                                  <span className="block text-xl font-bold text-slate-700">150 pkt</span>
-                                  <span className="text-xs text-slate-400 uppercase font-bold">Msc</span>
+                                  <span className="block text-xl font-bold" style={{ color: '#60a5fa' }}>150 pkt</span>
+                                  <span className="text-xs uppercase font-bold" style={{ color: 'rgba(255,255,255,0.4)' }}>Msc</span>
                               </div>
                           </div>
                       </div>
@@ -427,10 +427,10 @@ export const DashboardEmployee: React.FC<Props> = ({
           </div>
 
           {/* ORANGE OFFER SECTION */}
-          <div className="pt-12 border-t border-slate-200/60 pb-12">
+          <div className="pt-12 pb-12" style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
              <div className="flex items-center justify-between mb-8">
-                <h3 className="text-xl font-bold text-slate-800 tracking-tight">Strefa Partnerów</h3>
-                 <span className="text-xs font-bold text-orange-600 bg-orange-50 px-3 py-1 rounded-full uppercase tracking-wider">
+                <h3 className="text-xl font-bold tracking-tight ebs-grad-text">Strefa Partnerów</h3>
+                 <span className="text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider" style={{ background: 'rgba(249,115,22,0.15)', color: '#fb923c', border: '1px solid rgba(249,115,22,0.3)' }}>
                    Oferty Specjalne
                 </span>
              </div>
@@ -589,14 +589,14 @@ export const DashboardEmployee: React.FC<Props> = ({
       return (
           <div className="space-y-8 animate-in fade-in duration-500">
               {/* Header */}
-              <div className="bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-slate-100 relative overflow-hidden">
-                  <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-50 rounded-full blur-3xl -mr-20 -mt-20 opacity-60"></div>
+              <div className="rounded-3xl p-8 md:p-12 relative overflow-hidden" style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.10)', backdropFilter: 'blur(22px)' }}>
+                  <div className="absolute top-0 right-0 w-64 h-64 rounded-full blur-3xl -mr-20 -mt-20 opacity-20" style={{ background: '#10b981' }}></div>
                   <div className="relative z-10 max-w-2xl">
-                      <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4 tracking-tight">
+                      <h2 className="text-3xl md:text-4xl font-bold mb-4 tracking-tight" style={{ color: 'white' }}>
                           Witaj w swoim katalogu <br/>
-                          <span className="text-emerald-600">aktywnych usług</span>
+                          <span style={{ color: '#10b981' }}>aktywnych usług</span>
                       </h2>
-                      <p className="text-slate-500 text-lg leading-relaxed">
+                      <p className="text-lg leading-relaxed" style={{ color: 'rgba(255,255,255,0.55)' }}>
                           Dziękujemy że skorzystałeś z naszych możliwości i życzymy miłego użytkowania.
                       </p>
                   </div>
@@ -604,12 +604,12 @@ export const DashboardEmployee: React.FC<Props> = ({
 
               {/* Grid */}
               {activeCount === 0 ? (
-                  <div className="text-center py-20 bg-slate-50 rounded-3xl border border-dashed border-slate-200">
-                      <div className="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4 text-slate-400">
+                  <div className="text-center py-20 rounded-3xl" style={{ background: 'rgba(255,255,255,0.03)', border: '1px dashed rgba(255,255,255,0.12)' }}>
+                      <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4" style={{ background: 'rgba(255,255,255,0.06)', color: 'rgba(255,255,255,0.4)' }}>
                           <Grid size={32} />
                       </div>
-                      <h3 className="text-lg font-bold text-slate-700 mb-2">Brak aktywnych usług</h3>
-                      <p className="text-slate-500 max-w-md mx-auto">
+                      <h3 className="text-lg font-bold mb-2" style={{ color: 'white' }}>Brak aktywnych usług</h3>
+                      <p className="max-w-md mx-auto" style={{ color: 'rgba(255,255,255,0.55)' }}>
                           Nie aktywowałeś jeszcze żadnych usług. Przejdź do katalogu, aby wykorzystać swoje punkty.
                       </p>
                       <Button 
@@ -709,21 +709,63 @@ export const DashboardEmployee: React.FC<Props> = ({
   };
 
   return (
-    <div className="pb-24 md:pb-6 relative min-h-full">
+    <div style={{ background: '#030712', minHeight: '100%', position: 'relative' }} className="pb-24 md:pb-6">
+      {/* CSS Keyframes */}
+      <style>{`
+        @keyframes ebs-orb {
+          0%,100% { transform: translate(0,0) scale(1); opacity:.35; }
+          25%     { transform: translate(40px,-30px) scale(1.12); opacity:.55; }
+          50%     { transform: translate(-20px,50px) scale(.9); opacity:.25; }
+          75%     { transform: translate(30px,20px) scale(1.06); opacity:.45; }
+        }
+        @keyframes ebs-grad {
+          0%   { background-position: 0% 50%; }
+          50%  { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+        .ebs-orb-d { animation: ebs-orb 13s ease-in-out infinite; }
+        .ebs-orb-d2 { animation: ebs-orb 17s ease-in-out infinite reverse; }
+        .ebs-orb-d3 { animation: ebs-orb 21s ease-in-out infinite 4s; }
+        .ebs-grad-text {
+          background: linear-gradient(135deg,#fff 0%,#bfdbfe 40%,#93c5fd 65%,#60a5fa 100%);
+          background-size: 200% 200%;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          animation: ebs-grad 3s ease infinite;
+        }
+      `}</style>
+
+      {/* Animated Orbs */}
+      <div style={{ position: 'fixed', inset: 0, pointerEvents: 'none', overflow: 'hidden', zIndex: 0 }}>
+        {/* Blue orb - top left */}
+        <div className="ebs-orb-d" style={{ position: 'absolute', top: '-10%', left: '-5%', width: 600, height: 600, borderRadius: '50%', background: 'radial-gradient(circle, #2563eb 0%, transparent 70%)', filter: 'blur(80px)', opacity: 0.35 }} />
+        {/* Green orb - bottom right */}
+        <div className="ebs-orb-d2" style={{ position: 'absolute', bottom: '-15%', right: '-10%', width: 700, height: 700, borderRadius: '50%', background: 'radial-gradient(circle, #10b981 0%, transparent 70%)', filter: 'blur(90px)', opacity: 0.3 }} />
+        {/* Cyan orb - middle right */}
+        <div className="ebs-orb-d3" style={{ position: 'absolute', top: '40%', right: '10%', width: 500, height: 500, borderRadius: '50%', background: 'radial-gradient(circle, #0891b2 0%, transparent 70%)', filter: 'blur(70px)', opacity: 0.3 }} />
+      </div>
+
+      {/* Grid overlay */}
+      <div style={{ position: 'fixed', inset: 0, pointerEvents: 'none', zIndex: 0, backgroundImage: 'linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px)', backgroundSize: '40px 40px', opacity: 1 }} />
+
+      {/* Content wrapper above orbs */}
+      <div style={{ position: 'relative', zIndex: 1 }}>
+
       {/* NEW HEADER (Replaces PageHeader) */}
       <div className="hidden md:flex justify-between items-end mb-12">
           <MarketplaceHero />
-          
+
           {/* Balance Card */}
           <div className="flex flex-col items-end mb-8 animate-in slide-in-from-right duration-700">
-             <div className="bg-white/80 backdrop-blur-xl border border-white/40 shadow-xl shadow-slate-200/50 p-6 rounded-3xl min-w-[240px] text-right transform hover:scale-105 transition-all duration-300">
-                <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Dostępne środki</p>
-                <div className="flex items-center justify-end gap-2 text-4xl font-black text-slate-800">
-                   {user.voucherBalance} <span className="text-lg font-bold text-emerald-500 self-start mt-2">pkt</span>
+             <div style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.12)', backdropFilter: 'blur(22px)', boxShadow: '0 8px 32px rgba(0,0,0,0.4)' }} className="p-6 rounded-3xl min-w-[240px] text-right transform hover:scale-105 transition-all duration-300">
+                <p className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: 'rgba(255,255,255,0.4)' }}>Dostępne środki</p>
+                <div className="flex items-center justify-end gap-2 text-4xl font-black" style={{ color: 'white' }}>
+                   <span className="ebs-grad-text">{user.voucherBalance}</span> <span className="text-lg font-bold self-start mt-2" style={{ color: '#10b981' }}>pkt</span>
                 </div>
                 {/* Visual Indicator */}
-                <div className="w-full bg-slate-100 h-1.5 rounded-full mt-4 overflow-hidden">
-                   <div className="h-full bg-gradient-to-r from-emerald-400 to-teal-500 w-3/4 rounded-full"></div>
+                <div className="w-full h-1.5 rounded-full mt-4 overflow-hidden" style={{ background: 'rgba(255,255,255,0.08)' }}>
+                   <div className="h-full w-3/4 rounded-full" style={{ background: 'linear-gradient(90deg, #2563eb, #10b981)' }}></div>
                 </div>
              </div>
           </div>
@@ -741,9 +783,9 @@ export const DashboardEmployee: React.FC<Props> = ({
 
             {/* SEPARATOR / HEADER for Catalog */}
             <div className="flex items-center gap-4 py-4" id="catalog-anchor">
-                <div className="h-px bg-slate-200 flex-1"></div>
-                <h3 className="text-xl font-bold text-slate-400 uppercase tracking-widest">Zamknięty Katalog Usług</h3>
-                <div className="h-px bg-slate-200 flex-1"></div>
+                <div className="h-px flex-1" style={{ background: 'rgba(255,255,255,0.08)' }}></div>
+                <h3 className="text-xl font-bold uppercase tracking-widest" style={{ color: 'rgba(255,255,255,0.25)' }}>Zamknięty Katalog Usług</h3>
+                <div className="h-px flex-1" style={{ background: 'rgba(255,255,255,0.08)' }}></div>
             </div>
 
             {/* 2. CATALOG */}
@@ -756,9 +798,9 @@ export const DashboardEmployee: React.FC<Props> = ({
             </div>
             
             {/* END MARDER */}
-            <div className="text-center py-12 pb-24 text-slate-400">
+            <div className="text-center py-12 pb-24" style={{ color: 'rgba(255,255,255,0.25)' }}>
                 <p className="text-sm font-medium">To już koniec ofert na dziś.</p>
-                <div className="w-2 h-2 bg-slate-200 rounded-full mx-auto mt-4"></div>
+                <div className="w-2 h-2 rounded-full mx-auto mt-4" style={{ background: 'rgba(255,255,255,0.1)' }}></div>
             </div>
         </div>
       )}
@@ -806,8 +848,8 @@ export const DashboardEmployee: React.FC<Props> = ({
       )}
 
       {/* MOBILE NAV (Always at bottom) */}
-      <MobileNav 
-          activeTab={activeTab} 
+      <MobileNav
+          activeTab={activeTab}
           onChangeTab={(tabId) => {
               if (onViewChange) {
                 if (tabId === 'WALLET') onViewChange('emp-dashboard');
@@ -817,11 +859,12 @@ export const DashboardEmployee: React.FC<Props> = ({
               } else {
                 setActiveTab(tabId as Tab);
               }
-          }} 
+          }}
           onProfileClick={() => setIsSettingsOpen(true)}
           hasMentalHealth={hasMentalHealthAccess}
           hasLegal={hasLegalAccess}
       />
+      </div>{/* end content wrapper */}
     </div>
   );
 };
