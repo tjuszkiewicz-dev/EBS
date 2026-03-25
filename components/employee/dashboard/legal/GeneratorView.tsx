@@ -15,6 +15,7 @@ interface GeneratorViewProps {
     generatedDoc: string | null;
     handleGenerateDocument: () => void;
     handleDownloadPDF: () => void;
+    setView?: (view: ViewMode) => void;
 }
 
 export const GeneratorView: React.FC<GeneratorViewProps> = ({

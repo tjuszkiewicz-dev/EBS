@@ -97,7 +97,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
                         className="group flex flex-col p-6 text-left rounded-3xl border border-slate-100 bg-white hover:border-blue-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
                     >
                         <div className={`w-14 h-14 rounded-2xl ${action.color} flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-3 transition-transform`}>
-                            {React.cloneElement(action.icon as React.ReactElement, { size: 28 })}
+                            {React.cloneElement(action.icon as React.ReactElement<{ size?: number }>, { size: 28 })}
                         </div>
                         <h3 className="text-lg font-bold text-slate-800 mb-2">{action.title}</h3>
                         <p className="text-sm text-slate-500 mb-4 leading-relaxed group-hover:text-slate-600 transition-colors">{action.desc}</p>

@@ -219,12 +219,12 @@ export const useLegalAssistant = (currentUser: any, onSpend: (amount: number, de
         if (!selectedTemplate) return;
 
         const cost = selectedTemplate.price || 50;
-        const success = await onSpend(cost, `Generowanie dokumentu: ${selectedTemplate.title}`);
+        const success = await onSpend(cost, `Generowanie dokumentu: ${selectedTemplate.name}`);
         if (!success) return;
 
         setIsGenerating(true);
         try {
-            const prompt = `Zostań wykwalifikowanym prawnikiem. Wygeneruj profesjonalne pismo prawne ("${selectedTemplate.title}") na podstawie tych danych: ${JSON.stringify(formValues)}. 
+            const prompt = `Zostań wykwalifikowanym prawnikiem. Wygeneruj profesjonalne pismo prawne ("${selectedTemplate.name}") na podstawie tych danych: ${JSON.stringify(formValues)}. 
             Pismo ma być gotowe do użycia, w języku urzędowym/prawniczym, zawierać miejsca na datę i podpisy. Zwróć tylko czysty tekst dokumentu (Markdown).`;
 
             const model = getGeminiModel();
@@ -248,7 +248,7 @@ export const useLegalAssistant = (currentUser: any, onSpend: (amount: number, de
 
         const opt = {
             margin: 1,
-            filename: `${selectedTemplate?.title || 'dokument'}.pdf`,
+            filename: `${selectedTemplate?.name || 'dokument'}.pdf`,
             image: { type: 'jpeg' as const, quality: 0.98 },
             html2canvas: { scale: 2 },
             jsPDF: { unit: 'in' as const, format: 'letter' as const, orientation: 'portrait' as const }

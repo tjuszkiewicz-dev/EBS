@@ -688,9 +688,8 @@ export const DashboardEmployee: React.FC<Props> = ({
 
                       {hasSecureMessengerAccess && (
                           <div className="h-full min-h-[240px]">
-                              <SecureMessengerWidget 
+                              <SecureMessengerWidget
                                   hasAccess={true}
-                                  onOpen={() => setActiveTab('SECURE_MESSENGER')}
                               />
                           </div>
                       )}
