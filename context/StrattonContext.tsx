@@ -19,6 +19,20 @@ import { useOrderLogic } from '../hooks/modules/useOrderLogic';
 import { useVoucherLogic } from '../hooks/modules/useVoucherLogic';
 import { usePersistedState } from '../hooks/usePersistedState';
 
+// Placeholder passed to useUserLogic before currentUser is resolved.
+// Callbacks that use currentUser (e.g. handleBulkImport) are only invoked
+// after login, so at runtime the persisted user is always available.
+const UNRESOLVED_USER: User = {
+  id: '', name: '', email: '', role: Role.EMPLOYEE,
+  status: 'INACTIVE', companyId: '',
+  isTwoFactorEnabled: false,
+  contract: { type: 'UOP' as any, startDate: '' },
+  finance: { voucherBalance: 0, cashBalance: 0, totalEarned: 0 },
+  address: {},
+  identity: {},
+  organization: {},
+} as unknown as User;
+
 interface StrattonContextType {
   state: {
     currentUser: User | null; // Nullable for auth check
@@ -58,7 +72,6 @@ interface StrattonContextType {
     handleBulkDistribute: (items: { employeeId: string; amount: number }[]) => void; 
     handleDeactivateEmployee: (employeeId: string) => void;
     handleUpdateEmployee: (userId: string, data: Partial<User>) => void;
-    handleImportEmployees: (importData: { email: string; name: string; amount: number }[]) => void;
     handleBulkImport: (validRows: any[]) => Promise<any>;
     handleServicePurchase: (service: ServiceItem) => void;
     simulateExpiration: () => void;
@@ -91,8 +104,8 @@ export const StrattonProvider = ({ children }: { children?: ReactNode }) => {
   const [currentUserId, setCurrentUserId] = usePersistedState<string | null>('ebs_session_user_v1', null);
 
   const [systemConfig, setSystemConfig] = usePersistedState<SystemConfig>('ebs_sys_config_v1', INITIAL_SYSTEM_CONFIG);
-  const [auditLogs, setAuditLogs] = useState<AuditLogEntry[]>(INITIAL_AUDIT_LOGS);
-  const [services, setServices] = usePersistedState<ServiceItem[]>('ebs_services_v15', INITIAL_SERVICES); 
+  const [auditLogs, setAuditLogs] = usePersistedState<AuditLogEntry[]>('ebs_audit_logs_v1', INITIAL_AUDIT_LOGS);
+  const [services, setServices] = usePersistedState<ServiceItem[]>('ebs_services_v15', INITIAL_SERVICES);
   const [quarterlyStats, setQuarterlyStats] = useState<QuarterlyPerformance[]>([]);
   const [tickets, setTickets] = usePersistedState<SupportTicket[]>('ebs_tickets_v1', INITIAL_TICKETS);
 
@@ -125,9 +138,6 @@ export const StrattonProvider = ({ children }: { children?: ReactNode }) => {
     }
   }, [services, setServices]); 
 
-  // Debug log to ensure services are loaded
-  console.log('[StrattonContext] Services loaded:', services.length);
-
   // --- Helpers ---
   const logEvent = useCallback((action: string, details: string, targetEntityId?: string, targetEntityType?: any) => {
     const newLog: AuditLogEntry = {
@@ -146,11 +156,12 @@ export const StrattonProvider = ({ children }: { children?: ReactNode }) => {
   // --- MODULES ---
   const notifLogic = useNotificationLogic('SUPERADMIN', currentUserId || '');
   const userLogic = useUserLogic(
-      [], 
+      [],
       logEvent,
       notifLogic.notifyUser,
       notifLogic.addToast,
-      { id: currentUserId || '' } as User
+      // currentUser cannot be derived yet — resolved from userLogic.users below
+      UNRESOLVED_USER
   );
 
   const currentUser = userLogic.users.find(u => u.id === currentUserId) || null;
@@ -166,7 +177,7 @@ export const StrattonProvider = ({ children }: { children?: ReactNode }) => {
       logEvent,
       notifLogic.notifyUser,
       notifLogic.addToast,
-      currentUser || { id: 'GUEST' } as User
+      currentUser ?? UNRESOLVED_USER
   );
 
   const orderLogic = useOrderLogic(
@@ -174,12 +185,12 @@ export const StrattonProvider = ({ children }: { children?: ReactNode }) => {
       userLogic.setUsers,
       voucherLogic.vouchers,
       voucherLogic.setVouchers,
-      voucherLogic.setDistributionBatches, // NEW: Injected here to enable auto-protocol creation
+      voucherLogic.setDistributionBatches,
       systemConfig,
       logEvent,
       notifLogic.notifyUser,
       notifLogic.addToast,
-      currentUser || { id: 'GUEST' } as User
+      currentUser ?? UNRESOLVED_USER
   );
 
   // --- ACTIONS (Memoized to prevent unnecessary re-renders) ---
@@ -220,8 +231,14 @@ export const StrattonProvider = ({ children }: { children?: ReactNode }) => {
   }, [notifLogic.addToast]);
 
   const handleParseAndMatchPayroll = useCallback(async (file: File): Promise<PayrollEntry[]> => {
-      return parseAndMatchPayroll(file, userLogic.users);
-  }, [userLogic.users]);
+      try {
+        return await parseAndMatchPayroll(file, userLogic.users);
+      } catch (err) {
+        const message = err instanceof Error ? err.message : 'Nieznany błąd parsowania pliku.';
+        notifLogic.addToast('Błąd importu', message, 'ERROR');
+        return [];
+      }
+  }, [userLogic.users, notifLogic.addToast]);
 
   const handleNotificationAction = useCallback((notificationId: string, action: NotificationAction) => {
       if (action.type === 'APPROVE_ORDER') orderLogic.handleApproveOrder(action.targetId);
@@ -380,7 +397,6 @@ export const StrattonProvider = ({ children }: { children?: ReactNode }) => {
       handleBulkDistribute: voucherLogic.handleBulkDistribute,
       handleDeactivateEmployee: userLogic.handleDeactivateEmployee,
       handleUpdateEmployee: userLogic.handleUpdateEmployee,
-      handleImportEmployees: () => {}, 
       handleBulkImport: userLogic.handleBulkImport,
       handleServicePurchase: voucherLogic.handleServicePurchase,
       simulateExpiration: voucherLogic.simulateExpiration,

@@ -2,6 +2,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Lock, Mail, ArrowRight, AlertCircle, Smartphone } from 'lucide-react';
 import { User, Role } from '../types';
+import { TWO_FA_DEMO_CODE } from '../utils/config';
 
 interface LoginScreenProps {
   users: User[];
@@ -54,7 +55,7 @@ export const LoginScreen: React.FC<LoginScreenProps> = ({ users, onLogin }) => {
       setIsLoading(true);
 
       setTimeout(() => {
-          if (twoFactorCode === '123456') {
+          if (twoFactorCode === TWO_FA_DEMO_CODE) {
               if (userId) onLogin(userId);
           } else {
               setError('Błędny kod weryfikacyjny.');
@@ -847,7 +848,7 @@ export const LoginScreen: React.FC<LoginScreenProps> = ({ users, onLogin }) => {
                       </form>
 
                       <div style={{ marginTop:16, display:'inline-block', padding:'8px 16px', borderRadius:12, background:'rgba(255,255,255,0.03)', border:'1px solid rgba(255,255,255,0.07)', fontSize:12, color:'rgba(255,255,255,0.3)' }}>
-                        Demo Code: <strong style={{ color:'rgba(255,255,255,0.7)' }}>123456</strong>
+                        Demo Code: <strong style={{ color:'rgba(255,255,255,0.7)' }}>{TWO_FA_DEMO_CODE}</strong>
                       </div>
                       <button onClick={()=>{setStep('CREDENTIALS');setTwoFactorCode('');setError('');}} style={{ display:'block', margin:'16px auto 0', fontSize:13, color:'#60a5fa', fontWeight:700, background:'none', border:'none', cursor:'pointer' }}>
                         ← Wróć do logowania

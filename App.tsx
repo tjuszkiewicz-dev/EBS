@@ -7,7 +7,7 @@ import { DashboardEmployee } from './views/DashboardEmployee';
 import { DashboardSales } from './views/DashboardSales';
 import { LoginScreen } from './views/LoginScreen';
 import { Role, Order, BuybackAgreement, Notification, User, Company, DistributionBatch, VoucherStatus } from './types'; 
-import { Menu, Check, X, DollarSign, LogOut, Search, ShieldCheck, AlertCircle, RotateCcw, Settings, Wallet, Clock } from 'lucide-react'; 
+import { Menu, Check, X, DollarSign, LogOut, Search, ShieldCheck, Settings, Wallet, Clock } from 'lucide-react';
 import { DocumentModal } from './components/DocumentModal';
 import { ToastContainer } from './components/Toast';
 import { NotificationCenter } from './components/notifications/NotificationCenter';
@@ -17,6 +17,8 @@ import { UserInspectionModal } from './components/admin/modals/UserInspectionMod
 import { GlobalSearch } from './components/GlobalSearch'; 
 import { SessionGuard } from './components/security/SessionGuard'; 
 import { EmployeeSettingsModal } from './components/employee/EmployeeSettingsModal';
+import { HrViewGuard } from './components/layout/HrViewGuard';
+import { canAccessView } from './utils/permissions';
 
 // Inner App Content (that consumes Context)
 const AppContent = () => {
@@ -91,13 +93,7 @@ const AppContent = () => {
   useEffect(() => {
       if (currentUser) {
           // Only force switch if current view is not compatible with role to allow sub-navigation
-          const isCompatible = 
-            (currentUser.role === Role.SUPERADMIN && currentView.startsWith('admin-')) ||
-            (currentUser.role === Role.HR && currentView.startsWith('hr-')) ||
-            (currentUser.role === Role.EMPLOYEE && currentView.startsWith('emp-')) ||
-            ((currentUser.role === Role.ADVISOR || currentUser.role === Role.MANAGER || currentUser.role === Role.DIRECTOR) && currentView.startsWith('sales-'));
-
-          if (!isCompatible) {
+          if (!canAccessView(currentUser.role, currentView)) {
               switch (currentUser.role) {
                   case Role.SUPERADMIN: setCurrentView('admin-dashboard'); break;
                   case Role.HR: setCurrentView('hr-dashboard'); break;
@@ -238,72 +234,33 @@ const AppContent = () => {
           />
         );
       case Role.HR:
-        // FIX: Try to find assigned company, or fallback to first company if data is desynced
-        let myCompany = companies.find(c => c.id === currentUser.companyId);
-        
-        // Fallback Mechanism for Demo/Dev stability
-        if (!myCompany && companies.length > 0) {
-            console.warn("Company mismatch for HR user. Falling back to first available company.");
-            myCompany = companies[0];
-        }
-
-        if (!myCompany) {
-            return (
-                <div className="flex flex-col items-center justify-center h-[50vh] text-center p-8">
-                    <div className="bg-red-50 p-4 rounded-full mb-4">
-                        <AlertCircle size={48} className="text-red-500" />
-                    </div>
-                    <h3 className="text-xl font-bold text-slate-800 mb-2">Błąd Konfiguracji Konta</h3>
-                    <p className="text-slate-500 mb-6 max-w-md">
-                        Twoje konto HR nie jest przypisane do żadnej aktywnej firmy w systemie. 
-                        Skontaktuj się z administratorem lub zresetuj dane aplikacji.
-                    </p>
-                    <div className="flex gap-3">
-                        <button 
-                            onClick={actions.logout}
-                            className="px-6 py-2.5 bg-slate-900 text-white rounded-xl font-bold text-sm hover:bg-slate-800 transition shadow-lg flex items-center gap-2"
-                        >
-                            <LogOut size={16}/> Wyloguj się
-                        </button>
-                        <button 
-                            onClick={() => {
-                                if(confirm("To przywróci ustawienia domyślne aplikacji. Utracisz wprowadzone zmiany. Kontynuować?")) {
-                                    localStorage.clear();
-                                    window.location.reload();
-                                }
-                            }}
-                            className="px-6 py-2.5 bg-white border border-red-200 text-red-600 rounded-xl font-bold text-sm hover:bg-red-50 transition shadow-sm flex items-center gap-2"
-                        >
-                            <RotateCcw size={16}/> Napraw (Reset Danych)
-                        </button>
-                    </div>
-                </div>
-            );
-        }
-
-        const myEmployees = users.filter(u => u.companyId === myCompany!.id && u.role === Role.EMPLOYEE);
-        const myOrders = orders.filter(o => o.companyId === myCompany!.id);
-        const myVouchers = vouchers.filter(v => v.companyId === myCompany!.id);
-
         return (
-          <DashboardHR 
-            currentView={currentView}
-            onViewChange={setCurrentView}
-            company={myCompany}
-            employees={myEmployees}
-            orders={myOrders}
-            vouchers={myVouchers}
-            importHistory={importHistory}
-            onPlaceOrder={actions.handlePlaceOrder}
-            onDistribute={actions.handleDistribute}
-            onPayOrder={() => actions.addToast("Integracja Bankowa", "Funkcja dostępna w pełnej wersji.", "INFO")} 
-            onImportEmployees={actions.handleImportEmployees}
-            onDeactivateEmployee={actions.handleDeactivateEmployee}
-            onViewProforma={(type, order) => handleOpenDocument(type, order, undefined, myCompany)} // Pass myCompany explicitly
-            onBulkImport={actions.handleBulkImport}
-            onParsePayroll={actions.handleParseAndMatchPayroll}
-            onExportPayrollTemplate={actions.handleExportPayrollTemplate}
-          />
+          <HrViewGuard currentUser={currentUser} companies={companies} onLogout={actions.logout}>
+            {(company) => {
+              const myEmployees = users.filter(u => u.companyId === company.id && u.role === Role.EMPLOYEE);
+              const myOrders = orders.filter(o => o.companyId === company.id);
+              const myVouchers = vouchers.filter(v => v.companyId === company.id);
+              return (
+                <DashboardHR
+                  currentView={currentView}
+                  onViewChange={setCurrentView}
+                  company={company}
+                  employees={myEmployees}
+                  orders={myOrders}
+                  vouchers={myVouchers}
+                  importHistory={importHistory}
+                  onPlaceOrder={actions.handlePlaceOrder}
+                  onDistribute={actions.handleDistribute}
+                  onPayOrder={() => actions.addToast("Integracja Bankowa", "Funkcja dostępna w pełnej wersji.", "INFO")}
+                  onDeactivateEmployee={actions.handleDeactivateEmployee}
+                  onViewProforma={(type, order) => handleOpenDocument(type, order, undefined, company)}
+                  onBulkImport={actions.handleBulkImport}
+                  onParsePayroll={actions.handleParseAndMatchPayroll}
+                  onExportPayrollTemplate={actions.handleExportPayrollTemplate}
+                />
+              );
+            }}
+          </HrViewGuard>
         );
       case Role.EMPLOYEE:
         const myVouchersList = vouchers.filter(v => v.ownerId === currentUser.id);

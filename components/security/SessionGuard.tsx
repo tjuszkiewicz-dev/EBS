@@ -2,9 +2,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Clock, LogOut, Activity } from 'lucide-react';
 import { useStrattonSystem } from '../../context/StrattonContext';
-
-const IDLE_LIMIT_MS = 15 * 60 * 1000; // 15 minut (Standard bankowy)
-const WARNING_THRESHOLD_MS = 60 * 1000; // Ostrzeżenie 60s przed końcem
+import { SESSION_CONFIG } from '../../utils/config';
 
 export const SessionGuard: React.FC = () => {
   const { state, actions } = useStrattonSystem();
@@ -34,14 +32,14 @@ export const SessionGuard: React.FC = () => {
       timerRef.current = setInterval(() => {
           const now = Date.now();
           const inactiveDuration = now - lastActivity;
-          const remaining = IDLE_LIMIT_MS - inactiveDuration;
+          const remaining = SESSION_CONFIG.IDLE_LIMIT_MS - inactiveDuration;
 
           if (remaining <= 0) {
               // Timeout reached
               actions.addToast("Sesja Wygasła", "Zostałeś wylogowany z powodu braku aktywności.", "WARNING");
               actions.logout();
               setShowWarning(false);
-          } else if (remaining <= WARNING_THRESHOLD_MS) {
+          } else if (remaining <= SESSION_CONFIG.WARNING_THRESHOLD_MS) {
               // Warning zone
               setShowWarning(true);
               setTimeLeft(Math.ceil(remaining / 1000));

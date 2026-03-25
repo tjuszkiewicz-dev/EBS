@@ -3,6 +3,7 @@ import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { Search, User, FileText, Layout, ArrowRight, Command, X, CreditCard, LogOut, Shield, Building2, Briefcase, Calendar, ChevronRight, Wallet, BarChart3, Settings2 } from 'lucide-react';
 import { useStrattonSystem } from '../context/StrattonContext';
 import { User as UserType, Role, OrderStatus, VoucherStatus } from '../types';
+import { canSeeSearchItem } from '../utils/permissions';
 
 interface GlobalSearchProps {
   isOpen: boolean;
@@ -62,16 +63,7 @@ export const GlobalSearch: React.FC<GlobalSearchProps> = ({ isOpen, onClose, onN
     ];
 
     navItems.forEach(item => {
-        // Simple role check (Superadmin sees Admin views, HR sees HR views, etc.)
-        // Refined: Superadmin can navigate to almost anything conceptually, but sticking to view-router logic
-        const allowed = 
-            (currentUser.role === Role.SUPERADMIN && item.role === Role.SUPERADMIN) ||
-            (currentUser.role === item.role) ||
-            (currentUser.role === Role.MANAGER && item.role === Role.ADVISOR) || // Manager sees Sales
-            (currentUser.role === Role.DIRECTOR && item.role === Role.ADVISOR) ||
-            (currentUser.role === Role.SUPERADMIN && (item.role === Role.HR || item.role === Role.EMPLOYEE || item.role === Role.ADVISOR)); // Superadmin can navigate all major dashboards.
-
-        if (allowed && (q === '' || item.label.toLowerCase().includes(q) || item.desc.toLowerCase().includes(q))) {
+        if (canSeeSearchItem(currentUser.role, item.role) && (q === '' || item.label.toLowerCase().includes(q) || item.desc.toLowerCase().includes(q))) {
             list.push({
                 id: `NAV-${item.id}`,
                 category: 'MENU',

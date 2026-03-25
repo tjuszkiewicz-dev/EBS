@@ -4,12 +4,13 @@ import { User, Role, ContractType, ImportRow, ImportHistoryEntry, UserFinance, C
 import { INITIAL_USERS } from '../../services/mockData';
 import { generateSecurePassword } from '../../services/payrollService';
 import { usePersistedState } from '../usePersistedState';
+import { LogEventFn, NotifyUserFn, AddToastFn } from '../../types/callbacks';
 
 export const useUserLogic = (
-    companies: Company[], 
-    logEvent: (action: string, details: string, id?: string, type?: any) => void,
-    notifyUser: (userId: string | 'ALL_ADMINS', msg: string, type: any, action?: any, id?: string, typeEnum?: any) => void,
-    addToast: (t: string, m: string, type: any) => void,
+    companies: Company[],
+    logEvent: LogEventFn,
+    notifyUser: NotifyUserFn,
+    addToast: AddToastFn,
     currentUser: User
 ) => {
   // Cleanup old user keys on mount

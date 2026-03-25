@@ -42,7 +42,6 @@ interface Props {
   onPlaceOrder: (amount: number, distributionPlan?: PayrollEntry[]) => void;
   onDistribute: (employeeId: string, amount: number) => void;
   onPayOrder: (orderId: string) => void;
-  onImportEmployees: (data: { email: string; name: string; amount: number }[]) => void;
   onDeactivateEmployee: (employeeId: string) => void;
   onViewProforma: (type: 'DEBIT_NOTE' | 'VAT_INVOICE', order: Order) => void;
   onBulkImport?: (validRows: ImportRow[]) => Promise<any>;

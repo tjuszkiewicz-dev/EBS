@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 export function usePersistedState<T>(key: string, initialValue: T) {
   // 1. Initialize state from localStorage or fallback to initialValue
   const [state, setState] = useState<T>(() => {
+    if (typeof window === 'undefined') return initialValue;
     try {
       const item = window.localStorage.getItem(key);
       if (item === null) return initialValue;

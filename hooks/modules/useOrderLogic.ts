@@ -1,19 +1,12 @@
 
 import React, { useCallback } from 'react';
-import { Order, OrderStatus, Company, Voucher, VoucherStatus, Role, Commission, CommissionType, PayrollEntry, PayrollSnapshot, DistributionBatch } from '../../types';
+import { Order, OrderStatus, Company, User, Voucher, VoucherStatus, Role, Commission, CommissionType, PayrollEntry, PayrollSnapshot, DistributionBatch, SystemConfig } from '../../types';
 import { INITIAL_ORDERS, INITIAL_COMPANIES, INITIAL_COMMISSIONS } from '../../services/mockData';
 import { createSnapshot, generateUUID } from '../../services/payrollService';
 import { calculateOrderTotals, FINANCIAL_CONSTANTS } from '../../utils/financialMath';
 import { usePersistedState } from '../usePersistedState';
-
-const COMMISSION_RATES = {
-  ADVISOR_FIRST_INVOICE: 0.45, // 45% - prowizja jednorazowa za pozyskanie kontraktu
-  ADVISOR_RECURRING: 0.05,     // 5%  - prowizja miesięczna za utrzymanie firmy
-  MANAGER_RECURRING: 0.02,
-  DIRECTOR_RECURRING: 0.01,
-  RENEWAL_TIER_1: 0.02,
-  RENEWAL_TIER_2: 0.04
-};
+import { LogEventFn, NotifyUserFn, AddToastFn } from '../../types/callbacks';
+import { COMMISSION_RATES } from '../../utils/config';
 
 const getQuarter = (date: Date): string => {
   const month = date.getMonth() + 1;
@@ -56,16 +49,16 @@ const MOCK_CRM_PAYLOAD = [
 ];
 
 export const useOrderLogic = (
-    users: any[], 
-    setUsers: React.Dispatch<React.SetStateAction<any[]>>,
+    users: User[],
+    setUsers: React.Dispatch<React.SetStateAction<User[]>>,
     vouchers: Voucher[],
     setVouchers: React.Dispatch<React.SetStateAction<Voucher[]>>,
-    setDistributionBatches: React.Dispatch<React.SetStateAction<DistributionBatch[]>>, // NEW: Injected Dependency
-    systemConfig: any,
-    logEvent: any,
-    notifyUser: any,
-    addToast: any,
-    currentUser: any
+    setDistributionBatches: React.Dispatch<React.SetStateAction<DistributionBatch[]>>,
+    systemConfig: SystemConfig,
+    logEvent: LogEventFn,
+    notifyUser: NotifyUserFn,
+    addToast: AddToastFn,
+    currentUser: User
 ) => {
   // Persistent State
   const [orders, setOrders] = usePersistedState<Order[]>('ebs_orders_v1', INITIAL_ORDERS);

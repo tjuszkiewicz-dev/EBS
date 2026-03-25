@@ -1,20 +1,21 @@
 
 import React, { useCallback } from 'react';
-import { Voucher, VoucherStatus, BuybackAgreement, Transaction, User, Company, ServiceItem, DistributionBatch } from '../../types';
+import { Voucher, VoucherStatus, BuybackAgreement, Transaction, User, Company, ServiceItem, DistributionBatch, NotificationConfig, SystemConfig } from '../../types';
 import { INITIAL_VOUCHERS, INITIAL_TRANSACTIONS } from '../../services/mockData';
 import { usePersistedState } from '../usePersistedState';
 import { generateUUID } from '../../services/payrollService';
+import { LogEventFn, NotifyUserFn, AddToastFn } from '../../types/callbacks';
 
 export const useVoucherLogic = (
     users: User[],
     setUsers: React.Dispatch<React.SetStateAction<User[]>>,
     companies: Company[],
     setCompanies: React.Dispatch<React.SetStateAction<Company[]>>,
-    notificationConfigs: any[],
-    systemConfig: any,
-    logEvent: any,
-    notifyUser: any,
-    addToast: any,
+    notificationConfigs: NotificationConfig[],
+    systemConfig: SystemConfig,
+    logEvent: LogEventFn,
+    notifyUser: NotifyUserFn,
+    addToast: AddToastFn,
     currentUser: User
 ) => {
   // Persistent State
