@@ -1,7 +1,6 @@
 
 import React from 'react';
 import { X, ChevronLeft, BookOpen, ArrowRight, CheckCircle, Heart, BarChart3, Activity } from 'lucide-react';
-import { formatPrime } from '../../utils';
 
 // --- CheckInFlow ---
 export const CheckInFlow = ({ theme, mood, setMood, stress, setStress, energy, setEnergy, dailyBurden, setDailyBurden, submitCheckIn, setViewMode }: any) => (

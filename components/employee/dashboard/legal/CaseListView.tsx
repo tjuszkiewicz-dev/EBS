@@ -1,6 +1,6 @@
 import React from 'react';
 import { 
-    History, Search, ArrowLeft, Filter, Calendar, Clock, ChevronRight, 
+    History, Search, ArrowLeft, ArrowRight, Filter, Calendar, Clock, ChevronRight,
     Bot, FileText, CheckCircle2, MoreVertical, Trash2
 } from 'lucide-react';
 import { ViewMode, LegalCase } from './types';

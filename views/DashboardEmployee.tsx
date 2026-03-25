@@ -53,6 +53,7 @@ export const DashboardEmployee: React.FC<Props> = ({
   // --- STATE ---
   const [activeTab, setActiveTab] = useState<Tab>('WALLET');
   const [selectedService, setSelectedService] = useState<ServiceItem | null>(null);
+  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   
   // Guide State - Persisted
   const [showGuide, setShowGuide] = usePersistedState<boolean>('ebs_guide_employee_v1', true);
@@ -546,8 +547,8 @@ export const DashboardEmployee: React.FC<Props> = ({
               {/* Content Area */}
               <div className="flex-1 overflow-y-auto relative bg-[#f8fafc]">
                   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 h-full">
-                      <SecureMessengerApp 
-                          onClose={() => setActiveTab('WALLET')}
+                      <SecureMessengerWidget
+                          hasAccess={hasSecureMessengerAccess}
                       />
                   </div>
               </div>

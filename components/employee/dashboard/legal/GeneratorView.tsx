@@ -1,7 +1,7 @@
 import React from 'react';
 import { 
-    FilePlus, Search, ArrowRight, CheckCircle, Download, X, Eye, 
-    FileText, Save, Info, ChevronRight, Wand2
+    FilePlus, Search, ArrowRight, CheckCircle, Download, X, Eye,
+    FileText, Save, Info, ChevronRight, Wand2, Bot
 } from 'lucide-react';
 import { ViewMode, DocumentTemplate } from './types';
 import { DOCUMENT_TEMPLATES } from './constants';

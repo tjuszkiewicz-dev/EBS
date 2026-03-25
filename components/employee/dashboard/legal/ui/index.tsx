@@ -15,7 +15,7 @@ export const LegalBadge = ({ category, className = "" }: { category: string, cla
     </span>
 );
 
-export const CaseSummaryCard = ({ caseItem, onClick }: { caseItem: any, onClick: () => void }) => {
+export const CaseSummaryCard: React.FC<{ caseItem: any; onClick: () => void }> = ({ caseItem, onClick }) => {
     const caseIdDisplay = caseItem.id.includes('-') ? caseItem.id.split('-')[1] : caseItem.id;
     
     return (
