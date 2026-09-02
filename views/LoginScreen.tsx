@@ -688,13 +688,13 @@ export const LoginScreen: React.FC<LoginScreenProps> = ({ users, onLogin }) => {
 
             {/* Logo */}
             <div className="ebs-up" style={{ animationDelay:'.1s', marginBottom:24 }}>
-              <img src="/logo.jpeg" alt="Logo" style={{ width:120, height:120, objectFit:'contain', borderRadius:24, filter:'drop-shadow(0 0 36px rgba(37,99,235,.5)) drop-shadow(0 8px 24px rgba(0,0,0,.5))' }}/>
+              <img src="/logo.jpeg" alt="Logo" style={{ width:240, height:240, objectFit:'contain', borderRadius:48, filter:'drop-shadow(0 0 36px rgba(37,99,235,.5)) drop-shadow(0 8px 24px rgba(0,0,0,.5))' }}/>
             </div>
 
             {/* Headline */}
             <div className="ebs-up" style={{ animationDelay:'.2s', textAlign:'center', marginBottom:10 }}>
               <h1 style={{ fontSize:52, fontWeight:900, lineHeight:1, letterSpacing:'-1px', background:'linear-gradient(135deg,#fff 0%,#bfdbfe 40%,#93c5fd 65%,#60a5fa 100%)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent', backgroundClip:'text' }}>
-                ELITON<br/>BENEFITS
+                Eliton Benefits System
               </h1>
             </div>
 

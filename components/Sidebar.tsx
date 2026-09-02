@@ -93,8 +93,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
         {/* Brand Header */}
         <div className="h-20 flex items-center justify-between px-6 border-b border-slate-800 bg-slate-950/30 whitespace-nowrap min-w-[18rem]">
           <div>
-            <h1 className="text-xl font-bold tracking-wider text-emerald-400">ELITON BENEFITS</h1>
-            <p className="text-[10px] text-slate-400 uppercase tracking-widest mt-0.5">System (EBS)</p>
+            <h1 className="text-xl font-bold tracking-wider text-emerald-400">Eliton Benefits System</h1>
           </div>
           <button onClick={onClose} className="md:hidden text-slate-400 hover:text-white transition p-1">
             <X size={24} />
